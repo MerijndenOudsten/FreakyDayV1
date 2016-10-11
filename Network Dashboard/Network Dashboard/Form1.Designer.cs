@@ -70,9 +70,9 @@
             this.lbl_http8080.AutoSize = true;
             this.lbl_http8080.Location = new System.Drawing.Point(12, 38);
             this.lbl_http8080.Name = "lbl_http8080";
-            this.lbl_http8080.Size = new System.Drawing.Size(85, 17);
+            this.lbl_http8080.Size = new System.Drawing.Size(69, 17);
             this.lbl_http8080.TabIndex = 3;
-            this.lbl_http8080.Text = "HTTP: 8080";
+            this.lbl_http8080.Text = "HTTP: 80";
             // 
             // lbl_httpclosed
             // 
