@@ -1,6 +1,6 @@
 ﻿namespace Network_Dashboard
 {
-    partial class Form1
+    partial class Poortscanner
     {
         /// <summary>
         /// Required designer variable.

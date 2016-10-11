@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Network_Dashboard
 {
-    public partial class Form1 : Form
+    public partial class Poortscanner : Form
     {
 
-        public Form1()
+        public Poortscanner()
         {
             InitializeComponent();
             Poortscanner();
