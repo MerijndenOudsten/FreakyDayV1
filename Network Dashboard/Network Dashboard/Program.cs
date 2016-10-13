@@ -16,7 +16,7 @@ namespace Network_Dashboard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Poortscanner());
+            Application.Run(new Login());
         }
     }
 }

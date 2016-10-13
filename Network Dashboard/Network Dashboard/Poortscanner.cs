@@ -19,7 +19,7 @@ namespace Network_Dashboard
             Poortscanning();
         }
         public void Poortscanning()
-               {
+        {
             Portscan http = new Portscan(80);
             Portscan ftp = new Portscan(21);
             Portscan telnet = new Portscan(23);

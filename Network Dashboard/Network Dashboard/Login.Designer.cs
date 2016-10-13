@@ -34,6 +34,8 @@
             this.tb_wachtwoord = new System.Windows.Forms.TextBox();
             this.btn_inloggen = new System.Windows.Forms.Button();
             this.btn_creategebruiker = new System.Windows.Forms.Button();
+            this.btn_wijzigwachtwoord = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_gebruikersnaam
@@ -76,6 +78,7 @@
             this.btn_inloggen.TabIndex = 4;
             this.btn_inloggen.Text = "Inloggen";
             this.btn_inloggen.UseVisualStyleBackColor = true;
+            this.btn_inloggen.Click += new System.EventHandler(this.btn_inloggen_Click);
             // 
             // btn_creategebruiker
             // 
@@ -85,12 +88,37 @@
             this.btn_creategebruiker.TabIndex = 5;
             this.btn_creategebruiker.Text = "Gebruiker aanmaken";
             this.btn_creategebruiker.UseVisualStyleBackColor = true;
+            this.btn_creategebruiker.Click += new System.EventHandler(this.btn_creategebruiker_Click);
+            // 
+            // btn_wijzigwachtwoord
+            // 
+            this.btn_wijzigwachtwoord.Enabled = false;
+            this.btn_wijzigwachtwoord.Location = new System.Drawing.Point(36, 263);
+            this.btn_wijzigwachtwoord.Name = "btn_wijzigwachtwoord";
+            this.btn_wijzigwachtwoord.Size = new System.Drawing.Size(155, 45);
+            this.btn_wijzigwachtwoord.TabIndex = 6;
+            this.btn_wijzigwachtwoord.Text = "Wachtwoord wijzigen";
+            this.btn_wijzigwachtwoord.UseVisualStyleBackColor = true;
+            this.btn_wijzigwachtwoord.Visible = false;
+            this.btn_wijzigwachtwoord.Click += new System.EventHandler(this.btn_wijzigwachtwoord_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(265, 160);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 45);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Select";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 335);
+            this.ClientSize = new System.Drawing.Size(508, 335);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_wijzigwachtwoord);
             this.Controls.Add(this.btn_creategebruiker);
             this.Controls.Add(this.btn_inloggen);
             this.Controls.Add(this.tb_wachtwoord);
@@ -112,5 +140,7 @@
         private System.Windows.Forms.TextBox tb_wachtwoord;
         private System.Windows.Forms.Button btn_inloggen;
         private System.Windows.Forms.Button btn_creategebruiker;
+        private System.Windows.Forms.Button btn_wijzigwachtwoord;
+        private System.Windows.Forms.Button button1;
     }
 }

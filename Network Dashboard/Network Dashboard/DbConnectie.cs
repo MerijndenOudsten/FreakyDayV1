@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Oracle.DataAccess;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Network_Dashboard
 {
     public class DbConnectie
     {
-        private static string connString = "Data Source=192.168.15.50/fhictora;port=1521;User Id=dbi319035;Password=deathispeace;";
+        private static string connString = "Data Source=192.168.15.50:1521/fhictora;User Id=dbi319035;Password=deathispeace;";
 
 
         public static DataTable SelecteerData(OracleCommand command)
@@ -54,12 +55,15 @@ namespace Network_Dashboard
 
                     if (check > 0)
                     {
+                        connection.Close();
                         return true;
                     }
                     else
                     {
+                        connection.Close();
                         return false;
                     }
+                    
                 }
             }
             catch (OracleException e)
