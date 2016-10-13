@@ -16,10 +16,10 @@ namespace Network_Dashboard
         public Poortscanner()
         {
             InitializeComponent();
-            Poortscanner();
+            Poortscanning();
         }
-        public void Poortscanner()
-        {
+        public void Poortscanning()
+               {
             Portscan http = new Portscan(80);
             Portscan ftp = new Portscan(21);
             Portscan telnet = new Portscan(23);
