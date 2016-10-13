@@ -54,12 +54,15 @@ namespace Network_Dashboard
 
                     if (check > 0)
                     {
+                        connection.Close();
                         return true;
                     }
                     else
                     {
+                        connection.Close();
                         return false;
                     }
+                    
                 }
             }
             catch (OracleException e)
