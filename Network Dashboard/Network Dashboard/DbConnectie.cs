@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Oracle.DataAccess;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Network_Dashboard
 {
     public class DbConnectie
     {
-        private static string connString = "DATA SOURCE=192.168.15.50:1521/fhictora;USER ID = DBI319035";
+        private static string connString = "Data Source=192.168.15.50:1521/fhictora;User Id=dbi319035;Password=deathispeace;";
 
 
         public static DataTable SelecteerData(OracleCommand command)

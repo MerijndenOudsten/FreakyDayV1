@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
+
 
 namespace Network_Dashboard
 {
@@ -48,14 +51,60 @@ namespace Network_Dashboard
         private void btn_creategebruiker_Click(object sender, EventArgs e)
         {
             
-            queries.CreateGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
-            MessageBox.Show("Uw account is aangemaakt");
+            try
+            {
+                queries.CreateGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
+                MessageBox.Show("Uw account is aangemaakt");
+            }
+            catch 
+            {
+                MessageBox.Show("gg");
+            }
+            
         }
 
         private void btn_wijzigwachtwoord_Click(object sender, EventArgs e)
         {
             queries.WijzigWachtwoord(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
             MessageBox.Show("Uw wachtwoord is gewijzigd"); 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string connString = "Data Source=192.168.15.50:1521/fhictora;User Id=dbi319035;Password=deathispeace;";
+                using (OracleConnection connection = new OracleConnection())
+                {
+                    connection.ConnectionString = connString;
+                    connection.Open();
+                    OracleCommand command = new OracleCommand("Select * FROM GEBRUIKER");
+                    command.Connection = connection;
+
+                    OracleDataReader reader = command.ExecuteReader();
+                    
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
+                                reader.GetString(1), reader.GetString(2));
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No rows found.");
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+            catch
+            {
+                Console.Write("Message");
+                
+            }
+            
         }
     }
 }
