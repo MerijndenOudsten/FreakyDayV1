@@ -10,7 +10,7 @@ namespace Network_Dashboard
 {
     public class DbConnectie
     {
-        private static string connString = "Data Source=192.168.15.50/fhictora;port=1521;User Id=dbi319035;Password=deathispeace;";
+        private static string connString = "DATA SOURCE=192.168.15.50:1521/fhictora;USER ID = DBI319035";
 
 
         public static DataTable SelecteerData(OracleCommand command)
