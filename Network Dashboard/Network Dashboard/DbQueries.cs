@@ -21,16 +21,22 @@ namespace Network_Dashboard
             OracleCommand cmd = new OracleCommand("Select gebruikersnaam, wachtwoord FROM Gebruiker WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord");
             cmd.Parameters.Add("gebruikersnaam", gebruikersnaam);
             cmd.Parameters.Add("wachtwoord", wachtwoord);
-            DataTable account = new DataTable();
-            account = DbConnectie.SelecteerData(cmd);
-            
-            if(DataTableToUserList(account)[0] == null)
+            //DataTable account = new DataTable();
+            //account = DbConnectie.SelecteerData(cmd);
+            try 
+            {
+                if (DataTableToUserList(cmd)[0] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return DataTableToUserList(cmd)[0];
+                }
+            }
+            catch
             {
                 return null;
-            }
-            else 
-            {
-                return DataTableToUserList(account)[0];
             }
         }
         public void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
@@ -41,14 +47,27 @@ namespace Network_Dashboard
             DbConnectie.CommandUitvoeren(cmd);
         }
 
-        private List<Gebruiker> DataTableToUserList(DataTable userTable)
+        private List<Gebruiker> DataTableToUserList(OracleCommand command)
         {
-            try {
+            try 
+            {
+                OracleConnection connection = new OracleConnection("Data Source=192.168.15.50:1521/fhictora;User Id=dbi319035;Password=deathispeace;");
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("Select gebruikersnaam, wachtwoord FROM Gebruiker WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord");
+                cmd.Parameters.Add("gebruikersnaam", gebruikersnaam);
+                cmd.Parameters.Add("wachtwoord", wachtwoord);
+                OracleDataReader reader = command.ExecuteReader();
+                
                 List<Gebruiker> gebruikerslijst = new List<Gebruiker>();
-                string id = userTable.Rows[0][0].ToString();
-                string gebruikersnaam = userTable.Rows[0][2].ToString();
-                string wachtwoord = userTable.Rows[0][4].ToString();
-                string recht = userTable.Rows[0][7].ToString();
+                while(reader.Read())
+                {
+                    string id = reader["id"].ToString();
+                    string gebruikersnaam = reader["gebruikersnaam"].ToString();
+                    string wachtwoord = reader["wachtwoord"].ToString();
+                    string recht = reader["recht"].ToString();
+                    gebruikerslijst.Add(new Gebruiker(id, gebruikersnaam, wachtwoord, recht));
+                }
+                connection.Close();
                 return gebruikerslijst;
             }
             catch

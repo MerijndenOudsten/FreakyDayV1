@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
 
@@ -27,7 +26,7 @@ namespace Network_Dashboard
             queries.InloggenGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
             for (int i = 0; i < 3; i++)
             {
-                if (queries == null)
+                if (queries != null)
                 {
                     MessageBox.Show("Ingevoerde gebruikersnaam en Wachtwoord komen niet overeen");
                     if (i == 3)
@@ -71,6 +70,7 @@ namespace Network_Dashboard
 
         private void button1_Click(object sender, EventArgs e)
         {
+        // lees alles van gebruikers
             try
             {
                 string connString = "Data Source=192.168.15.50:1521/fhictora;User Id=dbi319035;Password=deathispeace;";
@@ -81,22 +81,25 @@ namespace Network_Dashboard
                     OracleCommand command = new OracleCommand("Select * FROM GEBRUIKER");
                     command.Connection = connection;
 
-                    OracleDataReader reader = command.ExecuteReader();
-                    
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    { 
+                        if (reader.HasRows)
                         {
-                            Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
-                                reader.GetString(1), reader.GetString(2));
+
+                            while (reader.Read())
+                            {
+
+
+                                Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0),
+                                       reader.GetString(1), reader.GetString(2));
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No rows found.");
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("No rows found.");
-                    }
-                    reader.Close();
-                    connection.Close();
+                    
                 }
             }
             catch

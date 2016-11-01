@@ -8,14 +8,17 @@ namespace Network_Dashboard
 {
     public class Gebruiker
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Inlognaam { get; set; }
         public string Wachtwoord { get; set; }
+        public string Recht { get; set; }
 
-        public Gebruiker(string inlognaam, string wachtwoord)
+        public Gebruiker(string id, string inlognaam, string wachtwoord, string recht)
         {
+            this.Id = id;
             this.Inlognaam = inlognaam;
             this.Wachtwoord = wachtwoord;
+            this.Recht = recht;
         }
     }
 }
