@@ -43,6 +43,7 @@ namespace Network_Dashboard
                     if (TcpScan.Connected)
                     {
                         return "open";
+                        
                     }
                     else
                     {
