@@ -11,10 +11,15 @@ namespace Network_Dashboard
     {
         public void CreateGebruiker(string gebruikersnaam, string wachtwoord)
         {
-            OracleCommand cmd = new OracleCommand("INSERT INTO Gebruiker (gebruikersnaam, wachtwoord, recht) VALUES (:gebruikersnaam, :wachtwoord)");
-            cmd.Parameters.Add("gebruikersnaam", gebruikersnaam);
-            cmd.Parameters.Add("wachtwoord", wachtwoord);
-            DbConnectie.CommandUitvoeren(cmd);
+           string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("INSERT INTO Gebruiker (gebruikersnaam, wachtwoord) VALUES ('" + gebruikersnaam + "', '" + wachtwoord + "')", connection);
+                cmd.ExecuteNonQuery();
+
+            }
+           
         }
         public Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
         {
