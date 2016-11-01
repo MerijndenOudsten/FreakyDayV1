@@ -23,14 +23,16 @@ namespace Network_Dashboard
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("Select gebruikersnaam, wachtwoord FROM Gebruiker WHERE gebruikersnaam = '" + gebruikersnaam + "' AND wachtwoord = '" + wachtwoord + "'", connection);
+                OracleCommand cmd = new OracleCommand("Select * FROM Gebruiker WHERE gebruikersnaam = '" + gebruikersnaam + "' AND wachtwoord = '" + wachtwoord + "'", connection);
                 using (OracleDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         gebruikersnaam = reader["gebruikersnaam"].ToString();
                         wachtwoord = reader["wachtwoord"].ToString();
-                        gebruiker = new Gebruiker(gebruikersnaam, wachtwoord);
+                        string id = reader["id"].ToString();
+                        string recht = reader["id"].ToString();
+                        gebruiker = new Gebruiker(id, gebruikersnaam, wachtwoord, recht);
                     }
                 }
                 return gebruiker;
