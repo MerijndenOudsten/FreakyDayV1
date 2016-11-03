@@ -45,6 +45,7 @@
             this.cb_smtpclosed = new System.Windows.Forms.CheckBox();
             this.lbl_smtp25 = new System.Windows.Forms.Label();
             this.cb_smtpopen = new System.Windows.Forms.CheckBox();
+            this.btn_backtostartmenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cb_httpopen
@@ -200,11 +201,22 @@
             this.cb_smtpopen.TabIndex = 15;
             this.cb_smtpopen.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // btn_backtostartmenu
+            // 
+            this.btn_backtostartmenu.Location = new System.Drawing.Point(15, 216);
+            this.btn_backtostartmenu.Name = "btn_backtostartmenu";
+            this.btn_backtostartmenu.Size = new System.Drawing.Size(377, 98);
+            this.btn_backtostartmenu.TabIndex = 18;
+            this.btn_backtostartmenu.Text = "Back";
+            this.btn_backtostartmenu.UseVisualStyleBackColor = true;
+            this.btn_backtostartmenu.Click += new System.EventHandler(this.btn_backtostartmenu_Click);
+            // 
+            // Poortscanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 340);
+            this.Controls.Add(this.btn_backtostartmenu);
             this.Controls.Add(this.cb_smtpclosed);
             this.Controls.Add(this.lbl_smtp25);
             this.Controls.Add(this.cb_smtpopen);
@@ -222,7 +234,7 @@
             this.Controls.Add(this.lbl_http8080);
             this.Controls.Add(this.lbl_portopen);
             this.Controls.Add(this.cb_httpopen);
-            this.Name = "Form1";
+            this.Name = "Poortscanner";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,6 +259,7 @@
         private System.Windows.Forms.CheckBox cb_smtpclosed;
         private System.Windows.Forms.Label lbl_smtp25;
         private System.Windows.Forms.CheckBox cb_smtpopen;
+        private System.Windows.Forms.Button btn_backtostartmenu;
     }
 }
 

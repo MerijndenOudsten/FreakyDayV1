@@ -44,8 +44,8 @@ namespace Network_Dashboard
             {
 
                 this.Hide();
-                Poortscanner portscanform = new Poortscanner();
-                portscanform.Show();
+                StartMenu startmenu = new StartMenu();
+                startmenu.Show();
 
             }
         }

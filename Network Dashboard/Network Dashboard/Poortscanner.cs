@@ -78,6 +78,13 @@ namespace Network_Dashboard
 
 
         }
+
+        private void btn_backtostartmenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartMenu startmenu = new StartMenu();
+            startmenu.Show();
+        }
     }
 }
 
