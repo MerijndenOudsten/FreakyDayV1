@@ -32,6 +32,8 @@
             this.btn_getalldevices = new System.Windows.Forms.Button();
             this.btn_addtoblacklist = new System.Windows.Forms.Button();
             this.btn_removefromblacklist = new System.Windows.Forms.Button();
+            this.tb_subnet = new System.Windows.Forms.TextBox();
+            this.btn_stopscan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_shownetworkdevices
@@ -45,17 +47,17 @@
             // 
             // btn_getalldevices
             // 
-            this.btn_getalldevices.Location = new System.Drawing.Point(253, 22);
+            this.btn_getalldevices.Location = new System.Drawing.Point(252, 50);
             this.btn_getalldevices.Name = "btn_getalldevices";
-            this.btn_getalldevices.Size = new System.Drawing.Size(214, 82);
+            this.btn_getalldevices.Size = new System.Drawing.Size(102, 50);
             this.btn_getalldevices.TabIndex = 1;
-            this.btn_getalldevices.Text = "Show devices";
+            this.btn_getalldevices.Text = "Startscan";
             this.btn_getalldevices.UseVisualStyleBackColor = true;
             this.btn_getalldevices.Click += new System.EventHandler(this.btn_getalldevices_Click);
             // 
             // btn_addtoblacklist
             // 
-            this.btn_addtoblacklist.Location = new System.Drawing.Point(253, 127);
+            this.btn_addtoblacklist.Location = new System.Drawing.Point(253, 229);
             this.btn_addtoblacklist.Name = "btn_addtoblacklist";
             this.btn_addtoblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_addtoblacklist.TabIndex = 2;
@@ -64,18 +66,37 @@
             // 
             // btn_removefromblacklist
             // 
-            this.btn_removefromblacklist.Location = new System.Drawing.Point(253, 238);
+            this.btn_removefromblacklist.Location = new System.Drawing.Point(253, 340);
             this.btn_removefromblacklist.Name = "btn_removefromblacklist";
             this.btn_removefromblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_removefromblacklist.TabIndex = 3;
             this.btn_removefromblacklist.Text = "Remove from blacklist";
             this.btn_removefromblacklist.UseVisualStyleBackColor = true;
             // 
+            // tb_subnet
+            // 
+            this.tb_subnet.Location = new System.Drawing.Point(253, 22);
+            this.tb_subnet.Name = "tb_subnet";
+            this.tb_subnet.Size = new System.Drawing.Size(214, 22);
+            this.tb_subnet.TabIndex = 4;
+            // 
+            // btn_stopscan
+            // 
+            this.btn_stopscan.Location = new System.Drawing.Point(360, 50);
+            this.btn_stopscan.Name = "btn_stopscan";
+            this.btn_stopscan.Size = new System.Drawing.Size(107, 50);
+            this.btn_stopscan.TabIndex = 5;
+            this.btn_stopscan.Text = "Stop scan";
+            this.btn_stopscan.UseVisualStyleBackColor = true;
+            this.btn_stopscan.Click += new System.EventHandler(this.btn_stopscan_Click);
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 465);
+            this.Controls.Add(this.btn_stopscan);
+            this.Controls.Add(this.tb_subnet);
             this.Controls.Add(this.btn_removefromblacklist);
             this.Controls.Add(this.btn_addtoblacklist);
             this.Controls.Add(this.btn_getalldevices);
@@ -83,6 +104,7 @@
             this.Name = "Blacklisting";
             this.Text = "Blacklisting";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,5 +114,7 @@
         private System.Windows.Forms.Button btn_getalldevices;
         private System.Windows.Forms.Button btn_addtoblacklist;
         private System.Windows.Forms.Button btn_removefromblacklist;
+        private System.Windows.Forms.TextBox tb_subnet;
+        private System.Windows.Forms.Button btn_stopscan;
     }
 }
