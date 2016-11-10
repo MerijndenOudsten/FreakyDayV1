@@ -69,6 +69,7 @@
             this.tb_wachtwoord.Name = "tb_wachtwoord";
             this.tb_wachtwoord.Size = new System.Drawing.Size(200, 22);
             this.tb_wachtwoord.TabIndex = 3;
+            this.tb_wachtwoord.UseSystemPasswordChar = true;
             // 
             // btn_inloggen
             // 

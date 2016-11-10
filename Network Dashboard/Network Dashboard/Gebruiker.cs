@@ -20,5 +20,11 @@ namespace Network_Dashboard
             this.Wachtwoord = wachtwoord;
             this.Recht = recht;
         }
+
+        public Gebruiker(string inlognaam, string recht)
+        {
+            this.Inlognaam = inlognaam;
+            this.Recht = recht;
+        }
     }
 }

@@ -57,7 +57,36 @@ namespace Network_Dashboard
 
             }
         }
-    
+
+
+        public List<Gebruiker> GetGebruikers()
+        {
+            List<Gebruiker> Gebruikers = new List<Gebruiker>();
+            Gebruiker gebruiker;
+            string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("SELECT gebruikersnaam, recht FROM gebruiker");
+                OracleDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        string gebruikersnaam = reader["gebruikersnaam"].ToString();
+                        string recht = reader["recht"].ToString();
+
+                        gebruiker = new Gebruiker(gebruikersnaam, recht);
+                        Gebruikers.Add(gebruiker);
+                    }
+                }
+
+
+
+                return Gebruikers;
+            }
+        }
+
         private List<Gebruiker> DataTableToUserList(DataTable userTable)
         {
             try

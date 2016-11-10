@@ -16,5 +16,27 @@ namespace Network_Dashboard
         {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Gebruikersrechten_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Terug_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StartMenu menu = new StartMenu();
+            menu.Show();
+        }
     }
 }
