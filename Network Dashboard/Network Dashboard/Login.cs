@@ -42,10 +42,9 @@ namespace Network_Dashboard
             }
             else
             {
-
-                this.Hide();
                 StartMenu startmenu = new StartMenu();
                 startmenu.Show();
+                this.Hide();
 
             }
         }
@@ -115,6 +114,11 @@ namespace Network_Dashboard
                 Console.Write("Message");
 
             }
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
 
         }
     }
