@@ -34,15 +34,16 @@
             this.btn_removefromblacklist = new System.Windows.Forms.Button();
             this.tb_subnet = new System.Windows.Forms.TextBox();
             this.btn_stopscan = new System.Windows.Forms.Button();
+            this.pgb_scanning = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lb_shownetworkdevices
             // 
             this.lb_shownetworkdevices.FormattingEnabled = true;
             this.lb_shownetworkdevices.ItemHeight = 16;
-            this.lb_shownetworkdevices.Location = new System.Drawing.Point(13, 22);
+            this.lb_shownetworkdevices.Location = new System.Drawing.Point(14, 22);
             this.lb_shownetworkdevices.Name = "lb_shownetworkdevices";
-            this.lb_shownetworkdevices.Size = new System.Drawing.Size(233, 404);
+            this.lb_shownetworkdevices.Size = new System.Drawing.Size(233, 308);
             this.lb_shownetworkdevices.TabIndex = 0;
             // 
             // btn_getalldevices
@@ -57,7 +58,7 @@
             // 
             // btn_addtoblacklist
             // 
-            this.btn_addtoblacklist.Location = new System.Drawing.Point(253, 229);
+            this.btn_addtoblacklist.Location = new System.Drawing.Point(253, 130);
             this.btn_addtoblacklist.Name = "btn_addtoblacklist";
             this.btn_addtoblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_addtoblacklist.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // btn_removefromblacklist
             // 
-            this.btn_removefromblacklist.Location = new System.Drawing.Point(253, 340);
+            this.btn_removefromblacklist.Location = new System.Drawing.Point(253, 241);
             this.btn_removefromblacklist.Name = "btn_removefromblacklist";
             this.btn_removefromblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_removefromblacklist.TabIndex = 3;
@@ -90,11 +91,20 @@
             this.btn_stopscan.UseVisualStyleBackColor = true;
             this.btn_stopscan.Click += new System.EventHandler(this.btn_stopscan_Click);
             // 
+            // pgb_scanning
+            // 
+            this.pgb_scanning.Location = new System.Drawing.Point(14, 349);
+            this.pgb_scanning.Maximum = 255;
+            this.pgb_scanning.Name = "pgb_scanning";
+            this.pgb_scanning.Size = new System.Drawing.Size(453, 23);
+            this.pgb_scanning.TabIndex = 6;
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 465);
+            this.Controls.Add(this.pgb_scanning);
             this.Controls.Add(this.btn_stopscan);
             this.Controls.Add(this.tb_subnet);
             this.Controls.Add(this.btn_removefromblacklist);
@@ -116,5 +126,6 @@
         private System.Windows.Forms.Button btn_removefromblacklist;
         private System.Windows.Forms.TextBox tb_subnet;
         private System.Windows.Forms.Button btn_stopscan;
+        private System.Windows.Forms.ProgressBar pgb_scanning;
     }
 }

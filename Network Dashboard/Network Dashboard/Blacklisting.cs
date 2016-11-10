@@ -36,6 +36,7 @@ namespace Network_Dashboard
             {
                 try
                 {
+                    pgb_scanning.Value = i;
                     string subnetn = "." + i.ToString();
                     myping = new Ping();
                     reply = myping.Send(subnet + subnetn);
