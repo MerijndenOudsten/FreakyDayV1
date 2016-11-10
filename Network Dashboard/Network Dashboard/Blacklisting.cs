@@ -29,8 +29,7 @@ namespace Network_Dashboard
         Thread mythread = null;
         public void scanfordevices(string subnet)
         {
-            lbl_scan.Visible = true;
-            lbl_ipadres.Visible = true;
+
             Ping myping;
             PingReply reply;
             IPAddress adress;
@@ -72,6 +71,8 @@ namespace Network_Dashboard
         }
         private void btn_getalldevices_Click(object sender, EventArgs e)
         {
+            lbl_scan.Visible = true;
+            lbl_ipadres.Visible = true;
             mythread = new Thread(() => scanfordevices(tb_subnet.Text));
             mythread.Start();
             
@@ -86,7 +87,7 @@ namespace Network_Dashboard
 
         private void btn_stopscan_Click(object sender, EventArgs e)
         {
-            mythread.Abort();
+            mythread.Suspend();
             btn_stopscan.Enabled = false;
             btn_getalldevices.Enabled = true;
             tb_subnet.Enabled = true;
