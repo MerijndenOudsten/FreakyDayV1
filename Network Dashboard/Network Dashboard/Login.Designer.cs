@@ -62,6 +62,7 @@
             this.tb_gebruikersnaam.Name = "tb_gebruikersnaam";
             this.tb_gebruikersnaam.Size = new System.Drawing.Size(200, 22);
             this.tb_gebruikersnaam.TabIndex = 2;
+            this.tb_gebruikersnaam.Text = "Joeri";
             // 
             // tb_wachtwoord
             // 
@@ -69,6 +70,7 @@
             this.tb_wachtwoord.Name = "tb_wachtwoord";
             this.tb_wachtwoord.Size = new System.Drawing.Size(200, 22);
             this.tb_wachtwoord.TabIndex = 3;
+            this.tb_wachtwoord.Text = "Mentor";
             this.tb_wachtwoord.UseSystemPasswordChar = true;
             // 
             // btn_inloggen
@@ -128,6 +130,7 @@
             this.Controls.Add(this.lbl_gebruikersnaam);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
