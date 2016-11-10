@@ -109,14 +109,17 @@
             this.lbl_scan.Size = new System.Drawing.Size(79, 17);
             this.lbl_scan.TabIndex = 7;
             this.lbl_scan.Text = "Scanning...";
+            this.lbl_scan.Visible = false;
             // 
             // lbl_ipadres
             // 
             this.lbl_ipadres.AutoSize = true;
             this.lbl_ipadres.Location = new System.Drawing.Point(98, 379);
             this.lbl_ipadres.Name = "lbl_ipadres";
-            this.lbl_ipadres.Size = new System.Drawing.Size(0, 17);
+            this.lbl_ipadres.Size = new System.Drawing.Size(16, 17);
             this.lbl_ipadres.TabIndex = 8;
+            this.lbl_ipadres.Text = "h";
+            this.lbl_ipadres.Visible = false;
             // 
             // Blacklisting
             // 

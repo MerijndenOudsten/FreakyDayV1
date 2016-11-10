@@ -21,8 +21,6 @@ namespace Network_Dashboard
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-            lbl_scan.Visible = false;
-            lbl_ipadres.Visible = false;
 
         }
 
@@ -44,7 +42,7 @@ namespace Network_Dashboard
                     string subnetn = "." + i.ToString();
                     myping = new Ping();
                     reply = myping.Send(subnet + subnetn);
-                    lbl_ipadres.Text = subnet + pgb_scanning.Value;
+                    lbl_ipadres.Text = subnet + pgb_scanning.Value.ToString();
                     if (reply.Status == IPStatus.Success)
                     {
                         try
@@ -86,7 +84,7 @@ namespace Network_Dashboard
 
         private void btn_stopscan_Click(object sender, EventArgs e)
         {
-            mythread.Suspend();
+            mythread.Abort();
             btn_stopscan.Enabled = false;
             btn_getalldevices.Enabled = true;
             tb_subnet.Enabled = true;
