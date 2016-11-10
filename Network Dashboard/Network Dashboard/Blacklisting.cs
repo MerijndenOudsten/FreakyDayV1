@@ -21,12 +21,16 @@ namespace Network_Dashboard
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            lbl_scan.Visible = false;
+            lbl_ipadres.Visible = false;
 
         }
 
         Thread mythread = null;
         public void scanfordevices(string subnet)
         {
+            lbl_scan.Visible = true;
+            lbl_ipadres.Visible = true;
             Ping myping;
             PingReply reply;
             IPAddress adress;
@@ -40,19 +44,18 @@ namespace Network_Dashboard
                     string subnetn = "." + i.ToString();
                     myping = new Ping();
                     reply = myping.Send(subnet + subnetn);
-
+                    lbl_ipadres.Text = subnet + pgb_scanning.Value;
                     if (reply.Status == IPStatus.Success)
                     {
                         try
                         {
                             adress = IPAddress.Parse(subnet + subnetn);
                             host = Dns.GetHostEntry(adress);
-
-                            lb_shownetworkdevices.Items.Add(subnet + subnetn + host.HostName.ToString());
+                            lb_shownetworkdevices.Items.Add(subnet + subnetn + " " + host.HostName.ToString());
                         }
                         catch
                         {
-                            MessageBox.Show("Couldn't retrieve hostname for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            lb_shownetworkdevices.Items.Add(subnet + subnetn + " " + "Hostname not found");
                         }
 
                     }
@@ -71,6 +74,7 @@ namespace Network_Dashboard
         {
             mythread = new Thread(() => scanfordevices(tb_subnet.Text));
             mythread.Start();
+            
 
             if (mythread.IsAlive)
             {

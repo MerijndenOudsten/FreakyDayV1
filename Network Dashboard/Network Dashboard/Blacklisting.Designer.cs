@@ -35,6 +35,8 @@
             this.tb_subnet = new System.Windows.Forms.TextBox();
             this.btn_stopscan = new System.Windows.Forms.Button();
             this.pgb_scanning = new System.Windows.Forms.ProgressBar();
+            this.lbl_scan = new System.Windows.Forms.Label();
+            this.lbl_ipadres = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_shownetworkdevices
@@ -99,11 +101,30 @@
             this.pgb_scanning.Size = new System.Drawing.Size(453, 23);
             this.pgb_scanning.TabIndex = 6;
             // 
+            // lbl_scan
+            // 
+            this.lbl_scan.AutoSize = true;
+            this.lbl_scan.Location = new System.Drawing.Point(13, 379);
+            this.lbl_scan.Name = "lbl_scan";
+            this.lbl_scan.Size = new System.Drawing.Size(79, 17);
+            this.lbl_scan.TabIndex = 7;
+            this.lbl_scan.Text = "Scanning...";
+            // 
+            // lbl_ipadres
+            // 
+            this.lbl_ipadres.AutoSize = true;
+            this.lbl_ipadres.Location = new System.Drawing.Point(98, 379);
+            this.lbl_ipadres.Name = "lbl_ipadres";
+            this.lbl_ipadres.Size = new System.Drawing.Size(0, 17);
+            this.lbl_ipadres.TabIndex = 8;
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 465);
+            this.Controls.Add(this.lbl_ipadres);
+            this.Controls.Add(this.lbl_scan);
             this.Controls.Add(this.pgb_scanning);
             this.Controls.Add(this.btn_stopscan);
             this.Controls.Add(this.tb_subnet);
@@ -127,5 +148,7 @@
         private System.Windows.Forms.TextBox tb_subnet;
         private System.Windows.Forms.Button btn_stopscan;
         private System.Windows.Forms.ProgressBar pgb_scanning;
+        private System.Windows.Forms.Label lbl_scan;
+        private System.Windows.Forms.Label lbl_ipadres;
     }
 }
