@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Net.NetworkInformation;
-using System.Net;
-using System.Threading;
 
 namespace Network_Dashboard
 {
@@ -35,12 +35,12 @@ namespace Network_Dashboard
             IPAddress adress;
             IPHostEntry host;
             string macadress;
-
-            for (int i = 167; i < 255; i++)
+            try
             {
-
-                try
+                for (int i = 167; i < 255; i++)
                 {
+
+
                     pgb_scanning.Value = i;
                     string subnetn = "." + i.ToString();
                     myping = new Ping();
@@ -62,14 +62,16 @@ namespace Network_Dashboard
 
                     }
                 }
-                catch (PingException e)
-                {
-                    MessageBox.Show(e.ToString());
-                }
-
-
-
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Er is iets fout gegaan tijdens het pingen rond het netwerk.");
+            }
+
+
+
+            
         }
          private string GetMacAddress(string ipAddress)
         {
@@ -108,19 +110,29 @@ namespace Network_Dashboard
 
             return macAddress;
         }
+
+
         private void btn_getalldevices_Click(object sender, EventArgs e)
         {
-            lbl_scan.Visible = true;
-            lbl_ipadres.Visible = true;
-            mythread = new Thread(() => scanfordevices(tb_subnet.Text));
-            mythread.Start();
-
-
-            if (mythread.IsAlive)
+            try
             {
-                btn_stopscan.Enabled = true;
-                btn_getalldevices.Enabled = false;
-                tb_subnet.Enabled = false;
+                lbl_scan.Visible = true;
+                lbl_ipadres.Visible = true;
+                mythread = new Thread(() => scanfordevices(tb_subnet.Text));
+                mythread.Start();
+
+
+                if (mythread.IsAlive)
+                {
+                    btn_stopscan.Enabled = true;
+                    btn_getalldevices.Enabled = false;
+                    tb_subnet.Enabled = false;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Er is iets fout gegaan tijdens het starten van de Device scan.");
             }
         }
 
@@ -133,4 +145,5 @@ namespace Network_Dashboard
         }
     }
 }
+
 
