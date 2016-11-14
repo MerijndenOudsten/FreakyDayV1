@@ -9,9 +9,12 @@ namespace Network_Dashboard
 {
     public class DbQueries
     {
+        private static string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
+
+
         public void CreateGebruiker(string gebruikersnaam, string wachtwoord)
         {
-           string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
+           
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
@@ -24,7 +27,6 @@ namespace Network_Dashboard
         public Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
         {
             Gebruiker gebruiker = null;
-            string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
@@ -48,7 +50,6 @@ namespace Network_Dashboard
         }
         public void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
         {
-            string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
@@ -63,47 +64,45 @@ namespace Network_Dashboard
         {
             List<Gebruiker> Gebruikers = new List<Gebruiker>();
             Gebruiker gebruiker;
-            string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("SELECT gebruikersnaam, recht FROM gebruiker");
+                OracleCommand cmd = new OracleCommand("SELECT * FROM gebruiker", connection);
                 OracleDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while(reader.Read())
+                
+                    if (reader.HasRows)
                     {
-                        string gebruikersnaam = reader["gebruikersnaam"].ToString();
-                        string recht = reader["recht"].ToString();
+                        while (reader.Read())
+                        {
+                            string gebruikersnaam = reader["gebruikersnaam"].ToString();
+                            string recht = reader["recht"].ToString();
 
-                        gebruiker = new Gebruiker(gebruikersnaam, recht);
-                        Gebruikers.Add(gebruiker);
+                            gebruiker = new Gebruiker(gebruikersnaam, recht);
+                            Gebruikers.Add(gebruiker);
+                        }
                     }
-                }
-
-
-
                 return Gebruikers;
             }
-        }
+         }
 
-        private List<Gebruiker> DataTableToUserList(DataTable userTable)
+        public bool WijzigRecht(Gebruiker g)
         {
-            try
+            try 
             {
-                List<Gebruiker> gebruikerslijst = new List<Gebruiker>();
-                string id = userTable.Rows[0][0].ToString();
-                string gebruikersnaam = userTable.Rows[0][2].ToString();
-                string wachtwoord = userTable.Rows[0][4].ToString();
-                string recht = userTable.Rows[0][7].ToString();
-                return gebruikerslijst;
+                using (OracleConnection connection = new OracleConnection(connString))
+                {
+                    connection.Open();
+                    OracleCommand cmd = new OracleCommand("UPDATE Gebruiker SET recht = '" + g.Recht + "' WHERE gebruikersnaam = '" + g.Inlognaam + "'", connection);
+                    cmd.ExecuteNonQuery();
+                    
+                }
+                return true;
             }
-            catch
+            catch (Exception e)
             {
-                return null;
+                Console.WriteLine(e.Message);
             }
+            return false;
         }
-
-
     }
 }

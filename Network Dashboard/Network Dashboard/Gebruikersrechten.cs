@@ -12,9 +12,11 @@ namespace Network_Dashboard
 {
     public partial class Gebruikersrechten : Form
     {
+        DbQueries dbq = new DbQueries();
         public Gebruikersrechten()
         {
             InitializeComponent();
+            UpdateGebruikers();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -37,6 +39,44 @@ namespace Network_Dashboard
             this.Close();
             StartMenu menu = new StartMenu();
             menu.Show();
+        }
+
+        private void UpdateGebruikers()
+        {
+            try
+            {
+                lb_Gebruikers.Items.Clear();
+                foreach (Gebruiker g in dbq.GetGebruikers())
+                {
+                    lb_Gebruikers.Items.Add(g);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("De nieuwe gebruikers zijn niet geladen. Check uw connectie met de database.");
+            }
+        }
+
+        private void btn_veranderRecht_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] gebruiker = lb_Gebruikers.SelectedItem.ToString().Split(',');
+                Gebruiker g = new Gebruiker(gebruiker[0], cb_Recht.SelectedItem.ToString());
+                if (dbq.WijzigRecht(g))
+                {
+                    MessageBox.Show("Het recht van het account '" + gebruiker[0] + "' is veranderd naar '" + cb_Recht.SelectedItem.ToString() + "'.");
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Er is een fout opgetreden tijdens het veranderen van het recht.");
+                
+            }
+            UpdateGebruikers();
         }
     }
 }

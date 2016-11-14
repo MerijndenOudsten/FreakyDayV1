@@ -25,6 +25,8 @@ namespace Network_Dashboard
             Portscan telnet = new Portscan(23);
             Portscan pop3 = new Portscan(110);
             Portscan smtp = new Portscan(25);
+
+            
             if (http.StartScan() == "open")
             {
                 cb_httpopen.Checked = true;

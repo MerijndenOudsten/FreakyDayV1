@@ -34,10 +34,9 @@ namespace Network_Dashboard
             PingReply reply;
             IPAddress adress;
             IPHostEntry host;
-
-            for (int i = 1; i < 255; i++)
+            try
             {
-                try
+                for (int i = 1; i < 255; i++)
                 {
                     pgb_scanning.Value = i;
                     string subnetn = "." + i.ToString();
@@ -59,23 +58,24 @@ namespace Network_Dashboard
 
                     }
                 }
-                catch (PingException e)
-                {
-                    MessageBox.Show(e.ToString());
-                }
-
-
-
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
+
+
         }
+
+
         private void btn_getalldevices_Click(object sender, EventArgs e)
         {
             lbl_scan.Visible = true;
             lbl_ipadres.Visible = true;
             mythread = new Thread(() => scanfordevices(tb_subnet.Text));
             mythread.Start();
-            
+
 
             if (mythread.IsAlive)
             {
@@ -94,4 +94,5 @@ namespace Network_Dashboard
         }
     }
 }
+
 

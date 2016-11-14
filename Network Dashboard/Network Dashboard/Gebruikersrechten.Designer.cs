@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lb_Gebruikers = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_InternetSnelheid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_Upload = new System.Windows.Forms.Label();
             this.btn_veranderRecht = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_Recht = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Download = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Terug = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lb_Gebruikers
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(297, 420);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lb_Gebruikers.FormattingEnabled = true;
+            this.lb_Gebruikers.ItemHeight = 16;
+            this.lb_Gebruikers.Location = new System.Drawing.Point(12, 28);
+            this.lb_Gebruikers.Name = "lb_Gebruikers";
+            this.lb_Gebruikers.Size = new System.Drawing.Size(297, 420);
+            this.lb_Gebruikers.TabIndex = 0;
+            this.lb_Gebruikers.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -97,6 +97,7 @@
             this.btn_veranderRecht.TabIndex = 6;
             this.btn_veranderRecht.Text = "Verander recht";
             this.btn_veranderRecht.UseVisualStyleBackColor = true;
+            this.btn_veranderRecht.Click += new System.EventHandler(this.btn_veranderRecht_Click);
             // 
             // label5
             // 
@@ -107,19 +108,18 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Verander naar:";
             // 
-            // comboBox1
+            // cb_Recht
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Beheerder",
-            "Kind",
-            "Standaard",
-            "Onbekend"});
-            this.comboBox1.Location = new System.Drawing.Point(122, 457);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 24);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.Text = "Gebruikersrecht";
+            this.cb_Recht.FormattingEnabled = true;
+            this.cb_Recht.Items.AddRange(new object[] {
+            "BEHEERDER",
+            "STANDAARD",
+            "BEPERKT"});
+            this.cb_Recht.Location = new System.Drawing.Point(122, 457);
+            this.cb_Recht.Name = "cb_Recht";
+            this.cb_Recht.Size = new System.Drawing.Size(137, 24);
+            this.cb_Recht.TabIndex = 8;
+            this.cb_Recht.Text = "Gebruikersrecht";
             // 
             // label2
             // 
@@ -167,14 +167,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_Download);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_Recht);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_veranderRecht);
             this.Controls.Add(this.lbl_Upload);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_InternetSnelheid);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lb_Gebruikers);
             this.Name = "Gebruikersrechten";
             this.Text = "Gebruikersrechten";
             this.Load += new System.EventHandler(this.Gebruikersrechten_Load);
@@ -185,14 +185,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lb_Gebruikers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_InternetSnelheid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_Upload;
         private System.Windows.Forms.Button btn_veranderRecht;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_Recht;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Download;
         private System.Windows.Forms.Label label4;
