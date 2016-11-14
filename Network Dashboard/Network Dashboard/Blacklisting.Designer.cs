@@ -45,12 +45,12 @@
             this.lb_shownetworkdevices.ItemHeight = 16;
             this.lb_shownetworkdevices.Location = new System.Drawing.Point(14, 22);
             this.lb_shownetworkdevices.Name = "lb_shownetworkdevices";
-            this.lb_shownetworkdevices.Size = new System.Drawing.Size(233, 308);
+            this.lb_shownetworkdevices.Size = new System.Drawing.Size(771, 260);
             this.lb_shownetworkdevices.TabIndex = 0;
             // 
             // btn_getalldevices
             // 
-            this.btn_getalldevices.Location = new System.Drawing.Point(252, 50);
+            this.btn_getalldevices.Location = new System.Drawing.Point(124, 391);
             this.btn_getalldevices.Name = "btn_getalldevices";
             this.btn_getalldevices.Size = new System.Drawing.Size(102, 50);
             this.btn_getalldevices.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // btn_addtoblacklist
             // 
-            this.btn_addtoblacklist.Location = new System.Drawing.Point(253, 130);
+            this.btn_addtoblacklist.Location = new System.Drawing.Point(12, 457);
             this.btn_addtoblacklist.Name = "btn_addtoblacklist";
             this.btn_addtoblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_addtoblacklist.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // btn_removefromblacklist
             // 
-            this.btn_removefromblacklist.Location = new System.Drawing.Point(253, 241);
+            this.btn_removefromblacklist.Location = new System.Drawing.Point(251, 457);
             this.btn_removefromblacklist.Name = "btn_removefromblacklist";
             this.btn_removefromblacklist.Size = new System.Drawing.Size(214, 82);
             this.btn_removefromblacklist.TabIndex = 3;
@@ -78,14 +78,14 @@
             // 
             // tb_subnet
             // 
-            this.tb_subnet.Location = new System.Drawing.Point(253, 22);
+            this.tb_subnet.Location = new System.Drawing.Point(124, 363);
             this.tb_subnet.Name = "tb_subnet";
-            this.tb_subnet.Size = new System.Drawing.Size(214, 22);
+            this.tb_subnet.Size = new System.Drawing.Size(234, 22);
             this.tb_subnet.TabIndex = 4;
             // 
             // btn_stopscan
             // 
-            this.btn_stopscan.Location = new System.Drawing.Point(360, 50);
+            this.btn_stopscan.Location = new System.Drawing.Point(251, 391);
             this.btn_stopscan.Name = "btn_stopscan";
             this.btn_stopscan.Size = new System.Drawing.Size(107, 50);
             this.btn_stopscan.TabIndex = 5;
@@ -95,37 +95,35 @@
             // 
             // pgb_scanning
             // 
-            this.pgb_scanning.Location = new System.Drawing.Point(14, 349);
+            this.pgb_scanning.Location = new System.Drawing.Point(14, 294);
             this.pgb_scanning.Maximum = 255;
             this.pgb_scanning.Name = "pgb_scanning";
-            this.pgb_scanning.Size = new System.Drawing.Size(453, 23);
+            this.pgb_scanning.Size = new System.Drawing.Size(771, 23);
             this.pgb_scanning.TabIndex = 6;
             // 
             // lbl_scan
             // 
             this.lbl_scan.AutoSize = true;
-            this.lbl_scan.Location = new System.Drawing.Point(13, 379);
+            this.lbl_scan.Location = new System.Drawing.Point(12, 320);
             this.lbl_scan.Name = "lbl_scan";
             this.lbl_scan.Size = new System.Drawing.Size(79, 17);
             this.lbl_scan.TabIndex = 7;
             this.lbl_scan.Text = "Scanning...";
-            this.lbl_scan.Visible = false;
             // 
             // lbl_ipadres
             // 
             this.lbl_ipadres.AutoSize = true;
-            this.lbl_ipadres.Location = new System.Drawing.Point(98, 379);
+            this.lbl_ipadres.Location = new System.Drawing.Point(97, 320);
             this.lbl_ipadres.Name = "lbl_ipadres";
             this.lbl_ipadres.Size = new System.Drawing.Size(55, 17);
             this.lbl_ipadres.TabIndex = 8;
             this.lbl_ipadres.Text = "ipadres";
-            this.lbl_ipadres.Visible = false;
             // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 465);
+            this.ClientSize = new System.Drawing.Size(797, 607);
             this.Controls.Add(this.lbl_ipadres);
             this.Controls.Add(this.lbl_scan);
             this.Controls.Add(this.pgb_scanning);

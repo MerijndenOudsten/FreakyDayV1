@@ -34,9 +34,12 @@ namespace Network_Dashboard
             PingReply reply;
             IPAddress adress;
             IPHostEntry host;
-            try
+            string macadress;
+
+            for (int i = 167; i < 255; i++)
             {
-                for (int i = 1; i < 255; i++)
+
+                try
                 {
                     pgb_scanning.Value = i;
                     string subnetn = "." + i.ToString();
@@ -47,9 +50,10 @@ namespace Network_Dashboard
                     {
                         try
                         {
+                            macadress = GetMacAddress(subnet + subnetn);
                             adress = IPAddress.Parse(subnet + subnetn);
                             host = Dns.GetHostEntry(adress);
-                            lb_shownetworkdevices.Items.Add(subnet + subnetn + " " + host.HostName.ToString());
+                            lb_shownetworkdevices.Items.Add(macadress + " " + host.HostName.ToString());
                         }
                         catch
                         {
@@ -58,17 +62,52 @@ namespace Network_Dashboard
 
                     }
                 }
+                catch (PingException e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+
+
+
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-
-
         }
+         private string GetMacAddress(string ipAddress)
+        {
+            string macAddress = string.Empty;
+            try
+            {
+                ProcessStartInfo processStartInfo = new ProcessStartInfo();
+                Process process = new Process();
+                processStartInfo.FileName = "nbtstat";
+                processStartInfo.RedirectStandardInput = false;
+                processStartInfo.RedirectStandardOutput = true;
+                processStartInfo.Arguments = "-a " + ipAddress;
+                processStartInfo.UseShellExecute = false;
+                process = Process.Start(processStartInfo);
 
+                int Counter = -1;
 
+                while (Counter <= -1)
+                {
+                    Counter =
+                    macAddress.Trim().ToLower().IndexOf("mac address", 0);
+                    if (Counter > -1)
+                    {
+                        break;
+                    }
+                    macAddress = process.StandardOutput.ReadLine();
+                }
+                process.WaitForExit();
+                macAddress = macAddress.Trim();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Failed because:" + e.ToString());
+            }
+
+            return macAddress;
+        }
         private void btn_getalldevices_Click(object sender, EventArgs e)
         {
             lbl_scan.Visible = true;
@@ -94,5 +133,4 @@ namespace Network_Dashboard
         }
     }
 }
-
 
