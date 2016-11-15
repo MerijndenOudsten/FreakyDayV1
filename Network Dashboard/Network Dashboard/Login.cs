@@ -35,7 +35,7 @@ namespace Network_Dashboard
                 }
                 else if (gebruiker == null && i >= 2)
                 {
-                    MessageBox.Show("U hebt " + (i + 1).ToString() + " keer verkeerd ingelogd, wilt u het wachtwoord wijzigen?");
+                    MessageBox.Show("U heeft " + (i + 1).ToString() + " keer verkeerd ingelogd, wilt u het wachtwoord wijzigen?");
                     btn_wijzigwachtwoord.Enabled = true;
                     btn_wijzigwachtwoord.Visible = true;
                     i++;
@@ -43,7 +43,7 @@ namespace Network_Dashboard
                 }
                 else
                 {
-                    StartMenu startmenu = new StartMenu();
+                    StartMenu startmenu = new StartMenu(gebruiker);
                     startmenu.Show();
                     this.Hide();
 

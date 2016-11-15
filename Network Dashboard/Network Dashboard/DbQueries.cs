@@ -38,7 +38,7 @@ namespace Network_Dashboard
                         gebruikersnaam = reader["gebruikersnaam"].ToString();
                         wachtwoord = reader["wachtwoord"].ToString();
                         string id = reader["id"].ToString();
-                        string recht = reader["id"].ToString();
+                        string recht = reader["recht"].ToString();
                         gebruiker = new Gebruiker(id, gebruikersnaam, wachtwoord, recht);
                     }
                 }

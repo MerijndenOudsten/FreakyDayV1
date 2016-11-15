@@ -47,6 +47,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btn_TimerStart = new System.Windows.Forms.Button();
+            this.btn_TimerStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_Gebruikers
@@ -62,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(319, 164);
+            this.label1.Location = new System.Drawing.Point(319, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 17);
             this.label1.TabIndex = 1;
@@ -71,7 +73,7 @@
             // lbl_InternetSnelheid
             // 
             this.lbl_InternetSnelheid.AutoSize = true;
-            this.lbl_InternetSnelheid.Location = new System.Drawing.Point(319, 187);
+            this.lbl_InternetSnelheid.Location = new System.Drawing.Point(319, 220);
             this.lbl_InternetSnelheid.Name = "lbl_InternetSnelheid";
             this.lbl_InternetSnelheid.Size = new System.Drawing.Size(46, 17);
             this.lbl_InternetSnelheid.TabIndex = 2;
@@ -168,7 +170,7 @@
             // cb_NetworkInterfaces
             // 
             this.cb_NetworkInterfaces.FormattingEnabled = true;
-            this.cb_NetworkInterfaces.Location = new System.Drawing.Point(315, 231);
+            this.cb_NetworkInterfaces.Location = new System.Drawing.Point(318, 91);
             this.cb_NetworkInterfaces.Name = "cb_NetworkInterfaces";
             this.cb_NetworkInterfaces.Size = new System.Drawing.Size(121, 24);
             this.cb_NetworkInterfaces.TabIndex = 14;
@@ -214,24 +216,46 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(458, 285);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.Size = new System.Drawing.Size(101, 17);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Totaal";
+            this.label8.Text = "Totaal in bytes";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(458, 352);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.Size = new System.Drawing.Size(101, 17);
             this.label9.TabIndex = 20;
-            this.label9.Text = "Totaal";
+            this.label9.Text = "Totaal in bytes";
+            // 
+            // btn_TimerStart
+            // 
+            this.btn_TimerStart.Location = new System.Drawing.Point(322, 137);
+            this.btn_TimerStart.Name = "btn_TimerStart";
+            this.btn_TimerStart.Size = new System.Drawing.Size(75, 30);
+            this.btn_TimerStart.TabIndex = 21;
+            this.btn_TimerStart.Text = "Start";
+            this.btn_TimerStart.UseVisualStyleBackColor = true;
+            this.btn_TimerStart.Click += new System.EventHandler(this.btn_TimerStart_Click);
+            // 
+            // btn_TimerStop
+            // 
+            this.btn_TimerStop.Location = new System.Drawing.Point(431, 137);
+            this.btn_TimerStop.Name = "btn_TimerStop";
+            this.btn_TimerStop.Size = new System.Drawing.Size(75, 30);
+            this.btn_TimerStop.TabIndex = 22;
+            this.btn_TimerStop.Text = "Stop";
+            this.btn_TimerStop.UseVisualStyleBackColor = true;
+            this.btn_TimerStop.Click += new System.EventHandler(this.btn_TimerStop_Click);
             // 
             // Gebruikersrechten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 559);
+            this.Controls.Add(this.btn_TimerStop);
+            this.Controls.Add(this.btn_TimerStart);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -280,5 +304,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_TimerStart;
+        private System.Windows.Forms.Button btn_TimerStop;
     }
 }

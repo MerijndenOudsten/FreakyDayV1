@@ -19,15 +19,16 @@ namespace Network_Dashboard
 
         private NetworkInterface[] nicArr;
 
-        private Timer timer;
+        private Timer timer = new Timer();
 
+        Gebruiker IngelogdeGebruiker;
 
-        public Gebruikersrechten()
+        public Gebruikersrechten(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
+            this.IngelogdeGebruiker = ingelogdeGebruiker;
             UpdateGebruikers();
             InitializeNetworkInterface();
-            InitializeTimer();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace Network_Dashboard
         private void btn_Terug_Click(object sender, EventArgs e)
         {
             this.Close();
-            StartMenu menu = new StartMenu();
+            StartMenu menu = new StartMenu(IngelogdeGebruiker);
             menu.Show();
         }
 
@@ -75,9 +76,14 @@ namespace Network_Dashboard
             {
                 string[] gebruiker = lb_Gebruikers.SelectedItem.ToString().Split(',');
                 Gebruiker g = new Gebruiker(gebruiker[0], cb_Recht.SelectedItem.ToString());
-                if (dbq.WijzigRecht(g))
+                if (gebruiker[1] != "BEHEERDER")
                 {
+                    dbq.WijzigRecht(g);
                     MessageBox.Show("Het recht van het account '" + gebruiker[0] + "' is veranderd naar '" + cb_Recht.SelectedItem.ToString() + "'.");
+                }
+                else
+                {
+                    MessageBox.Show("Deze gebruiker is een Beheerder, u kunt het recht van deze gebruiker niet veranderen zonder toegang tot de database.");
                 }
                 
             }
@@ -122,12 +128,15 @@ namespace Network_Dashboard
 
         private void InitializeTimer()
         {
-            timer = new Timer();
             timer.Interval = (int)timerUpdate;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
 
+        private void StopTimer()
+        {
+            timer.Stop();
+        }
 
         private void UpdateNetworkInterface()
         {
@@ -146,8 +155,8 @@ namespace Network_Dashboard
                 // Update the labels
                 //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
                 lbl_InternetSnelheid.Text = (nic.Speed / 10000000.0).ToString();
-                lbl_BytesReceived.Text = interfaceStats.BytesReceived.ToString() + " bytes";
-                lbl_BytesSent.Text = interfaceStats.BytesSent.ToString() + " bytes";
+                lbl_BytesReceived.Text = interfaceStats.BytesReceived.ToString();
+                lbl_BytesSent.Text = interfaceStats.BytesSent.ToString();
                 lbl_Upload.Text = (bytesSentSpeed * 8).ToString() + " Kb/s";
                 lbl_Download.Text = (bytesReceivedSpeed * 8).ToString() + " Kb/s";
             }
@@ -166,6 +175,16 @@ namespace Network_Dashboard
         void timer_Tick(object sender, EventArgs e)
         {
             UpdateNetworkInterface();
+        }
+
+        private void btn_TimerStart_Click(object sender, EventArgs e)
+        {
+            InitializeTimer();
+        }
+
+        private void btn_TimerStop_Click(object sender, EventArgs e)
+        {
+            StopTimer();
         }
     }
 }

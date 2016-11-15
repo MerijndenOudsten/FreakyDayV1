@@ -35,12 +35,12 @@ namespace Network_Dashboard
             IPAddress adress;
             IPHostEntry host;
             string macadress;
-            try
+
+            for (int i = 167; i < 255; i++)
             {
-                for (int i = 167; i < 255; i++)
+
+                try
                 {
-
-
                     pgb_scanning.Value = i;
                     string subnetn = "." + i.ToString();
                     myping = new Ping();
@@ -62,14 +62,14 @@ namespace Network_Dashboard
 
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                MessageBox.Show("Er is iets fout gegaan tijdens het pingen rond het netwerk.");
-            }
 
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("Er is iets fout gegaan tijdens het pingen rond het netwerk.");
+                }
 
+            }
 
             
         }
@@ -138,10 +138,18 @@ namespace Network_Dashboard
 
         private void btn_stopscan_Click(object sender, EventArgs e)
         {
-            mythread.Suspend();
-            btn_stopscan.Enabled = false;
-            btn_getalldevices.Enabled = true;
-            tb_subnet.Enabled = true;
+            //mythread.Suspend();
+            try
+            {
+                mythread.Suspend();
+                btn_stopscan.Enabled = false;
+                btn_getalldevices.Enabled = true;
+                tb_subnet.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

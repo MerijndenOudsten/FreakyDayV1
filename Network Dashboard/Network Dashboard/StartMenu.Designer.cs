@@ -31,6 +31,7 @@
             this.btn_poortscanner = new System.Windows.Forms.Button();
             this.btn_Blacklisting = new System.Windows.Forms.Button();
             this.btn_gebruikersrechten = new System.Windows.Forms.Button();
+            this.lbl_ingelogdeGebruiker = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_poortscanner
@@ -63,17 +64,28 @@
             this.btn_gebruikersrechten.UseVisualStyleBackColor = true;
             this.btn_gebruikersrechten.Click += new System.EventHandler(this.btn_gebruikersrechten_Click);
             // 
+            // lbl_ingelogdeGebruiker
+            // 
+            this.lbl_ingelogdeGebruiker.AutoSize = true;
+            this.lbl_ingelogdeGebruiker.Location = new System.Drawing.Point(49, 311);
+            this.lbl_ingelogdeGebruiker.Name = "lbl_ingelogdeGebruiker";
+            this.lbl_ingelogdeGebruiker.Size = new System.Drawing.Size(46, 17);
+            this.lbl_ingelogdeGebruiker.TabIndex = 3;
+            this.lbl_ingelogdeGebruiker.Text = "label1";
+            // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 403);
+            this.Controls.Add(this.lbl_ingelogdeGebruiker);
             this.Controls.Add(this.btn_gebruikersrechten);
             this.Controls.Add(this.btn_Blacklisting);
             this.Controls.Add(this.btn_poortscanner);
             this.Name = "StartMenu";
             this.Text = "StartMenu";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button btn_poortscanner;
         private System.Windows.Forms.Button btn_Blacklisting;
         private System.Windows.Forms.Button btn_gebruikersrechten;
+        private System.Windows.Forms.Label lbl_ingelogdeGebruiker;
     }
 }

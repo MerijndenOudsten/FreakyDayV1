@@ -12,10 +12,11 @@ namespace Network_Dashboard
 {
     public partial class Poortscanner : Form
     {
-
-        public Poortscanner()
+        Gebruiker IngelogdeGebruiker;
+        public Poortscanner(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
+            this.IngelogdeGebruiker = ingelogdeGebruiker;
             Poortscanning();
         }
         public void Poortscanning()
@@ -84,7 +85,7 @@ namespace Network_Dashboard
         private void btn_backtostartmenu_Click(object sender, EventArgs e)
         {
             this.Close();
-            StartMenu startmenu = new StartMenu();
+            StartMenu startmenu = new StartMenu(IngelogdeGebruiker);
             startmenu.Show();
         }
     }
