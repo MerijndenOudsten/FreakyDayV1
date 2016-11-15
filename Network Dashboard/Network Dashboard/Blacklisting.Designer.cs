@@ -50,9 +50,9 @@
             // 
             // btn_getalldevices
             // 
-            this.btn_getalldevices.Location = new System.Drawing.Point(124, 391);
+            this.btn_getalldevices.Location = new System.Drawing.Point(15, 386);
             this.btn_getalldevices.Name = "btn_getalldevices";
-            this.btn_getalldevices.Size = new System.Drawing.Size(102, 50);
+            this.btn_getalldevices.Size = new System.Drawing.Size(234, 82);
             this.btn_getalldevices.TabIndex = 1;
             this.btn_getalldevices.Text = "Startscan";
             this.btn_getalldevices.UseVisualStyleBackColor = true;
@@ -60,34 +60,34 @@
             // 
             // btn_addtoblacklist
             // 
-            this.btn_addtoblacklist.Location = new System.Drawing.Point(12, 457);
+            this.btn_addtoblacklist.Location = new System.Drawing.Point(255, 386);
             this.btn_addtoblacklist.Name = "btn_addtoblacklist";
-            this.btn_addtoblacklist.Size = new System.Drawing.Size(214, 82);
+            this.btn_addtoblacklist.Size = new System.Drawing.Size(234, 82);
             this.btn_addtoblacklist.TabIndex = 2;
             this.btn_addtoblacklist.Text = "Add to blacklist";
             this.btn_addtoblacklist.UseVisualStyleBackColor = true;
             // 
             // btn_removefromblacklist
             // 
-            this.btn_removefromblacklist.Location = new System.Drawing.Point(251, 457);
+            this.btn_removefromblacklist.Location = new System.Drawing.Point(255, 474);
             this.btn_removefromblacklist.Name = "btn_removefromblacklist";
-            this.btn_removefromblacklist.Size = new System.Drawing.Size(214, 82);
+            this.btn_removefromblacklist.Size = new System.Drawing.Size(234, 82);
             this.btn_removefromblacklist.TabIndex = 3;
             this.btn_removefromblacklist.Text = "Remove from blacklist";
             this.btn_removefromblacklist.UseVisualStyleBackColor = true;
             // 
             // tb_subnet
             // 
-            this.tb_subnet.Location = new System.Drawing.Point(124, 363);
+            this.tb_subnet.Location = new System.Drawing.Point(15, 358);
             this.tb_subnet.Name = "tb_subnet";
             this.tb_subnet.Size = new System.Drawing.Size(234, 22);
             this.tb_subnet.TabIndex = 4;
             // 
             // btn_stopscan
             // 
-            this.btn_stopscan.Location = new System.Drawing.Point(251, 391);
+            this.btn_stopscan.Location = new System.Drawing.Point(15, 474);
             this.btn_stopscan.Name = "btn_stopscan";
-            this.btn_stopscan.Size = new System.Drawing.Size(107, 50);
+            this.btn_stopscan.Size = new System.Drawing.Size(234, 82);
             this.btn_stopscan.TabIndex = 5;
             this.btn_stopscan.Text = "Stop scan";
             this.btn_stopscan.UseVisualStyleBackColor = true;

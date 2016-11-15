@@ -53,7 +53,7 @@ namespace Network_Dashboard
                             macadress = GetMacAddress(subnet + subnetn);
                             adress = IPAddress.Parse(subnet + subnetn);
                             host = Dns.GetHostEntry(adress);
-                            lb_shownetworkdevices.Items.Add(macadress + " " + host.HostName.ToString());
+                            lb_shownetworkdevices.Items.Add(macadress + " " + "Hostname = " + host.HostName.ToString());
                         }
                         catch
                         {
