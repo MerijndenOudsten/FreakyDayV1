@@ -26,5 +26,10 @@ namespace Network_Dashboard
             this.Inlognaam = inlognaam;
             this.Recht = recht;
         }
+
+        public override string ToString()
+        {
+            return Inlognaam + "," + Recht;
+        }
     }
 }

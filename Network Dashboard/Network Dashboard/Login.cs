@@ -24,28 +24,39 @@ namespace Network_Dashboard
 
         private void btn_inloggen_Click(object sender, EventArgs e)
         {
-
-            Gebruiker gebruiker = queries.InloggenGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
-
-            if (gebruiker == null && i <= 1)
+            try
             {
-                MessageBox.Show("Ingevoerde gebruikersnaam en wachtwoord komen niet overeen");
-                i++;
+                Gebruiker gebruiker = queries.InloggenGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
+
+                if (gebruiker == null && i <= 1)
+                {
+                    MessageBox.Show("Ingevoerde gebruikersnaam en wachtwoord komen niet overeen");
+                    i++;
+                }
+                else if (gebruiker == null && i >= 2)
+                {
+                    MessageBox.Show("U heeft " + (i + 1).ToString() + " keer verkeerd ingelogd, wilt u het wachtwoord wijzigen?");
+                    btn_wijzigwachtwoord.Enabled = true;
+                    btn_wijzigwachtwoord.Visible = true;
+                    i++;
+
+                }
+                else
+                {
+                    StartMenu startmenu = new StartMenu(gebruiker);
+                    startmenu.Show();
+                    this.Hide();
+
+                }
             }
-            else if (gebruiker == null && i >= 2)
+            catch(Exception ex)
             {
-                MessageBox.Show("U hebt " + (i + 1).ToString() + " keer verkeerd ingelogd, wilt u het wachtwoord wijzigen?");
-                btn_wijzigwachtwoord.Enabled = true;
-                btn_wijzigwachtwoord.Visible = true;
-                i++;
-
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Er is iets foutgegaan tijdens het inloggen. Check uw connectie met de database.");
             }
-            else
+            finally
             {
-                StartMenu startmenu = new StartMenu();
-                startmenu.Show();
-                this.Hide();
-
+                tb_wachtwoord.Clear();
             }
         }
 
@@ -56,11 +67,12 @@ namespace Network_Dashboard
             try
             {
                 queries.CreateGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
-                MessageBox.Show("Uw account is aangemaakt");
+                MessageBox.Show("Het account " + tb_gebruikersnaam.Text + " is aangemaakt.");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("gg");
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Het account is niet aangemaakt.");
             }
 
         }
@@ -71,11 +83,12 @@ namespace Network_Dashboard
             {
 
                 queries.WijzigWachtwoord(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
-                MessageBox.Show("Uw wachtwoord is gewijzigd");
+                MessageBox.Show("Het wachtwoord van " + tb_gebruikersnaam.Text + " is gewijzigd.");
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Uw wachtwoord voldoet niet aan de gestelde eisen.");
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Het ingevoerde wachtwoord voldoet niet aan de gestelde eisen.");
             }
         }
 
@@ -91,28 +104,27 @@ namespace Network_Dashboard
                     OracleCommand command = new OracleCommand("Select * FROM GEBRUIKER");
                     command.Connection = connection;
 
-                    OracleDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
+                    using (OracleDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0),
-                                reader.GetString(1), reader.GetString(2));
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0),
+                                    reader.GetString(1), reader.GetString(2));
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No rows found.");
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("No rows found.");
-                    }
-                    reader.Close();
-                    connection.Close();
+                    
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                Console.Write("Message");
-
+                Console.WriteLine(ex.Message);
             }
 
         }

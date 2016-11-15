@@ -12,15 +12,36 @@ namespace Network_Dashboard
 {
     public partial class StartMenu : Form
     {
-        public StartMenu()
+        Gebruiker IngelogdeGebruiker;
+        public StartMenu(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
+            this.IngelogdeGebruiker = ingelogdeGebruiker;
+            switch (ingelogdeGebruiker.Recht)
+            {
+                case "BEHEERDER":
+                    lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
+                    break;
+                case "STANDAARD":
+                    lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
+                    btn_Blacklisting.Enabled = false;
+                    break;
+                case "BEPERKT":
+                    lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
+                    btn_Blacklisting.Enabled = false;
+                    btn_poortscanner.Enabled = false;
+                    break;
+                default:
+                    lbl_ingelogdeGebruiker.Text = "U bent niet ingelogd als een gebruiker.";
+                    break;
+            }
+
         }
 
         private void btn_poortscanner_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Poortscanner poortscanner = new Poortscanner();
+            Poortscanner poortscanner = new Poortscanner(IngelogdeGebruiker);
             poortscanner.Show();
         }
 
@@ -34,7 +55,7 @@ namespace Network_Dashboard
         private void btn_gebruikersrechten_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Gebruikersrechten gebruikersrechten = new Gebruikersrechten();
+            Gebruikersrechten gebruikersrechten = new Gebruikersrechten(IngelogdeGebruiker);
             gebruikersrechten.Show();
         }
     }
