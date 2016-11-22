@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
 
 namespace Network_Dashboard
 {
@@ -85,6 +87,7 @@ namespace Network_Dashboard
                 processStartInfo.RedirectStandardOutput = true;
                 processStartInfo.Arguments = "-a " + ipAddress;
                 processStartInfo.UseShellExecute = false;
+                processStartInfo.CreateNoWindow = true;
                 process = Process.Start(processStartInfo);
 
                 int Counter = -1;
@@ -105,7 +108,7 @@ namespace Network_Dashboard
             catch (Exception e)
             {
 
-                Console.WriteLine("Failed because:" + e.ToString());
+                MessageBox.Show("Failed because:" + e.ToString());
             }
 
             return macAddress;
@@ -150,6 +153,11 @@ namespace Network_Dashboard
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void btn_addtoblacklist_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

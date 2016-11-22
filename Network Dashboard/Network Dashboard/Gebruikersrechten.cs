@@ -28,7 +28,6 @@ namespace Network_Dashboard
             InitializeComponent();
             this.IngelogdeGebruiker = ingelogdeGebruiker;
             UpdateGebruikers();
-            InitializeNetworkInterface();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -102,89 +101,12 @@ namespace Network_Dashboard
                 return;
 
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
-            foreach(NetworkInterface NI in interfaces)
+            foreach (NetworkInterface NI in interfaces)
             {
                 Console.WriteLine(" Bytes sent: {0}", NI.GetIPv4Statistics().BytesSent);
                 Console.WriteLine(" Bytes received: {0}", NI.GetIPv4Statistics().BytesReceived);
             }
 
-        }
-
-
-        private void InitializeNetworkInterface()
-        {
-            // Grab all local interfaces to this computer
-            nicArr = NetworkInterface.GetAllNetworkInterfaces();
-
-            // Add each interface name to the combo box
-            for (int i = 0; i < nicArr.Length; i++)
-            {
-                cb_NetworkInterfaces.Items.Add(nicArr[i].Name);
-            }
-
-            cb_NetworkInterfaces.SelectedIndex = 0;
-        }
-
-
-        private void InitializeTimer()
-        {
-            timer.Interval = (int)timerUpdate;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
-
-        private void StopTimer()
-        {
-            timer.Stop();
-        }
-
-        private void UpdateNetworkInterface()
-        {
-            try
-            {
-                // Grab NetworkInterface object that describes the current interface
-                NetworkInterface nic = nicArr[cb_NetworkInterfaces.SelectedIndex];
-
-                // Grab the stats for that interface
-                IPv4InterfaceStatistics interfaceStats = nic.GetIPv4Statistics();
-
-                // Calculate the speed of bytes going in and out
-                int bytesSentSpeed = (int)(interfaceStats.BytesSent - double.Parse(lbl_BytesSent.Text)) / 1024;
-                int bytesReceivedSpeed = (int)(interfaceStats.BytesReceived - double.Parse(lbl_BytesReceived.Text)) / 1024;
-
-                // Update the labels
-                //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
-                lbl_InternetSnelheid.Text = (nic.Speed / 10000000.0).ToString();
-                lbl_BytesReceived.Text = interfaceStats.BytesReceived.ToString();
-                lbl_BytesSent.Text = interfaceStats.BytesSent.ToString();
-                lbl_Upload.Text = (bytesSentSpeed * 8).ToString() + " Kb/s";
-                lbl_Download.Text = (bytesReceivedSpeed * 8).ToString() + " Kb/s";
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-        }
-
-        /// <summary>
-        /// The Timer event for each Tick (second) to update the UI
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void timer_Tick(object sender, EventArgs e)
-        {
-            UpdateNetworkInterface();
-        }
-
-        private void btn_TimerStart_Click(object sender, EventArgs e)
-        {
-            InitializeTimer();
-        }
-
-        private void btn_TimerStop_Click(object sender, EventArgs e)
-        {
-            StopTimer();
         }
     }
 }
