@@ -40,9 +40,11 @@ namespace Network_Dashboard
 
         private void btn_poortscanner_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Poortscanner poortscanner = new Poortscanner(IngelogdeGebruiker);
-            poortscanner.Show();
+
+                this.Hide();
+                Poortscanner poortscanner = new Poortscanner(IngelogdeGebruiker);
+                poortscanner.Show();
+
         }
 
         private void btn_Blacklisting_Click(object sender, EventArgs e)
@@ -57,6 +59,13 @@ namespace Network_Dashboard
             this.Hide();
             Gebruikersrechten gebruikersrechten = new Gebruikersrechten(IngelogdeGebruiker);
             gebruikersrechten.Show();
+        }
+
+        private void btn_datagebruik_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Datagebruik datagebruik = new Datagebruik(IngelogdeGebruiker);
+            datagebruik.Show();
         }
     }
 }

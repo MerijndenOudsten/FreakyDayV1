@@ -66,6 +66,7 @@
             this.btn_addtoblacklist.TabIndex = 2;
             this.btn_addtoblacklist.Text = "Add to blacklist";
             this.btn_addtoblacklist.UseVisualStyleBackColor = true;
+            this.btn_addtoblacklist.Click += new System.EventHandler(this.btn_addtoblacklist_Click);
             // 
             // btn_removefromblacklist
             // 

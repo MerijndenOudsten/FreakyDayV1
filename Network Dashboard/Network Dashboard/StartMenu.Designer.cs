@@ -32,6 +32,7 @@
             this.btn_Blacklisting = new System.Windows.Forms.Button();
             this.btn_gebruikersrechten = new System.Windows.Forms.Button();
             this.lbl_ingelogdeGebruiker = new System.Windows.Forms.Label();
+            this.btn_datagebruik = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_poortscanner
@@ -67,17 +68,28 @@
             // lbl_ingelogdeGebruiker
             // 
             this.lbl_ingelogdeGebruiker.AutoSize = true;
-            this.lbl_ingelogdeGebruiker.Location = new System.Drawing.Point(49, 311);
+            this.lbl_ingelogdeGebruiker.Location = new System.Drawing.Point(10, 360);
             this.lbl_ingelogdeGebruiker.Name = "lbl_ingelogdeGebruiker";
             this.lbl_ingelogdeGebruiker.Size = new System.Drawing.Size(46, 17);
             this.lbl_ingelogdeGebruiker.TabIndex = 3;
             this.lbl_ingelogdeGebruiker.Text = "label1";
+            // 
+            // btn_datagebruik
+            // 
+            this.btn_datagebruik.Location = new System.Drawing.Point(13, 274);
+            this.btn_datagebruik.Name = "btn_datagebruik";
+            this.btn_datagebruik.Size = new System.Drawing.Size(242, 65);
+            this.btn_datagebruik.TabIndex = 4;
+            this.btn_datagebruik.Text = "Datagebruik";
+            this.btn_datagebruik.UseVisualStyleBackColor = true;
+            this.btn_datagebruik.Click += new System.EventHandler(this.btn_datagebruik_Click);
             // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 403);
+            this.Controls.Add(this.btn_datagebruik);
             this.Controls.Add(this.lbl_ingelogdeGebruiker);
             this.Controls.Add(this.btn_gebruikersrechten);
             this.Controls.Add(this.btn_Blacklisting);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btn_Blacklisting;
         private System.Windows.Forms.Button btn_gebruikersrechten;
         private System.Windows.Forms.Label lbl_ingelogdeGebruiker;
+        private System.Windows.Forms.Button btn_datagebruik;
     }
 }

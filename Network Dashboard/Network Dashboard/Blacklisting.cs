@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
 
 namespace Network_Dashboard
 {
@@ -55,9 +57,8 @@ namespace Network_Dashboard
                             host = Dns.GetHostEntry(adress);
                             lb_shownetworkdevices.Items.Add(macadress + " " + "Hostname = " + host.HostName.ToString());
                         }
-                        catch (Exception ex)
+                        catch
                         {
-                            EventLogging.LogMessageToFile(ex.Message, this.Name);
                             lb_shownetworkdevices.Items.Add(subnet + subnetn + " " + "Hostname not found");
                         }
 
@@ -66,7 +67,7 @@ namespace Network_Dashboard
 
                 catch (Exception ex)
                 {
-                    EventLogging.LogMessageToFile(ex.Message, this.Name);
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Er is iets fout gegaan tijdens het pingen rond het netwerk.");
                 }
 
@@ -86,6 +87,7 @@ namespace Network_Dashboard
                 processStartInfo.RedirectStandardOutput = true;
                 processStartInfo.Arguments = "-a " + ipAddress;
                 processStartInfo.UseShellExecute = false;
+                processStartInfo.CreateNoWindow = true;
                 process = Process.Start(processStartInfo);
 
                 int Counter = -1;
@@ -103,11 +105,10 @@ namespace Network_Dashboard
                 process.WaitForExit();
                 macAddress = macAddress.Trim();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
 
-                EventLogging.LogMessageToFile(ex.Message, this.Name);
-
+                MessageBox.Show("Failed because:" + e.ToString());
             }
 
             return macAddress;
@@ -133,7 +134,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                EventLogging.LogMessageToFile(ex.Message, this.Name);
+                Console.WriteLine(ex.Message);
                 MessageBox.Show("Er is iets fout gegaan tijdens het starten van de Device scan.");
             }
         }
@@ -150,9 +151,13 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                EventLogging.LogMessageToFile(ex.Message, this.Name);
-
+                Console.WriteLine(ex.Message);
             }
+        }
+
+        private void btn_addtoblacklist_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

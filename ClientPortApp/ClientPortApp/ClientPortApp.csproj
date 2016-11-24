@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37ADA24F-C35E-455C-83F9-5AB98B287816}</ProjectGuid>
+    <ProjectGuid>{61B387D2-8272-4C87-A102-F7836B194EC9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Network_Dashboard</RootNamespace>
-    <AssemblyName>Network Dashboard</AssemblyName>
+    <RootNamespace>ClientPortApp</RootNamespace>
+    <AssemblyName>ClientPortApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -32,15 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Network_Dashboard.Program</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Oracle.ManagedDataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,64 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blacklist.cs" />
-    <Compile Include="Blacklisting.cs">
+    <Compile Include="ClientPort.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Blacklisting.Designer.cs">
-      <DependentUpon>Blacklisting.cs</DependentUpon>
+    <Compile Include="ClientPort.Designer.cs">
+      <DependentUpon>ClientPort.cs</DependentUpon>
     </Compile>
-    <Compile Include="Datagebruik.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Datagebruik.Designer.cs">
-      <DependentUpon>Datagebruik.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DbQueries.cs" />
-    <Compile Include="EventLogging.cs" />
-    <Compile Include="Gebruiker.cs" />
-    <Compile Include="Gebruikersrechten.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gebruikersrechten.Designer.cs">
-      <DependentUpon>Gebruikersrechten.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Poorten.cs" />
-    <Compile Include="Poortscanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Poortscanner.Designer.cs">
-      <DependentUpon>Poortscanner.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Portscan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StartMenu.Designer.cs">
-      <DependentUpon>StartMenu.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Blacklisting.resx">
-      <DependentUpon>Blacklisting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Datagebruik.resx">
-      <DependentUpon>Datagebruik.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gebruikersrechten.resx">
-      <DependentUpon>Gebruikersrechten.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Poortscanner.resx">
-      <DependentUpon>Poortscanner.cs</DependentUpon>
+    <EmbeddedResource Include="ClientPort.resx">
+      <DependentUpon>ClientPort.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,12 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StartMenu.resx">
-      <DependentUpon>StartMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,11 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\errorlog.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
