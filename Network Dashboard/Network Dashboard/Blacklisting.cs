@@ -55,8 +55,9 @@ namespace Network_Dashboard
                             host = Dns.GetHostEntry(adress);
                             lb_shownetworkdevices.Items.Add(macadress + " " + "Hostname = " + host.HostName.ToString());
                         }
-                        catch
+                        catch (Exception ex)
                         {
+                            EventLogging.LogMessageToFile(ex.Message, this.Name);
                             lb_shownetworkdevices.Items.Add(subnet + subnetn + " " + "Hostname not found");
                         }
 
@@ -65,7 +66,7 @@ namespace Network_Dashboard
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    EventLogging.LogMessageToFile(ex.Message, this.Name);
                     MessageBox.Show("Er is iets fout gegaan tijdens het pingen rond het netwerk.");
                 }
 
@@ -102,10 +103,11 @@ namespace Network_Dashboard
                 process.WaitForExit();
                 macAddress = macAddress.Trim();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
 
-                Console.WriteLine("Failed because:" + e.ToString());
+                EventLogging.LogMessageToFile(ex.Message, this.Name);
+
             }
 
             return macAddress;
@@ -131,7 +133,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message, this.Name);
                 MessageBox.Show("Er is iets fout gegaan tijdens het starten van de Device scan.");
             }
         }
@@ -148,7 +150,8 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message, this.Name);
+
             }
         }
     }

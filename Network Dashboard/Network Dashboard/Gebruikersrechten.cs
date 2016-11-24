@@ -89,6 +89,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
+                EventLogging.LogMessageToFile(ex.Message);
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Er is een fout opgetreden tijdens het veranderen van het recht.");
                 

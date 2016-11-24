@@ -68,5 +68,14 @@ namespace Network_Dashboard.Properties {
                 return ResourceManager.GetString("connString", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string errorlog {
+            get {
+                return ResourceManager.GetString("errorlog", resourceCulture);
+            }
+        }
     }
 }
