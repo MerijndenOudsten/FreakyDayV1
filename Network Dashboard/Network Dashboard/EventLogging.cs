@@ -12,7 +12,7 @@ namespace Network_Dashboard
     {
 
 
-        public static void LogMessageToFile(string msg, string klassenaam)
+        public static void LogMessageToFile(string msg)
         {
             System.IO.StreamWriter sw = System.IO.File.AppendText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\errorlog.txt");
             try

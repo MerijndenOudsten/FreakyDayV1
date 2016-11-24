@@ -64,7 +64,7 @@ namespace Network_Dashboard
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message);
                 MessageBox.Show("De nieuwe gebruikers zijn niet geladen. Check uw connectie met de database.");
             }
         }
@@ -89,7 +89,6 @@ namespace Network_Dashboard
             catch(Exception ex)
             {
                 EventLogging.LogMessageToFile(ex.Message);
-                Console.WriteLine(ex.Message);
                 MessageBox.Show("Er is een fout opgetreden tijdens het veranderen van het recht.");
                 
             }
