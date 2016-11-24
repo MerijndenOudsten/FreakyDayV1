@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using System.IO;
 
 
 namespace Network_Dashboard
@@ -51,7 +52,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message);
                 MessageBox.Show("Er is iets foutgegaan tijdens het inloggen. Check uw connectie met de database.");
             }
             finally
@@ -71,7 +72,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message);
                 MessageBox.Show("Het account is niet aangemaakt.");
             }
 
@@ -87,7 +88,7 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                EventLogging.LogMessageToFile(ex.Message);
                 MessageBox.Show("Het ingevoerde wachtwoord voldoet niet aan de gestelde eisen.");
             }
         }
@@ -124,7 +125,8 @@ namespace Network_Dashboard
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+
+                EventLogging.LogMessageToFile(ex.Message);
             }
 
         }

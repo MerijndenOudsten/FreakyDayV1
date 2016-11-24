@@ -120,4 +120,8 @@
   <data name="connString" xml:space="preserve">
     <value>Data Source=192.168.15.50:1521/fhictora; User Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="errorlog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\errorlog.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

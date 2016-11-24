@@ -52,7 +52,7 @@ namespace Network_Dashboard
                 }
                 catch(Exception ex)
                 {
-                   Console.WriteLine(ex.Message);
+                    EventLogging.LogMessageToFile(ex.Message);
                 }
 
             }

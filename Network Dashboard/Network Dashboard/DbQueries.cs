@@ -98,9 +98,9 @@ namespace Network_Dashboard
                 }
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
+                EventLogging.LogMessageToFile(ex.Message);
             }
             return false;
         }
