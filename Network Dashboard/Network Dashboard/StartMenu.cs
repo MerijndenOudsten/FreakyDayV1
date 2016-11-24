@@ -35,7 +35,6 @@ namespace Network_Dashboard
                     lbl_ingelogdeGebruiker.Text = "U bent niet ingelogd als een gebruiker.";
                     break;
             }
-
         }
 
         private void btn_poortscanner_Click(object sender, EventArgs e)

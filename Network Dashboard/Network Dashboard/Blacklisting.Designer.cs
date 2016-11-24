@@ -30,13 +30,14 @@
         {
             this.lb_shownetworkdevices = new System.Windows.Forms.ListBox();
             this.btn_getalldevices = new System.Windows.Forms.Button();
-            this.btn_addtoblacklist = new System.Windows.Forms.Button();
-            this.btn_removefromblacklist = new System.Windows.Forms.Button();
             this.tb_subnet = new System.Windows.Forms.TextBox();
             this.btn_stopscan = new System.Windows.Forms.Button();
             this.pgb_scanning = new System.Windows.Forms.ProgressBar();
             this.lbl_scan = new System.Windows.Forms.Label();
             this.lbl_ipadres = new System.Windows.Forms.Label();
+            this.cb_poortblokkeren = new System.Windows.Forms.ComboBox();
+            this.lbl_teblokkerenpoort = new System.Windows.Forms.Label();
+            this.btn_blokkeerpoort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_shownetworkdevices
@@ -57,25 +58,6 @@
             this.btn_getalldevices.Text = "Startscan";
             this.btn_getalldevices.UseVisualStyleBackColor = true;
             this.btn_getalldevices.Click += new System.EventHandler(this.btn_getalldevices_Click);
-            // 
-            // btn_addtoblacklist
-            // 
-            this.btn_addtoblacklist.Location = new System.Drawing.Point(255, 386);
-            this.btn_addtoblacklist.Name = "btn_addtoblacklist";
-            this.btn_addtoblacklist.Size = new System.Drawing.Size(234, 82);
-            this.btn_addtoblacklist.TabIndex = 2;
-            this.btn_addtoblacklist.Text = "Add to blacklist";
-            this.btn_addtoblacklist.UseVisualStyleBackColor = true;
-            this.btn_addtoblacklist.Click += new System.EventHandler(this.btn_addtoblacklist_Click);
-            // 
-            // btn_removefromblacklist
-            // 
-            this.btn_removefromblacklist.Location = new System.Drawing.Point(255, 474);
-            this.btn_removefromblacklist.Name = "btn_removefromblacklist";
-            this.btn_removefromblacklist.Size = new System.Drawing.Size(234, 82);
-            this.btn_removefromblacklist.TabIndex = 3;
-            this.btn_removefromblacklist.Text = "Remove from blacklist";
-            this.btn_removefromblacklist.UseVisualStyleBackColor = true;
             // 
             // tb_subnet
             // 
@@ -120,18 +102,45 @@
             this.lbl_ipadres.TabIndex = 8;
             this.lbl_ipadres.Text = "ipadres";
             // 
+            // cb_poortblokkeren
+            // 
+            this.cb_poortblokkeren.FormattingEnabled = true;
+            this.cb_poortblokkeren.Location = new System.Drawing.Point(255, 358);
+            this.cb_poortblokkeren.Name = "cb_poortblokkeren";
+            this.cb_poortblokkeren.Size = new System.Drawing.Size(181, 24);
+            this.cb_poortblokkeren.TabIndex = 9;
+            // 
+            // lbl_teblokkerenpoort
+            // 
+            this.lbl_teblokkerenpoort.AutoSize = true;
+            this.lbl_teblokkerenpoort.Location = new System.Drawing.Point(255, 335);
+            this.lbl_teblokkerenpoort.Name = "lbl_teblokkerenpoort";
+            this.lbl_teblokkerenpoort.Size = new System.Drawing.Size(132, 17);
+            this.lbl_teblokkerenpoort.TabIndex = 10;
+            this.lbl_teblokkerenpoort.Text = "Te blokkeren poort:";
+            // 
+            // btn_blokkeerpoort
+            // 
+            this.btn_blokkeerpoort.Location = new System.Drawing.Point(255, 389);
+            this.btn_blokkeerpoort.Name = "btn_blokkeerpoort";
+            this.btn_blokkeerpoort.Size = new System.Drawing.Size(181, 79);
+            this.btn_blokkeerpoort.TabIndex = 11;
+            this.btn_blokkeerpoort.Text = "Blokkeer poort";
+            this.btn_blokkeerpoort.UseVisualStyleBackColor = true;
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 607);
+            this.Controls.Add(this.btn_blokkeerpoort);
+            this.Controls.Add(this.lbl_teblokkerenpoort);
+            this.Controls.Add(this.cb_poortblokkeren);
             this.Controls.Add(this.lbl_ipadres);
             this.Controls.Add(this.lbl_scan);
             this.Controls.Add(this.pgb_scanning);
             this.Controls.Add(this.btn_stopscan);
             this.Controls.Add(this.tb_subnet);
-            this.Controls.Add(this.btn_removefromblacklist);
-            this.Controls.Add(this.btn_addtoblacklist);
             this.Controls.Add(this.btn_getalldevices);
             this.Controls.Add(this.lb_shownetworkdevices);
             this.Name = "Blacklisting";
@@ -145,12 +154,13 @@
 
         private System.Windows.Forms.ListBox lb_shownetworkdevices;
         private System.Windows.Forms.Button btn_getalldevices;
-        private System.Windows.Forms.Button btn_addtoblacklist;
-        private System.Windows.Forms.Button btn_removefromblacklist;
         private System.Windows.Forms.TextBox tb_subnet;
         private System.Windows.Forms.Button btn_stopscan;
         private System.Windows.Forms.ProgressBar pgb_scanning;
         private System.Windows.Forms.Label lbl_scan;
         private System.Windows.Forms.Label lbl_ipadres;
+        private System.Windows.Forms.ComboBox cb_poortblokkeren;
+        private System.Windows.Forms.Label lbl_teblokkerenpoort;
+        private System.Windows.Forms.Button btn_blokkeerpoort;
     }
 }

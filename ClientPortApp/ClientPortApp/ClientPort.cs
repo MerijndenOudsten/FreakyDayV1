@@ -24,11 +24,10 @@ namespace ClientPortApp
             string stdout, stderr;
             RunShellCommand(
      "netsh.exe",
-     String.Format("advfirewall firewall add rule name=\"{0}\" dir=out action=block protocol={1} remoteport={2} remoteip={3}",
+     String.Format("advfirewall firewall add rule name=\"{0}\" dir=out action=block protocol={1} remoteport={2}",
      "Block Port 80",
      "TCP",
-     80,
-     "192.168.1.1"),
+     80),
      out stdout,
      out stderr);
         }
