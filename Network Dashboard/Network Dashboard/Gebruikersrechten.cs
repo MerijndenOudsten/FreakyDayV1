@@ -14,20 +14,23 @@ namespace Network_Dashboard
     public partial class Gebruikersrechten : Form
     {
         DbQueries dbq = new DbQueries();
-
-        private const double timerUpdate = 1000;
-
-        private NetworkInterface[] nicArr;
-
-        private Timer timer = new Timer();
-
         Gebruiker IngelogdeGebruiker;
 
         public Gebruikersrechten(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
             this.IngelogdeGebruiker = ingelogdeGebruiker;
-            UpdateGebruikers();
+            if (ingelogdeGebruiker.Recht != "BEHEERDER")
+            {
+                btn_veranderRecht.Enabled = false;
+                lb_Gebruikers.Enabled = false;
+                cb_Recht.Enabled = false;
+            }
+            else
+            {
+                UpdateGebruikers();
+            }
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -75,14 +78,21 @@ namespace Network_Dashboard
             {
                 string[] gebruiker = lb_Gebruikers.SelectedItem.ToString().Split(',');
                 Gebruiker g = new Gebruiker(gebruiker[0], cb_Recht.SelectedItem.ToString());
-                if (gebruiker[1] != "BEHEERDER")
+                if (IngelogdeGebruiker.Recht == "BEHEERDER")
                 {
-                    dbq.WijzigRecht(g);
-                    MessageBox.Show("Het recht van het account '" + gebruiker[0] + "' is veranderd naar '" + cb_Recht.SelectedItem.ToString() + "'.");
+                    if (gebruiker[1] != "BEHEERDER")
+                    {
+                        dbq.WijzigRecht(g);
+                        MessageBox.Show("Het recht van het account '" + gebruiker[0] + "' is veranderd naar '" + cb_Recht.SelectedItem.ToString() + "'.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deze gebruiker is een Beheerder, u kunt het recht van deze gebruiker niet veranderen zonder toegang tot de database.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Deze gebruiker is een Beheerder, u kunt het recht van deze gebruiker niet veranderen zonder toegang tot de database.");
+                    MessageBox.Show("U heeft het recht: " + IngelogdeGebruiker.Recht + ", daarom bent u niet bevoegd om rechten te veranderen.",  "Geen bevoegdheid.");
                 }
                 
             }

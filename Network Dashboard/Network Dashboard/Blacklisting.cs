@@ -19,12 +19,31 @@ namespace Network_Dashboard
     public partial class Blacklisting : Form
     {
 
-        public Blacklisting()
+        private Gebruiker IngelogdeGebruiker;
+        public Blacklisting(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
             lbl_scan.Visible = false;
             lbl_ipadres.Visible = false;
+            this.IngelogdeGebruiker = ingelogdeGebruiker;
+            switch (ingelogdeGebruiker.Recht)
+            {
+                case "STANDAARD":
+                    btn_addtoblacklist.Enabled = false;
+                    btn_removefromblacklist.Enabled = false;
+                    break;
+                case "BEPERKT":
+                    btn_addtoblacklist.Enabled = false;
+                    btn_removefromblacklist.Enabled = false;
+                    btn_getalldevices.Enabled = false;
+                    btn_stopscan.Enabled = false;
+                    lb_shownetworkdevices.Enabled = false;
+                    tb_subnet.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
 
         }
 

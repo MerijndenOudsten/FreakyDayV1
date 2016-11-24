@@ -24,12 +24,15 @@ namespace Network_Dashboard
                     break;
                 case "STANDAARD":
                     lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
-                    btn_Blacklisting.Enabled = false;
+                    btn_gebruikersrechten.Enabled = false;
+                    
                     break;
                 case "BEPERKT":
                     lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
+                    btn_datagebruik.Enabled = false;
                     btn_Blacklisting.Enabled = false;
                     btn_poortscanner.Enabled = false;
+                    btn_gebruikersrechten.Enabled = false;
                     break;
                 default:
                     lbl_ingelogdeGebruiker.Text = "U bent niet ingelogd als een gebruiker.";
@@ -50,7 +53,7 @@ namespace Network_Dashboard
         private void btn_Blacklisting_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Blacklisting blacklisting = new Blacklisting();
+            Blacklisting blacklisting = new Blacklisting(this.IngelogdeGebruiker);
             blacklisting.Show();
         }
 

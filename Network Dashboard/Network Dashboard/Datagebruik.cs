@@ -26,12 +26,38 @@ namespace Network_Dashboard
         {
             InitializeComponent();
             this.IngelogdeGebruiker = IngelogdeGebruiker;
+            switch (IngelogdeGebruiker.Recht)
+            {
+                case "BEHEERDER":
+                    InitializeNetworkInterface();
+                    break;
+                case "STANDAARD":
+                    InitializeNetworkInterface();
+                    break;
+                case "BEPERKT":
+                    btn_TimerStart.Enabled = false;
+                    btn_TimerStop.Enabled = false;
+                    cb_NetworkInterfaces.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
             InitializeNetworkInterface();
         }
 
         private void btn_TimerStart_Click(object sender, EventArgs e)
         {
-            InitializeTimer();
+            switch (IngelogdeGebruiker.Recht)
+            {
+                case "BEHEERDER":
+                    InitializeTimer();
+                    break;
+                case "STANDAARD":
+                    InitializeTimer();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btn_TimerStop_Click(object sender, EventArgs e)
