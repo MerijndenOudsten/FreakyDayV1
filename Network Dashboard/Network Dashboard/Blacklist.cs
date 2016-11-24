@@ -14,7 +14,7 @@ namespace Network_Dashboard
 {
     class Blacklist
     {
-       
-        
-    }
 
+
+    }
+}
