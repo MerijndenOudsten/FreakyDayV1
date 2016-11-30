@@ -30,12 +30,10 @@ namespace Network_Dashboard
             switch (ingelogdeGebruiker.Recht)
             {
                 case "STANDAARD":
-                    btn_addtoblacklist.Enabled = false;
-                    btn_removefromblacklist.Enabled = false;
+                    btn_blokkeerpoort.Enabled = false;
                     break;
                 case "BEPERKT":
-                    btn_addtoblacklist.Enabled = false;
-                    btn_removefromblacklist.Enabled = false;
+                    btn_blokkeerpoort.Enabled = false;
                     btn_getalldevices.Enabled = false;
                     btn_stopscan.Enabled = false;
                     lb_shownetworkdevices.Enabled = false;
