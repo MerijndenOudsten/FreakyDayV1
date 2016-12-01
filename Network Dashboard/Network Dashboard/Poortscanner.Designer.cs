@@ -262,7 +262,7 @@
             this.Controls.Add(this.lbl_portopen);
             this.Controls.Add(this.cb_httpopen);
             this.Name = "Poortscanner";
-            this.Text = "Form1";
+            this.Text = "Poortscanner";
             ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
