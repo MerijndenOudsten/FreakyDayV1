@@ -38,13 +38,24 @@
             this.cb_poortblokkeren = new System.Windows.Forms.ComboBox();
             this.lbl_teblokkerenpoort = new System.Windows.Forms.Label();
             this.btn_blokkeerpoort = new System.Windows.Forms.Button();
+            this.lb_dgHelpStart = new System.Windows.Forms.Label();
+            this.pb_dgHelpStart = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_shownetworkdevices
             // 
             this.lb_shownetworkdevices.FormattingEnabled = true;
             this.lb_shownetworkdevices.ItemHeight = 16;
-            this.lb_shownetworkdevices.Location = new System.Drawing.Point(14, 22);
+            this.lb_shownetworkdevices.Location = new System.Drawing.Point(35, 22);
             this.lb_shownetworkdevices.Name = "lb_shownetworkdevices";
             this.lb_shownetworkdevices.Size = new System.Drawing.Size(771, 260);
             this.lb_shownetworkdevices.TabIndex = 0;
@@ -78,7 +89,7 @@
             // 
             // pgb_scanning
             // 
-            this.pgb_scanning.Location = new System.Drawing.Point(14, 294);
+            this.pgb_scanning.Location = new System.Drawing.Point(35, 294);
             this.pgb_scanning.Maximum = 255;
             this.pgb_scanning.Name = "pgb_scanning";
             this.pgb_scanning.Size = new System.Drawing.Size(771, 23);
@@ -87,7 +98,7 @@
             // lbl_scan
             // 
             this.lbl_scan.AutoSize = true;
-            this.lbl_scan.Location = new System.Drawing.Point(12, 320);
+            this.lbl_scan.Location = new System.Drawing.Point(33, 320);
             this.lbl_scan.Name = "lbl_scan";
             this.lbl_scan.Size = new System.Drawing.Size(79, 17);
             this.lbl_scan.TabIndex = 7;
@@ -96,7 +107,7 @@
             // lbl_ipadres
             // 
             this.lbl_ipadres.AutoSize = true;
-            this.lbl_ipadres.Location = new System.Drawing.Point(97, 320);
+            this.lbl_ipadres.Location = new System.Drawing.Point(118, 320);
             this.lbl_ipadres.Name = "lbl_ipadres";
             this.lbl_ipadres.Size = new System.Drawing.Size(55, 17);
             this.lbl_ipadres.TabIndex = 8;
@@ -105,7 +116,7 @@
             // cb_poortblokkeren
             // 
             this.cb_poortblokkeren.FormattingEnabled = true;
-            this.cb_poortblokkeren.Location = new System.Drawing.Point(255, 358);
+            this.cb_poortblokkeren.Location = new System.Drawing.Point(275, 356);
             this.cb_poortblokkeren.Name = "cb_poortblokkeren";
             this.cb_poortblokkeren.Size = new System.Drawing.Size(181, 24);
             this.cb_poortblokkeren.TabIndex = 9;
@@ -121,18 +132,82 @@
             // 
             // btn_blokkeerpoort
             // 
-            this.btn_blokkeerpoort.Location = new System.Drawing.Point(255, 389);
+            this.btn_blokkeerpoort.Location = new System.Drawing.Point(275, 388);
             this.btn_blokkeerpoort.Name = "btn_blokkeerpoort";
             this.btn_blokkeerpoort.Size = new System.Drawing.Size(181, 79);
             this.btn_blokkeerpoort.TabIndex = 11;
             this.btn_blokkeerpoort.Text = "Blokkeer poort";
             this.btn_blokkeerpoort.UseVisualStyleBackColor = true;
             // 
+            // lb_dgHelpStart
+            // 
+            this.lb_dgHelpStart.AutoSize = true;
+            this.lb_dgHelpStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpStart.Location = new System.Drawing.Point(561, 483);
+            this.lb_dgHelpStart.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpStart.Name = "lb_dgHelpStart";
+            this.lb_dgHelpStart.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpStart.TabIndex = 45;
+            this.lb_dgHelpStart.Text = "Advies";
+            this.lb_dgHelpStart.Visible = false;
+            // 
+            // pb_dgHelpStart
+            // 
+            this.pb_dgHelpStart.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpStart.Location = new System.Drawing.Point(15, 22);
+            this.pb_dgHelpStart.Name = "pb_dgHelpStart";
+            this.pb_dgHelpStart.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpStart.TabIndex = 44;
+            this.pb_dgHelpStart.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox1.Location = new System.Drawing.Point(462, 364);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox2.Location = new System.Drawing.Point(462, 451);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.TabIndex = 47;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox3.Location = new System.Drawing.Point(253, 451);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox3.TabIndex = 48;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox4.Location = new System.Drawing.Point(253, 539);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox4.TabIndex = 49;
+            this.pictureBox4.TabStop = false;
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 607);
+            this.ClientSize = new System.Drawing.Size(829, 607);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lb_dgHelpStart);
+            this.Controls.Add(this.pb_dgHelpStart);
             this.Controls.Add(this.btn_blokkeerpoort);
             this.Controls.Add(this.lbl_teblokkerenpoort);
             this.Controls.Add(this.cb_poortblokkeren);
@@ -145,6 +220,11 @@
             this.Controls.Add(this.lb_shownetworkdevices);
             this.Name = "Blacklisting";
             this.Text = "Blacklisting";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +242,11 @@
         private System.Windows.Forms.ComboBox cb_poortblokkeren;
         private System.Windows.Forms.Label lbl_teblokkerenpoort;
         private System.Windows.Forms.Button btn_blokkeerpoort;
+        private System.Windows.Forms.Label lb_dgHelpStart;
+        private System.Windows.Forms.PictureBox pb_dgHelpStart;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
