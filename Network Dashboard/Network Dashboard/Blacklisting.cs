@@ -178,8 +178,8 @@ namespace Network_Dashboard
         private void btn_blokkeerpoort_Click(object sender, EventArgs e)
         {
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
-
-            DB.VoegApparaatToe(macadres[0], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+            string[] halfadres = macadres[0].Split('=');
+            DB.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
         }
     }
 }

@@ -34,6 +34,12 @@
             this.cb_Recht = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Terug = new System.Windows.Forms.Button();
+            this.pb_dgHelpStart = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Gebruikers
@@ -59,7 +65,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 460);
+            this.label5.Location = new System.Drawing.Point(12, 463);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 17);
             this.label5.TabIndex = 7;
@@ -97,11 +103,44 @@
             this.btn_Terug.UseVisualStyleBackColor = true;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
+            // pb_dgHelpStart
+            // 
+            this.pb_dgHelpStart.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpStart.Location = new System.Drawing.Point(13, 449);
+            this.pb_dgHelpStart.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_dgHelpStart.Name = "pb_dgHelpStart";
+            this.pb_dgHelpStart.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpStart.TabIndex = 45;
+            this.pb_dgHelpStart.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox1.Location = new System.Drawing.Point(122, 483);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pictureBox2.Location = new System.Drawing.Point(277, 497);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.TabIndex = 47;
+            this.pictureBox2.TabStop = false;
+            // 
             // Gebruikersrechten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 559);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_dgHelpStart);
             this.Controls.Add(this.btn_Terug);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cb_Recht);
@@ -111,6 +150,9 @@
             this.Name = "Gebruikersrechten";
             this.Text = "Gebruikersrechten";
             this.Load += new System.EventHandler(this.Gebruikersrechten_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +166,8 @@
         private System.Windows.Forms.ComboBox cb_Recht;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Terug;
+        private System.Windows.Forms.PictureBox pb_dgHelpStart;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
