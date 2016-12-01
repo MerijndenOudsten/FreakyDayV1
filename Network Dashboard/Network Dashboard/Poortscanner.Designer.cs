@@ -46,6 +46,9 @@
             this.lbl_smtp25 = new System.Windows.Forms.Label();
             this.cb_smtpopen = new System.Windows.Forms.CheckBox();
             this.btn_backtostartmenu = new System.Windows.Forms.Button();
+            this.lb_dgHelpStart = new System.Windows.Forms.Label();
+            this.pb_dgHelpStart = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_httpopen
@@ -211,11 +214,35 @@
             this.btn_backtostartmenu.UseVisualStyleBackColor = true;
             this.btn_backtostartmenu.Click += new System.EventHandler(this.btn_backtostartmenu_Click);
             // 
+            // lb_dgHelpStart
+            // 
+            this.lb_dgHelpStart.AutoSize = true;
+            this.lb_dgHelpStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpStart.Location = new System.Drawing.Point(14, 260);
+            this.lb_dgHelpStart.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpStart.Name = "lb_dgHelpStart";
+            this.lb_dgHelpStart.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpStart.TabIndex = 45;
+            this.lb_dgHelpStart.Text = "Advies";
+            this.lb_dgHelpStart.Visible = false;
+            // 
+            // pb_dgHelpStart
+            // 
+            this.pb_dgHelpStart.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpStart.Location = new System.Drawing.Point(15, 193);
+            this.pb_dgHelpStart.Name = "pb_dgHelpStart";
+            this.pb_dgHelpStart.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpStart.TabIndex = 44;
+            this.pb_dgHelpStart.TabStop = false;
+            // 
             // Poortscanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 340);
+            this.Controls.Add(this.lb_dgHelpStart);
+            this.Controls.Add(this.pb_dgHelpStart);
             this.Controls.Add(this.btn_backtostartmenu);
             this.Controls.Add(this.cb_smtpclosed);
             this.Controls.Add(this.lbl_smtp25);
@@ -236,6 +263,7 @@
             this.Controls.Add(this.cb_httpopen);
             this.Name = "Poortscanner";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,6 +288,8 @@
         private System.Windows.Forms.Label lbl_smtp25;
         private System.Windows.Forms.CheckBox cb_smtpopen;
         private System.Windows.Forms.Button btn_backtostartmenu;
+        private System.Windows.Forms.Label lb_dgHelpStart;
+        private System.Windows.Forms.PictureBox pb_dgHelpStart;
     }
 }
 
