@@ -17,6 +17,17 @@ namespace Network_Dashboard
         {
             InitializeComponent();
             this.IngelogdeGebruiker = ingelogdeGebruiker;
+            switch (ingelogdeGebruiker.Recht)
+            {
+                case "STANDAARD":
+                    Poortscanning();
+                    break;
+                case "BEHEERDER":
+                    Poortscanning();
+                    break;
+                default:
+                    break;
+            }
             Poortscanning();
         }
         public void Poortscanning()

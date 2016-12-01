@@ -44,6 +44,24 @@
             this.btn_TimerStart = new System.Windows.Forms.Button();
             this.cb_NetworkInterfaces = new System.Windows.Forms.ComboBox();
             this.btn_Terug = new System.Windows.Forms.Button();
+            this.pb_dgHelpStart = new System.Windows.Forms.PictureBox();
+            this.pb_dgHelpStop = new System.Windows.Forms.PictureBox();
+            this.pb_dgHelpUpload = new System.Windows.Forms.PictureBox();
+            this.pb_dgHelpDownload = new System.Windows.Forms.PictureBox();
+            this.pb_dgHelpCombo = new System.Windows.Forms.PictureBox();
+            this.pb_dgHelpSnelheid = new System.Windows.Forms.PictureBox();
+            this.lb_dgHelpStart = new System.Windows.Forms.Label();
+            this.lb_dgHelpStop = new System.Windows.Forms.Label();
+            this.lb_dgHelpCombo = new System.Windows.Forms.Label();
+            this.lb_dgHelpSnelheid = new System.Windows.Forms.Label();
+            this.lb_dgHelpUpload = new System.Windows.Forms.Label();
+            this.lb_dgHelpDownload = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpUpload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpDownload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpCombo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpSnelheid)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -166,7 +184,7 @@
             // 
             // btn_TimerStart
             // 
-            this.btn_TimerStart.Location = new System.Drawing.Point(17, 62);
+            this.btn_TimerStart.Location = new System.Drawing.Point(13, 62);
             this.btn_TimerStart.Name = "btn_TimerStart";
             this.btn_TimerStart.Size = new System.Drawing.Size(75, 30);
             this.btn_TimerStart.TabIndex = 34;
@@ -192,11 +210,161 @@
             this.btn_Terug.UseVisualStyleBackColor = true;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
+            // pb_dgHelpStart
+            // 
+            this.pb_dgHelpStart.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpStart.Location = new System.Drawing.Point(13, 91);
+            this.pb_dgHelpStart.Name = "pb_dgHelpStart";
+            this.pb_dgHelpStart.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpStart.TabIndex = 37;
+            this.pb_dgHelpStart.TabStop = false;
+            this.pb_dgHelpStart.Click += new System.EventHandler(this.pb_dgHelpStart_Click);
+            // 
+            // pb_dgHelpStop
+            // 
+            this.pb_dgHelpStop.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpStop.Location = new System.Drawing.Point(98, 91);
+            this.pb_dgHelpStop.Name = "pb_dgHelpStop";
+            this.pb_dgHelpStop.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpStop.TabIndex = 38;
+            this.pb_dgHelpStop.TabStop = false;
+            this.pb_dgHelpStop.Click += new System.EventHandler(this.pb_dgHelpStop_Click);
+            // 
+            // pb_dgHelpUpload
+            // 
+            this.pb_dgHelpUpload.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpUpload.Location = new System.Drawing.Point(226, 91);
+            this.pb_dgHelpUpload.Name = "pb_dgHelpUpload";
+            this.pb_dgHelpUpload.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpUpload.TabIndex = 39;
+            this.pb_dgHelpUpload.TabStop = false;
+            this.pb_dgHelpUpload.Click += new System.EventHandler(this.pb_dgHelpUpload_Click);
+            // 
+            // pb_dgHelpDownload
+            // 
+            this.pb_dgHelpDownload.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpDownload.Location = new System.Drawing.Point(226, 159);
+            this.pb_dgHelpDownload.Name = "pb_dgHelpDownload";
+            this.pb_dgHelpDownload.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpDownload.TabIndex = 40;
+            this.pb_dgHelpDownload.TabStop = false;
+            this.pb_dgHelpDownload.Click += new System.EventHandler(this.pb_dgHelpDownload_Click);
+            // 
+            // pb_dgHelpCombo
+            // 
+            this.pb_dgHelpCombo.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpCombo.Location = new System.Drawing.Point(13, 40);
+            this.pb_dgHelpCombo.Name = "pb_dgHelpCombo";
+            this.pb_dgHelpCombo.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpCombo.TabIndex = 41;
+            this.pb_dgHelpCombo.TabStop = false;
+            this.pb_dgHelpCombo.Click += new System.EventHandler(this.pb_dgHelpCombo_Click);
+            // 
+            // pb_dgHelpSnelheid
+            // 
+            this.pb_dgHelpSnelheid.Image = global::Network_Dashboard.Properties.Resources.help;
+            this.pb_dgHelpSnelheid.Location = new System.Drawing.Point(350, 14);
+            this.pb_dgHelpSnelheid.Name = "pb_dgHelpSnelheid";
+            this.pb_dgHelpSnelheid.Size = new System.Drawing.Size(16, 16);
+            this.pb_dgHelpSnelheid.TabIndex = 42;
+            this.pb_dgHelpSnelheid.TabStop = false;
+            this.pb_dgHelpSnelheid.Click += new System.EventHandler(this.pb_dgHelpSnelheid_Click);
+            // 
+            // lb_dgHelpStart
+            // 
+            this.lb_dgHelpStart.AutoSize = true;
+            this.lb_dgHelpStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpStart.Location = new System.Drawing.Point(12, 158);
+            this.lb_dgHelpStart.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpStart.Name = "lb_dgHelpStart";
+            this.lb_dgHelpStart.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpStart.TabIndex = 43;
+            this.lb_dgHelpStart.Text = "Advies";
+            this.lb_dgHelpStart.Visible = false;
+            // 
+            // lb_dgHelpStop
+            // 
+            this.lb_dgHelpStop.AutoSize = true;
+            this.lb_dgHelpStop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpStop.Location = new System.Drawing.Point(68, 158);
+            this.lb_dgHelpStop.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpStop.Name = "lb_dgHelpStop";
+            this.lb_dgHelpStop.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpStop.TabIndex = 44;
+            this.lb_dgHelpStop.Text = "Advies";
+            this.lb_dgHelpStop.Visible = false;
+            // 
+            // lb_dgHelpCombo
+            // 
+            this.lb_dgHelpCombo.AutoSize = true;
+            this.lb_dgHelpCombo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpCombo.Location = new System.Drawing.Point(127, 158);
+            this.lb_dgHelpCombo.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpCombo.Name = "lb_dgHelpCombo";
+            this.lb_dgHelpCombo.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpCombo.TabIndex = 45;
+            this.lb_dgHelpCombo.Text = "Advies";
+            this.lb_dgHelpCombo.Visible = false;
+            // 
+            // lb_dgHelpSnelheid
+            // 
+            this.lb_dgHelpSnelheid.AutoSize = true;
+            this.lb_dgHelpSnelheid.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpSnelheid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpSnelheid.Location = new System.Drawing.Point(127, 186);
+            this.lb_dgHelpSnelheid.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpSnelheid.Name = "lb_dgHelpSnelheid";
+            this.lb_dgHelpSnelheid.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpSnelheid.TabIndex = 46;
+            this.lb_dgHelpSnelheid.Text = "Advies";
+            this.lb_dgHelpSnelheid.Visible = false;
+            // 
+            // lb_dgHelpUpload
+            // 
+            this.lb_dgHelpUpload.AutoSize = true;
+            this.lb_dgHelpUpload.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpUpload.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpUpload.Location = new System.Drawing.Point(127, 214);
+            this.lb_dgHelpUpload.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpUpload.Name = "lb_dgHelpUpload";
+            this.lb_dgHelpUpload.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpUpload.TabIndex = 47;
+            this.lb_dgHelpUpload.Text = "Advies";
+            this.lb_dgHelpUpload.Visible = false;
+            // 
+            // lb_dgHelpDownload
+            // 
+            this.lb_dgHelpDownload.AutoSize = true;
+            this.lb_dgHelpDownload.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_dgHelpDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dgHelpDownload.Location = new System.Drawing.Point(179, 214);
+            this.lb_dgHelpDownload.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_dgHelpDownload.Name = "lb_dgHelpDownload";
+            this.lb_dgHelpDownload.Size = new System.Drawing.Size(50, 17);
+            this.lb_dgHelpDownload.TabIndex = 48;
+            this.lb_dgHelpDownload.Text = "Advies";
+            this.lb_dgHelpDownload.Visible = false;
+            // 
             // Datagebruik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 243);
+            this.Controls.Add(this.lb_dgHelpDownload);
+            this.Controls.Add(this.lb_dgHelpUpload);
+            this.Controls.Add(this.lb_dgHelpSnelheid);
+            this.Controls.Add(this.lb_dgHelpCombo);
+            this.Controls.Add(this.lb_dgHelpStop);
+            this.Controls.Add(this.lb_dgHelpStart);
+            this.Controls.Add(this.pb_dgHelpSnelheid);
+            this.Controls.Add(this.pb_dgHelpCombo);
+            this.Controls.Add(this.pb_dgHelpDownload);
+            this.Controls.Add(this.pb_dgHelpUpload);
+            this.Controls.Add(this.pb_dgHelpStop);
+            this.Controls.Add(this.pb_dgHelpStart);
             this.Controls.Add(this.btn_Terug);
             this.Controls.Add(this.btn_TimerStop);
             this.Controls.Add(this.btn_TimerStart);
@@ -215,6 +383,12 @@
             this.Controls.Add(this.label1);
             this.Name = "Datagebruik";
             this.Text = "Datagebruik";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpUpload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpDownload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpCombo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpSnelheid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +412,17 @@
         private System.Windows.Forms.Button btn_TimerStart;
         private System.Windows.Forms.ComboBox cb_NetworkInterfaces;
         private System.Windows.Forms.Button btn_Terug;
+        private System.Windows.Forms.PictureBox pb_dgHelpStart;
+        private System.Windows.Forms.PictureBox pb_dgHelpStop;
+        private System.Windows.Forms.PictureBox pb_dgHelpUpload;
+        private System.Windows.Forms.PictureBox pb_dgHelpDownload;
+        private System.Windows.Forms.PictureBox pb_dgHelpCombo;
+        private System.Windows.Forms.PictureBox pb_dgHelpSnelheid;
+        private System.Windows.Forms.Label lb_dgHelpStart;
+        private System.Windows.Forms.Label lb_dgHelpStop;
+        private System.Windows.Forms.Label lb_dgHelpCombo;
+        private System.Windows.Forms.Label lb_dgHelpSnelheid;
+        private System.Windows.Forms.Label lb_dgHelpUpload;
+        private System.Windows.Forms.Label lb_dgHelpDownload;
     }
 }

@@ -20,7 +20,7 @@ namespace Network_Dashboard
         public Login()
         {
             InitializeComponent();
-
+            this.AcceptButton = btn_inloggen;
         }
 
         private void btn_inloggen_Click(object sender, EventArgs e)

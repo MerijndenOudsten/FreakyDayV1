@@ -24,6 +24,21 @@ namespace Network_Dashboard
             }
            
         }
+
+
+        public void CreateDataGebruik(string gebruikersnaam, string datum, int uploadGebruik, int downloadGebruik)
+        {
+
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("INSERT INTO DATAGEBRUIK (gebruikersnaam, datum, upload, download) VALUES ('" + gebruikersnaam + "', '" + datum + "', '" + uploadGebruik + "', '" + downloadGebruik + "')", connection);
+                cmd.ExecuteNonQuery();
+
+            }
+
+        }
+
         public Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
         {
             Gebruiker gebruiker = null;
