@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advies.cs" />
     <Compile Include="Blacklist.cs" />
     <Compile Include="Blacklisting.cs">
       <SubType>Form</SubType>

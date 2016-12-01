@@ -21,7 +21,16 @@ namespace Network_Dashboard
 
         private Timer timer = new Timer();
 
+        private bool start = false, stop = false, combo = false, snelheid = false, upload = false, download = false;
+
+        public int GebruikteUpload { get; set; }
+
+        public int GebruikteDownload { get; set; }
+
         Gebruiker IngelogdeGebruiker;
+
+        Advies advies;
+
         public Datagebruik(Gebruiker IngelogdeGebruiker)
         {
             InitializeComponent();
@@ -86,6 +95,115 @@ namespace Network_Dashboard
         }
 
 
+        #region DataGebruk picturebox.click help
+        private void pb_dgHelpStop_Click(object sender, EventArgs e)
+        {
+            switch (this.stop)
+            {
+                case false:
+                    lb_dgHelpStop.Location = new Point(pb_dgHelpStop.Location.X, (pb_dgHelpStop.Location.Y + 16));
+                    lb_dgHelpStop.Visible = true;
+                    advies = new Advies("dgHelpStop");
+                    lb_dgHelpStop.Text = advies.GetAdvies();
+                    this.stop = true;
+                    break;
+                case true:
+                    lb_dgHelpStop.Visible = false;
+                    this.stop = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
+
+        private void pb_dgHelpCombo_Click(object sender, EventArgs e)
+        {
+            switch (this.combo)
+            {
+                case false:
+                    lb_dgHelpCombo.Location = new Point(pb_dgHelpCombo.Location.X, (pb_dgHelpCombo.Location.Y + 16));
+                    lb_dgHelpCombo.Visible = true;
+                    advies = new Advies("dgHelpCombo");
+                    lb_dgHelpCombo.Text = advies.GetAdvies();
+                    this.combo = true;
+                    break;
+                case true:
+                    lb_dgHelpCombo.Visible = false;
+                    this.combo = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
+
+        private void pb_dgHelpSnelheid_Click(object sender, EventArgs e)
+        {
+            switch (this.snelheid)
+            {
+                case false:
+                    lb_dgHelpSnelheid.Location = new Point(pb_dgHelpSnelheid.Location.X, (pb_dgHelpSnelheid.Location.Y + 16));
+                    lb_dgHelpSnelheid.Visible = true;
+                    advies = new Advies("dgHelpSnelheid");
+                    lb_dgHelpSnelheid.Text = advies.GetAdvies();
+                    this.snelheid = true;
+                    break;
+                case true:
+                    lb_dgHelpSnelheid.Visible = false;
+                    this.snelheid = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
+
+        private void pb_dgHelpUpload_Click(object sender, EventArgs e)
+        {
+            switch (this.upload)
+            {
+                case false:
+                    lb_dgHelpUpload.Location = new Point(pb_dgHelpUpload.Location.X, (pb_dgHelpUpload.Location.Y + 16));
+                    lb_dgHelpUpload.Visible = true;
+                    advies = new Advies("dgHelpUpload");
+                    lb_dgHelpUpload.Text = advies.GetAdvies();
+                    this.upload = true;
+                    break;
+                case true:
+                    lb_dgHelpUpload.Visible = false;
+                    this.upload = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
+
+        private void pb_dgHelpDownload_Click(object sender, EventArgs e)
+        {
+            switch (this.download)
+            {
+                case false:
+                    lb_dgHelpDownload.Location = new Point(pb_dgHelpDownload.Location.X, (pb_dgHelpDownload.Location.Y + 16));
+                    lb_dgHelpDownload.Visible = true;
+                    advies = new Advies("dgHelpDownload");
+                    lb_dgHelpDownload.Text = advies.GetAdvies();
+                    this.download = true;
+                    break;
+                case true:
+                    lb_dgHelpDownload.Visible = false;
+                    this.download = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
+        #endregion
+
+
+
         private void InitializeTimer()
         {
             timer.Interval = (int)timerUpdate;
@@ -112,6 +230,18 @@ namespace Network_Dashboard
                 int bytesSentSpeed = (int)(interfaceStats.BytesSent - double.Parse(lbl_BytesSent.Text)) / 1024;
                 int bytesReceivedSpeed = (int)(interfaceStats.BytesReceived - double.Parse(lbl_BytesReceived.Text)) / 1024;
 
+                if(bytesSentSpeed > 0)
+                {
+                    this.GebruikteUpload = this.GebruikteUpload + bytesSentSpeed;
+                }
+
+                if(bytesReceivedSpeed > 0)
+                {
+                    this.GebruikteDownload = this.GebruikteDownload + bytesReceivedSpeed;
+                }
+
+
+
                 // Update the labels
                 //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
                 lbl_InternetSnelheid.Text = (nic.Speed / 10000000.0).ToString();
@@ -137,5 +267,25 @@ namespace Network_Dashboard
             UpdateNetworkInterface();
         }
 
+        private void pb_dgHelpStart_Click(object sender, EventArgs e)
+        {
+            switch(this.start)
+            {
+                case false:
+                    lb_dgHelpStart.Location = new Point(pb_dgHelpStart.Location.X, (pb_dgHelpStart.Location.Y + 16));
+                    lb_dgHelpStart.Visible = true;
+                    advies = new Advies("dgHelpStart");
+                    lb_dgHelpStart.Text = advies.GetAdvies();
+                    this.start = true;
+                    break;
+                case true:
+                    lb_dgHelpStart.Visible = false;
+                    this.start = false;
+                    break;
+                default:
+                    MessageBox.Show("Er is iets foutgegaan met het advies.");
+                    break;
+            }
+        }
     }
 }
