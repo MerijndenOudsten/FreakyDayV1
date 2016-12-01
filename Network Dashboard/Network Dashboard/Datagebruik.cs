@@ -213,7 +213,15 @@ namespace Network_Dashboard
 
         private void StopTimer()
         {
-            timer.Stop();
+            try 
+            {
+                timer.Stop();
+                dbq.CreateDataGebruik(this.IngelogdeGebruiker.Inlognaam, System.DateTime.Now.ToString(), this.GebruikteUpload, this.GebruikteDownload);
+            }
+            catch (Exception ex)
+            {
+                EventLogging.LogMessageToFile(ex.Message);
+            }
         }
 
         private void UpdateNetworkInterface()
