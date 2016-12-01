@@ -18,6 +18,9 @@ namespace Network_Dashboard
 {
     public partial class Blacklisting : Form
     {
+        DbQueries DB = new DbQueries();
+        
+        
 
         public Blacklisting()
         {
@@ -38,7 +41,7 @@ namespace Network_Dashboard
             IPHostEntry host;
             string macadress;
 
-            for (int i = 167; i < 255; i++)
+            for (int i = 1; i < 255; i++)
             {
 
                 try
@@ -55,7 +58,7 @@ namespace Network_Dashboard
                             macadress = GetMacAddress(subnet + subnetn);
                             adress = IPAddress.Parse(subnet + subnetn);
                             host = Dns.GetHostEntry(adress);
-                            lb_shownetworkdevices.Items.Add(macadress + " " + "Hostname = " + host.HostName.ToString());
+                            lb_shownetworkdevices.Items.Add(macadress + "," + host.HostName.ToString());
                         }
                         catch (Exception ex)
                         {
@@ -155,9 +158,11 @@ namespace Network_Dashboard
             }
         }
 
-        private void btn_addtoblacklist_Click(object sender, EventArgs e)
+        private void btn_blokkeerpoort_Click(object sender, EventArgs e)
         {
-            
+            string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
+
+            DB.VoegApparaatToe(macadres[0], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
         }
     }
 }

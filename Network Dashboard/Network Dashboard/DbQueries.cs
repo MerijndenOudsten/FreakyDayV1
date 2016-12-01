@@ -104,5 +104,22 @@ namespace Network_Dashboard
             }
             return false;
         }
+        public void VoegApparaatToe(string macadres, string hostname, int blockedport)
+        {
+            try
+            {
+
+                using (OracleConnection connection = new OracleConnection(connString))
+                {
+                    connection.Open();
+                    OracleCommand cmd = new OracleCommand("INSERT INTO Apparaat (MAC, NAAM, PORT) VALUES ('" + macadres + "', '" + hostname + "', '" + blockedport + "')", connection);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                EventLogging.LogMessageToFile(ex.Message);
+            }
+        }
     }
 }

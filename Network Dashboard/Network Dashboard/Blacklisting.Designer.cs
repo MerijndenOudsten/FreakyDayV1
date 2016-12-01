@@ -43,17 +43,18 @@
             // lb_shownetworkdevices
             // 
             this.lb_shownetworkdevices.FormattingEnabled = true;
-            this.lb_shownetworkdevices.ItemHeight = 16;
-            this.lb_shownetworkdevices.Location = new System.Drawing.Point(14, 22);
+            this.lb_shownetworkdevices.Location = new System.Drawing.Point(10, 18);
+            this.lb_shownetworkdevices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lb_shownetworkdevices.Name = "lb_shownetworkdevices";
-            this.lb_shownetworkdevices.Size = new System.Drawing.Size(771, 260);
+            this.lb_shownetworkdevices.Size = new System.Drawing.Size(579, 212);
             this.lb_shownetworkdevices.TabIndex = 0;
             // 
             // btn_getalldevices
             // 
-            this.btn_getalldevices.Location = new System.Drawing.Point(15, 386);
+            this.btn_getalldevices.Location = new System.Drawing.Point(11, 314);
+            this.btn_getalldevices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_getalldevices.Name = "btn_getalldevices";
-            this.btn_getalldevices.Size = new System.Drawing.Size(234, 82);
+            this.btn_getalldevices.Size = new System.Drawing.Size(176, 67);
             this.btn_getalldevices.TabIndex = 1;
             this.btn_getalldevices.Text = "Startscan";
             this.btn_getalldevices.UseVisualStyleBackColor = true;
@@ -61,16 +62,18 @@
             // 
             // tb_subnet
             // 
-            this.tb_subnet.Location = new System.Drawing.Point(15, 358);
+            this.tb_subnet.Location = new System.Drawing.Point(11, 291);
+            this.tb_subnet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_subnet.Name = "tb_subnet";
-            this.tb_subnet.Size = new System.Drawing.Size(234, 22);
+            this.tb_subnet.Size = new System.Drawing.Size(176, 20);
             this.tb_subnet.TabIndex = 4;
             // 
             // btn_stopscan
             // 
-            this.btn_stopscan.Location = new System.Drawing.Point(15, 474);
+            this.btn_stopscan.Location = new System.Drawing.Point(11, 385);
+            this.btn_stopscan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_stopscan.Name = "btn_stopscan";
-            this.btn_stopscan.Size = new System.Drawing.Size(234, 82);
+            this.btn_stopscan.Size = new System.Drawing.Size(176, 67);
             this.btn_stopscan.TabIndex = 5;
             this.btn_stopscan.Text = "Stop scan";
             this.btn_stopscan.UseVisualStyleBackColor = true;
@@ -78,61 +81,74 @@
             // 
             // pgb_scanning
             // 
-            this.pgb_scanning.Location = new System.Drawing.Point(14, 294);
+            this.pgb_scanning.Location = new System.Drawing.Point(10, 239);
+            this.pgb_scanning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pgb_scanning.Maximum = 255;
             this.pgb_scanning.Name = "pgb_scanning";
-            this.pgb_scanning.Size = new System.Drawing.Size(771, 23);
+            this.pgb_scanning.Size = new System.Drawing.Size(578, 19);
             this.pgb_scanning.TabIndex = 6;
             // 
             // lbl_scan
             // 
             this.lbl_scan.AutoSize = true;
-            this.lbl_scan.Location = new System.Drawing.Point(12, 320);
+            this.lbl_scan.Location = new System.Drawing.Point(9, 260);
+            this.lbl_scan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_scan.Name = "lbl_scan";
-            this.lbl_scan.Size = new System.Drawing.Size(79, 17);
+            this.lbl_scan.Size = new System.Drawing.Size(61, 13);
             this.lbl_scan.TabIndex = 7;
             this.lbl_scan.Text = "Scanning...";
             // 
             // lbl_ipadres
             // 
             this.lbl_ipadres.AutoSize = true;
-            this.lbl_ipadres.Location = new System.Drawing.Point(97, 320);
+            this.lbl_ipadres.Location = new System.Drawing.Point(73, 260);
+            this.lbl_ipadres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ipadres.Name = "lbl_ipadres";
-            this.lbl_ipadres.Size = new System.Drawing.Size(55, 17);
+            this.lbl_ipadres.Size = new System.Drawing.Size(41, 13);
             this.lbl_ipadres.TabIndex = 8;
             this.lbl_ipadres.Text = "ipadres";
             // 
             // cb_poortblokkeren
             // 
             this.cb_poortblokkeren.FormattingEnabled = true;
-            this.cb_poortblokkeren.Location = new System.Drawing.Point(255, 358);
+            this.cb_poortblokkeren.Items.AddRange(new object[] {
+            "21",
+            "23",
+            "80",
+            "443",
+            "8080"});
+            this.cb_poortblokkeren.Location = new System.Drawing.Point(191, 291);
+            this.cb_poortblokkeren.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_poortblokkeren.Name = "cb_poortblokkeren";
-            this.cb_poortblokkeren.Size = new System.Drawing.Size(181, 24);
+            this.cb_poortblokkeren.Size = new System.Drawing.Size(137, 21);
             this.cb_poortblokkeren.TabIndex = 9;
             // 
             // lbl_teblokkerenpoort
             // 
             this.lbl_teblokkerenpoort.AutoSize = true;
-            this.lbl_teblokkerenpoort.Location = new System.Drawing.Point(255, 335);
+            this.lbl_teblokkerenpoort.Location = new System.Drawing.Point(191, 272);
+            this.lbl_teblokkerenpoort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_teblokkerenpoort.Name = "lbl_teblokkerenpoort";
-            this.lbl_teblokkerenpoort.Size = new System.Drawing.Size(132, 17);
+            this.lbl_teblokkerenpoort.Size = new System.Drawing.Size(100, 13);
             this.lbl_teblokkerenpoort.TabIndex = 10;
             this.lbl_teblokkerenpoort.Text = "Te blokkeren poort:";
             // 
             // btn_blokkeerpoort
             // 
-            this.btn_blokkeerpoort.Location = new System.Drawing.Point(255, 389);
+            this.btn_blokkeerpoort.Location = new System.Drawing.Point(191, 316);
+            this.btn_blokkeerpoort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_blokkeerpoort.Name = "btn_blokkeerpoort";
-            this.btn_blokkeerpoort.Size = new System.Drawing.Size(181, 79);
+            this.btn_blokkeerpoort.Size = new System.Drawing.Size(136, 64);
             this.btn_blokkeerpoort.TabIndex = 11;
             this.btn_blokkeerpoort.Text = "Blokkeer poort";
             this.btn_blokkeerpoort.UseVisualStyleBackColor = true;
+            this.btn_blokkeerpoort.Click += new System.EventHandler(this.btn_blokkeerpoort_Click);
             // 
             // Blacklisting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 607);
+            this.ClientSize = new System.Drawing.Size(598, 493);
             this.Controls.Add(this.btn_blokkeerpoort);
             this.Controls.Add(this.lbl_teblokkerenpoort);
             this.Controls.Add(this.cb_poortblokkeren);
@@ -143,8 +159,8 @@
             this.Controls.Add(this.tb_subnet);
             this.Controls.Add(this.btn_getalldevices);
             this.Controls.Add(this.lb_shownetworkdevices);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Blacklisting";
-            this.Text = "Blacklisting";
             this.ResumeLayout(false);
             this.PerformLayout();
 
