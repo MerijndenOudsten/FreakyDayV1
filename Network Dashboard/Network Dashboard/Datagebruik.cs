@@ -80,6 +80,7 @@ namespace Network_Dashboard
             StartMenu menu = new StartMenu(IngelogdeGebruiker);
             menu.Show();
         }
+
         private void InitializeNetworkInterface()
         {
             // Grab all local interfaces to this computer
