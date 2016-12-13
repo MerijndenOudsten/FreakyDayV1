@@ -43,6 +43,7 @@
             this.lb_smHelpPoort = new System.Windows.Forms.Label();
             this.lb_smHelpData = new System.Windows.Forms.Label();
             this.lb_smHelpIngelogd = new System.Windows.Forms.Label();
+            this.btn_uitloggen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpPoort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpBlacklist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpGebruikersrecht)).BeginInit();
@@ -214,11 +215,22 @@
             this.lb_smHelpIngelogd.Text = "Advies";
             this.lb_smHelpIngelogd.Visible = false;
             // 
+            // btn_uitloggen
+            // 
+            this.btn_uitloggen.Location = new System.Drawing.Point(13, 381);
+            this.btn_uitloggen.Name = "btn_uitloggen";
+            this.btn_uitloggen.Size = new System.Drawing.Size(242, 42);
+            this.btn_uitloggen.TabIndex = 49;
+            this.btn_uitloggen.Text = "Uitloggen";
+            this.btn_uitloggen.UseVisualStyleBackColor = true;
+            this.btn_uitloggen.Click += new System.EventHandler(this.btn_uitloggen_Click);
+            // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 428);
+            this.Controls.Add(this.btn_uitloggen);
             this.Controls.Add(this.lb_smHelpIngelogd);
             this.Controls.Add(this.lb_smHelpData);
             this.Controls.Add(this.lb_smHelpPoort);
@@ -264,5 +276,6 @@
         private System.Windows.Forms.Label lb_smHelpPoort;
         private System.Windows.Forms.Label lb_smHelpData;
         private System.Windows.Forms.Label lb_smHelpIngelogd;
+        private System.Windows.Forms.Button btn_uitloggen;
     }
 }

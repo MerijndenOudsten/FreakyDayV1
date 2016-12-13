@@ -28,34 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_BlockPort = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientPort));
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
-            // btn_BlockPort
+            // notifyIcon
             // 
-            this.btn_BlockPort.Location = new System.Drawing.Point(13, 13);
-            this.btn_BlockPort.Name = "btn_BlockPort";
-            this.btn_BlockPort.Size = new System.Drawing.Size(173, 71);
-            this.btn_BlockPort.TabIndex = 0;
-            this.btn_BlockPort.Text = "Test Port Blocking";
-            this.btn_BlockPort.UseVisualStyleBackColor = true;
-            this.btn_BlockPort.Click += new System.EventHandler(this.btn_BlockPort_Click);
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "ClientPortApp";
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // ClientPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 288);
-            this.Controls.Add(this.btn_BlockPort);
+            this.ClientSize = new System.Drawing.Size(160, 0);
             this.Name = "ClientPort";
             this.Text = "Form1";
+            this.Resize += new System.EventHandler(this.ClientPort_Resize);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_BlockPort;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

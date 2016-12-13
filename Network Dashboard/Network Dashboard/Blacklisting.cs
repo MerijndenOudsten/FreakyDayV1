@@ -10,7 +10,6 @@ namespace Network_Dashboard
 {
     public partial class Blacklisting : Form
     {
-        DbQueries DB = new DbQueries();
         
         
 
@@ -50,7 +49,7 @@ namespace Network_Dashboard
             IPHostEntry host;
             string macadress;
 
-            for (int i = 1; i < 255; i++)
+            for (int i = 125; i < 255; i++)
             {
 
                 try
@@ -103,7 +102,7 @@ namespace Network_Dashboard
                 processStartInfo.CreateNoWindow = true;
                 process = Process.Start(processStartInfo);
 
-                int Counter = -1;
+                    int Counter = -1;
 
                 while (Counter <= -1)
                 {
@@ -120,9 +119,8 @@ namespace Network_Dashboard
             }
             catch (Exception ex)
             {
-                EventLogging.LogMessageToFile(ex.Message);
+               MessageBox.Show(ex.Message);
             }
-
             return macAddress;
         }
 
@@ -171,7 +169,15 @@ namespace Network_Dashboard
         {
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
             string[] halfadres = macadres[0].Split('=');
-            DB.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+            MessageBox.Show("Poort wordt geblokkeerd bij opstarten");
+        }
+
+        private void btn_mainmenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StartMenu menu = new StartMenu(IngelogdeGebruiker);
+            menu.Show();
         }
 
         private void btn_Terug_Click(object sender, EventArgs e)
