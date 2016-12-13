@@ -112,7 +112,6 @@ namespace ClientPortApp
                     }
                 }
                 process.WaitForExit();
-                File.Delete("c:/users/Remco/nbtstatoutput.txt");
 
             }
             catch (Exception ex)
