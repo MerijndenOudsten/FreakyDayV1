@@ -13,7 +13,6 @@ namespace Network_Dashboard
 {
     public partial class Gebruikersrechten : Form
     {
-        DbQueries dbq = new DbQueries();
         Gebruiker IngelogdeGebruiker;
 
         public Gebruikersrechten(Gebruiker ingelogdeGebruiker)
@@ -60,7 +59,7 @@ namespace Network_Dashboard
             try
             {
                 lb_Gebruikers.Items.Clear();
-                foreach (Gebruiker g in dbq.GetGebruikers())
+                foreach (Gebruiker g in DbQueries.GetGebruikers())
                 {
                     lb_Gebruikers.Items.Add(g);
                 }
@@ -82,7 +81,7 @@ namespace Network_Dashboard
                 {
                     if (gebruiker[1] != "BEHEERDER")
                     {
-                        dbq.WijzigRecht(g);
+                        DbQueries.WijzigRecht(g);
                         MessageBox.Show("Het recht van het account '" + gebruiker[0] + "' is veranderd naar '" + cb_Recht.SelectedItem.ToString() + "'.");
                     }
                     else

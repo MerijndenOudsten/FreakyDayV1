@@ -15,7 +15,6 @@ namespace Network_Dashboard
 {
     public partial class Login : Form
     {
-        DbQueries queries = new DbQueries();
         int i = 0;
         public Login()
         {
@@ -27,7 +26,7 @@ namespace Network_Dashboard
         {
             try
             {
-                Gebruiker gebruiker = queries.InloggenGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
+                Gebruiker gebruiker = DbQueries.InloggenGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
 
                 if (gebruiker == null && i <= 1)
                 {
@@ -67,7 +66,7 @@ namespace Network_Dashboard
 
             try
             {
-                queries.CreateGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
+                DbQueries.CreateGebruiker(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
                 MessageBox.Show("Het account " + tb_gebruikersnaam.Text + " is aangemaakt.");
             }
             catch(Exception ex)
@@ -83,7 +82,7 @@ namespace Network_Dashboard
             try
             {
 
-                queries.WijzigWachtwoord(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
+                DbQueries.WijzigWachtwoord(tb_gebruikersnaam.Text, tb_wachtwoord.Text);
                 MessageBox.Show("Het wachtwoord van " + tb_gebruikersnaam.Text + " is gewijzigd.");
             }
             catch(Exception ex)

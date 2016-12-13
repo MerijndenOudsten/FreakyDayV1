@@ -136,6 +136,13 @@ namespace Network_Dashboard
             }
         }
 
+        private void btn_uitloggen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login login = new Login();
+            login.Show();
+        }
+
         private void btn_Blacklisting_Click(object sender, EventArgs e)
         {
             this.Hide();

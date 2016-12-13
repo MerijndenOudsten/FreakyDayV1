@@ -12,7 +12,7 @@ namespace Network_Dashboard
         private static string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
 
 
-        public void CreateGebruiker(string gebruikersnaam, string wachtwoord)
+        public static void CreateGebruiker(string gebruikersnaam, string wachtwoord)
         {
            
             using (OracleConnection connection = new OracleConnection(connString))
@@ -26,7 +26,7 @@ namespace Network_Dashboard
         }
 
 
-        public void CreateDataGebruik(string gebruikersnaam, string datum, int uploadGebruik, int downloadGebruik)
+        public static void CreateDataGebruik(string gebruikersnaam, string datum, int uploadGebruik, int downloadGebruik)
         {
 
             using (OracleConnection connection = new OracleConnection(connString))
@@ -39,7 +39,7 @@ namespace Network_Dashboard
 
         }
 
-        public Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
+        public static Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
         {
             Gebruiker gebruiker = null;
             using (OracleConnection connection = new OracleConnection(connString))
@@ -63,7 +63,7 @@ namespace Network_Dashboard
 
 
         }
-        public void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
+        public static void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
         {
             using (OracleConnection connection = new OracleConnection(connString))
             {
@@ -75,14 +75,14 @@ namespace Network_Dashboard
         }
 
 
-        public List<Gebruiker> GetGebruikers()
+        public static List<Gebruiker> GetGebruikers()
         {
             List<Gebruiker> Gebruikers = new List<Gebruiker>();
             Gebruiker gebruiker;
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("SELECT * FROM gebruiker", connection);
+                OracleCommand cmd = new OracleCommand("SELECT * FROM gebruiker ORDER BY RECHT", connection);
                 OracleDataReader reader = cmd.ExecuteReader();
                 
                     if (reader.HasRows)
@@ -100,7 +100,7 @@ namespace Network_Dashboard
             }
          }
 
-        public bool WijzigRecht(Gebruiker g)
+        public static bool WijzigRecht(Gebruiker g)
         {
             try 
             {
@@ -119,7 +119,7 @@ namespace Network_Dashboard
             }
             return false;
         }
-        public void VoegApparaatToe(string macadres, string hostname, int blockedport)
+        public static void VoegApparaatToe(string macadres, string hostname, int blockedport)
         {
             try
             {

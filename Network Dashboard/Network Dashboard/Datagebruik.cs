@@ -13,7 +13,6 @@ namespace Network_Dashboard
 {
     public partial class Datagebruik : Form
     {
-        DbQueries dbq = new DbQueries();
 
         private const double timerUpdate = 1000;
 
@@ -217,7 +216,7 @@ namespace Network_Dashboard
             try 
             {
                 timer.Stop();
-                dbq.CreateDataGebruik(this.IngelogdeGebruiker.Inlognaam, System.DateTime.Now.ToString(), this.GebruikteUpload, this.GebruikteDownload);
+                DbQueries.CreateDataGebruik(this.IngelogdeGebruiker.Inlognaam, System.DateTime.Now.ToString(), this.GebruikteUpload, this.GebruikteDownload);
             }
             catch (Exception ex)
             {

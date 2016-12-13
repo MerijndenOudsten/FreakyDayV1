@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_mainmenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -60,7 +61,7 @@
             this.lb_shownetworkdevices.FormattingEnabled = true;
             this.lb_shownetworkdevices.ItemHeight = 16;
             this.lb_shownetworkdevices.Location = new System.Drawing.Point(47, 27);
-            this.lb_shownetworkdevices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lb_shownetworkdevices.Margin = new System.Windows.Forms.Padding(4);
             this.lb_shownetworkdevices.Name = "lb_shownetworkdevices";
             this.lb_shownetworkdevices.Size = new System.Drawing.Size(771, 260);
             this.lb_shownetworkdevices.TabIndex = 0;
@@ -90,7 +91,7 @@
             // pgb_scanning
             // 
             this.pgb_scanning.Location = new System.Drawing.Point(47, 295);
-            this.pgb_scanning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pgb_scanning.Margin = new System.Windows.Forms.Padding(4);
             this.pgb_scanning.Maximum = 255;
             this.pgb_scanning.Name = "pgb_scanning";
             this.pgb_scanning.Size = new System.Drawing.Size(771, 23);
@@ -143,7 +144,7 @@
             // btn_blokkeerpoort
             // 
             this.btn_blokkeerpoort.Location = new System.Drawing.Point(326, 386);
-            this.btn_blokkeerpoort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_blokkeerpoort.Margin = new System.Windows.Forms.Padding(4);
             this.btn_blokkeerpoort.Name = "btn_blokkeerpoort";
             this.btn_blokkeerpoort.Size = new System.Drawing.Size(181, 79);
             this.btn_blokkeerpoort.TabIndex = 11;
@@ -169,7 +170,7 @@
             // 
             this.pb_dgHelpStart.Image = global::Network_Dashboard.Properties.Resources.help;
             this.pb_dgHelpStart.Location = new System.Drawing.Point(20, 27);
-            this.pb_dgHelpStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_dgHelpStart.Margin = new System.Windows.Forms.Padding(4);
             this.pb_dgHelpStart.Name = "pb_dgHelpStart";
             this.pb_dgHelpStart.Size = new System.Drawing.Size(16, 16);
             this.pb_dgHelpStart.TabIndex = 44;
@@ -179,7 +180,7 @@
             // 
             this.pictureBox1.Image = global::Network_Dashboard.Properties.Resources.help;
             this.pictureBox1.Location = new System.Drawing.Point(478, 345);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(16, 16);
             this.pictureBox1.TabIndex = 46;
@@ -189,7 +190,7 @@
             // 
             this.pictureBox2.Image = global::Network_Dashboard.Properties.Resources.help;
             this.pictureBox2.Location = new System.Drawing.Point(326, 464);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(16, 16);
             this.pictureBox2.TabIndex = 47;
@@ -199,7 +200,7 @@
             // 
             this.pictureBox3.Image = global::Network_Dashboard.Properties.Resources.help;
             this.pictureBox3.Location = new System.Drawing.Point(48, 465);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(16, 16);
             this.pictureBox3.TabIndex = 48;
@@ -209,7 +210,7 @@
             // 
             this.pictureBox4.Image = global::Network_Dashboard.Properties.Resources.help;
             this.pictureBox4.Location = new System.Drawing.Point(48, 567);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(16, 16);
             this.pictureBox4.TabIndex = 49;
@@ -279,11 +280,22 @@
             this.label4.Text = "Advies";
             this.label4.Visible = false;
             // 
+            // btn_mainmenu
+            // 
+            this.btn_mainmenu.Location = new System.Drawing.Point(326, 486);
+            this.btn_mainmenu.Name = "btn_mainmenu";
+            this.btn_mainmenu.Size = new System.Drawing.Size(181, 82);
+            this.btn_mainmenu.TabIndex = 54;
+            this.btn_mainmenu.Text = "Terug";
+            this.btn_mainmenu.UseVisualStyleBackColor = true;
+            this.btn_mainmenu.Click += new System.EventHandler(this.btn_mainmenu_Click);
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 598);
+            this.Controls.Add(this.btn_mainmenu);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -339,5 +351,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_mainmenu;
     }
 }
