@@ -136,6 +136,11 @@ namespace Network_Dashboard
             }
         }
 
+        private void StartMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void btn_Blacklisting_Click(object sender, EventArgs e)
         {
             this.Hide();

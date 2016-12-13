@@ -95,6 +95,7 @@ namespace Network_Dashboard
 
         private void btn_backtostartmenu_Click(object sender, EventArgs e)
         {
+            
             this.Close();
             StartMenu startmenu = new StartMenu(IngelogdeGebruiker);
             startmenu.Show();

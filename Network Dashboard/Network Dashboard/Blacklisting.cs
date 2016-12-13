@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Sockets;
 
 
 namespace Network_Dashboard
@@ -180,6 +172,13 @@ namespace Network_Dashboard
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
             string[] halfadres = macadres[0].Split('=');
             DB.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+        }
+
+        private void btn_Terug_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StartMenu startmenu = new StartMenu(IngelogdeGebruiker);
+            startmenu.Show();
         }
     }
 }

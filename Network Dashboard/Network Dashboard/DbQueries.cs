@@ -26,13 +26,13 @@ namespace Network_Dashboard
         }
 
 
-        public void CreateDataGebruik(string gebruikersnaam, string datum, int uploadGebruik, int downloadGebruik)
+        public void CreateDataGebruik(Dataverbruik dataverbruik)
         {
 
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("INSERT INTO DATAGEBRUIK (gebruikersnaam, datum, upload, download) VALUES ('" + gebruikersnaam + "', '" + datum + "', '" + uploadGebruik + "', '" + downloadGebruik + "')", connection);
+                OracleCommand cmd = new OracleCommand("INSERT INTO DATAGEBRUIK (gebruikersnaam, datum, upload, download) VALUES ('" + dataverbruik.currentGebruiker.Inlognaam + "', '" + dataverbruik.Datum + "', '" + dataverbruik.GebruikteUpload + "', '" + dataverbruik.GebruikteDownload + "')", connection);
                 cmd.ExecuteNonQuery();
 
             }
@@ -134,6 +134,26 @@ namespace Network_Dashboard
             catch(Exception ex)
             {
                 EventLogging.LogMessageToFile(ex.Message);
+            }
+        }
+
+        public int GetUploadverbruik(Gebruiker gebruiker)
+        {
+            int uploadverbruik;
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("SELECT SUM(Upload) as Uploadverbruik FROM datagebruik WHERE gebruikersnaam = '" + gebruiker.Inlognaam + "' AND datum = '" + System.DateTime.Now.ToString() + "'", connection);
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        uploadverbruik = (int)reader["Uploadverbruik"];
+                    }
+                }
+                return uploadverbruik;
             }
         }
     }

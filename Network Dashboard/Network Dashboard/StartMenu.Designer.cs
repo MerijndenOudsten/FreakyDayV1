@@ -236,6 +236,7 @@
             this.Controls.Add(this.btn_poortscanner);
             this.Name = "StartMenu";
             this.Text = "StartMenu";
+            this.Load += new System.EventHandler(this.StartMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpPoort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpBlacklist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpGebruikersrecht)).EndInit();
