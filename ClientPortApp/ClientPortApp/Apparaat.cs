@@ -17,10 +17,11 @@ namespace ClientPortApp
         {
             this.macadres = macadres;
         }
-        public Apparaat(int blockedport, int block)
+        public Apparaat(int blockedport, int block, string macadres)
         {
             this.blockedport = blockedport;
             this.block = block;
+            this.macadres = macadres;
         }
     }
 }

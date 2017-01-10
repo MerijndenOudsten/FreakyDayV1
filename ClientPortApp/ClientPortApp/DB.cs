@@ -32,7 +32,7 @@ namespace ClientPortApp
                         }                     
                     }
                 }
-                return apparaat = new Apparaat(blockedport, block);
+                return apparaat = new Apparaat(blockedport, block, macadres);
             }
             catch (Exception ex)
             {

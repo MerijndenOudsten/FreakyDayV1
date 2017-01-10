@@ -22,6 +22,7 @@ namespace ClientPortApp
         Apparaat apparaat;
         int porttoblock;
         int block;
+        string macadres;
 
         public ClientPort()
         {
@@ -36,6 +37,7 @@ namespace ClientPortApp
             apparaat = database.GetBlockedPort(apparaat.macadres);
             porttoblock = apparaat.blockedport;
             block = apparaat.block;
+            macadres = apparaat.macadres;
             string stdout, stderr;
             if (block == 0)
             {
