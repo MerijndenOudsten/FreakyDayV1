@@ -16,7 +16,7 @@ namespace ClientPortApp
         public Apparaat GetBlockedPort(string macadres)
         {
             int blockedport = 0;
-            bool block = false;
+            int block = 0;
             try
             {
                 using (OracleConnection connection = new OracleConnection(connString))
@@ -28,7 +28,7 @@ namespace ClientPortApp
                         while (reader.Read())
                         {
                             blockedport = Convert.ToInt32(reader["PORT"]);
-                            block = Convert.ToBoolean(reader["BLOCK"]);
+                            block = Convert.ToInt32(reader["BLOCK"]);
                         }                     
                     }
                 }

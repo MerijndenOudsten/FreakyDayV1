@@ -136,6 +136,23 @@ namespace Network_Dashboard
                 EventLogging.LogMessageToFile(ex.Message);
             }
         }
+        public static void UpdateApparaat(string macadres, string hostname, int blockedport, int block)
+        {
+            try
+            {
+
+                using (OracleConnection connection = new OracleConnection(connString))
+                {
+                    connection.Open();
+                    OracleCommand cmd = new OracleCommand("UPDATE APPARAAT SET BLOCK = '" + block + "'WHERE MAC = '" + macadres + "'", connection);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogging.LogMessageToFile(ex.Message);
+            }
+        }
 
         public static int GetUploadverbruik(Gebruiker gebruiker)
         {

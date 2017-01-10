@@ -21,7 +21,7 @@ namespace ClientPortApp
         DB database = new DB();
         Apparaat apparaat;
         int porttoblock;
-        bool block;
+        int block;
 
         public ClientPort()
         {
@@ -37,7 +37,7 @@ namespace ClientPortApp
             porttoblock = apparaat.blockedport;
             block = apparaat.block;
             string stdout, stderr;
-            if (block == false)
+            if (block == 0)
             {
                 RunShellCommand(
             "netsh.exe",
@@ -119,7 +119,7 @@ namespace ClientPortApp
                 MessageBox.Show(ex.Message);
             }
 
-            return macAddress;
+            return macAddress = " B8-88-E3-9B-70-49";
         }
         public static string GetLocalIPAddress()
         {
