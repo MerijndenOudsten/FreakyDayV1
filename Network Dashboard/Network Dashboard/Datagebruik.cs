@@ -6,8 +6,7 @@ using System.Net.NetworkInformation;
 namespace Network_Dashboard
 {
     public partial class Datagebruik : Form
-    {
-        DbQueries dbq = new DbQueries();
+    { 
 
         private const double timerUpdate = 1000;
 
@@ -214,7 +213,7 @@ namespace Network_Dashboard
             {
                 timer.Stop();
                 dataver = new Dataverbruik(this.GebruikteUpload, this.GebruikteDownload, this.IngelogdeGebruiker, System.DateTime.Now.ToString());
-                dbq.CreateDataGebruik(dataver);
+                DbQueries.CreateDataGebruik(dataver);
             }
             catch (Exception ex)
             {

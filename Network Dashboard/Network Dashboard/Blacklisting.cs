@@ -169,7 +169,7 @@ namespace Network_Dashboard
         {
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
             string[] halfadres = macadres[0].Split('=');
-            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text), true);
+            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text), 1);
             MessageBox.Show("Poort wordt geblokkeerd bij opstarten");
         }
 
@@ -185,6 +185,14 @@ namespace Network_Dashboard
             this.Close();
             StartMenu startmenu = new StartMenu(IngelogdeGebruiker);
             startmenu.Show();
+        }
+
+        private void btn_deblokkeerpoort_Click(object sender, EventArgs e)
+        {
+            string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
+            string[] halfadres = macadres[0].Split('=');
+            DbQueries.UpdateApparaat(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text), 0);
+            MessageBox.Show("Poort wordt geblokkeerd bij opstarten");
         }
     }
 }

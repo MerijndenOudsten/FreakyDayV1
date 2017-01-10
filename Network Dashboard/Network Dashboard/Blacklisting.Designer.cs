@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Terug = new System.Windows.Forms.Button();
+            this.btn_deblokkeerpoort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_dgHelpStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -290,11 +291,23 @@
             this.btn_Terug.UseVisualStyleBackColor = true;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
+            // btn_deblokkeerpoort
+            // 
+            this.btn_deblokkeerpoort.Location = new System.Drawing.Point(326, 511);
+            this.btn_deblokkeerpoort.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_deblokkeerpoort.Name = "btn_deblokkeerpoort";
+            this.btn_deblokkeerpoort.Size = new System.Drawing.Size(181, 79);
+            this.btn_deblokkeerpoort.TabIndex = 55;
+            this.btn_deblokkeerpoort.Text = "Deblokkeer poort";
+            this.btn_deblokkeerpoort.UseVisualStyleBackColor = true;
+            this.btn_deblokkeerpoort.Click += new System.EventHandler(this.btn_deblokkeerpoort_Click);
+            // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 618);
+            this.Controls.Add(this.btn_deblokkeerpoort);
             this.Controls.Add(this.btn_Terug);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -352,5 +365,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Terug;
+        private System.Windows.Forms.Button btn_deblokkeerpoort;
     }
 }

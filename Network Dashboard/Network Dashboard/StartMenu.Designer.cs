@@ -1,4 +1,6 @@
-﻿namespace Network_Dashboard
+﻿using System;
+
+namespace Network_Dashboard
 {
     partial class StartMenu
     {
@@ -257,6 +259,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void StartMenu_Load(object sender, EventArgs e)
+        {
         }
 
         #endregion
