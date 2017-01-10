@@ -7,7 +7,6 @@ namespace Network_Dashboard
 {
     public partial class Datagebruik : Form
     {
-        DbQueries dbq = new DbQueries();
 
         private const double timerUpdate = 1000;
 
@@ -214,7 +213,7 @@ namespace Network_Dashboard
             {
                 timer.Stop();
                 dataver = new Dataverbruik(this.GebruikteUpload, this.GebruikteDownload, this.IngelogdeGebruiker, System.DateTime.Now.ToString());
-                dbq.CreateDataGebruik(dataver);
+                DbQueries.CreateDataGebruik(dataver);
             }
             catch (Exception ex)
             {
@@ -227,10 +226,18 @@ namespace Network_Dashboard
             try
             {
                 // Grab NetworkInterface object that describes the current interface
-                NetworkInterface nic = nicArr[cb_NetworkInterfaces.SelectedIndex];
+                NetworkInterface currNetwork = null;
+                // Grab NetworkInterface object that describes the current interface
+                foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    if (nic.Description == "Wi-Fi")
+                    {
+                        currNetwork = nic;
+                    }
+                }
 
                 // Grab the stats for that interface
-                IPv4InterfaceStatistics interfaceStats = nic.GetIPv4Statistics();
+                IPv4InterfaceStatistics interfaceStats = currNetwork.GetIPv4Statistics();
 
                 // Calculate the speed of bytes going in and out
                 int bytesSentSpeed = (int)(interfaceStats.BytesSent - double.Parse(lbl_BytesSent.Text)) / 1024;
@@ -250,7 +257,7 @@ namespace Network_Dashboard
 
                 // Update the labels
                 //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
-                lbl_InternetSnelheid.Text = (nic.Speed / 10000000.0).ToString();
+                lbl_InternetSnelheid.Text = (currNetwork.Speed / 10000000.0).ToString();
                 lbl_BytesReceived.Text = interfaceStats.BytesReceived.ToString();
                 lbl_BytesSent.Text = interfaceStats.BytesSent.ToString();
                 lbl_Upload.Text = (bytesSentSpeed * 8).ToString() + " Kb/s";

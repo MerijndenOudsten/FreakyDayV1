@@ -49,7 +49,7 @@ namespace Network_Dashboard
             IPHostEntry host;
             string macadress;
 
-            for (int i = 125; i < 255; i++)
+            for (int i = 1; i < 255; i++)
             {
 
                 try
@@ -169,7 +169,7 @@ namespace Network_Dashboard
         {
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
             string[] halfadres = macadres[0].Split('=');
-            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text), 1);
             MessageBox.Show("Poort wordt geblokkeerd bij opstarten");
         }
 
