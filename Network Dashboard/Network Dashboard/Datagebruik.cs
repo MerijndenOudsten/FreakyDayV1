@@ -230,7 +230,8 @@ namespace Network_Dashboard
                 // Grab NetworkInterface object that describes the current interface
                 foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
                 {
-                    if (nic.Description == "Wi-Fi")
+                    
+                    if (nic.Name.ToString() == "Wi-Fi")
                     {
                         currNetwork = nic;
                     }
