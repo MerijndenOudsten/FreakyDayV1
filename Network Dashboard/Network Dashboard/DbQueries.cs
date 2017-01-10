@@ -119,7 +119,7 @@ namespace Network_Dashboard
             }
             return false;
         }
-        public static void VoegApparaatToe(string macadres, string hostname, int blockedport)
+        public static void VoegApparaatToe(string macadres, string hostname, int blockedport, bool block)
         {
             try
             {
@@ -127,7 +127,7 @@ namespace Network_Dashboard
                 using (OracleConnection connection = new OracleConnection(connString))
                 {
                     connection.Open();
-                    OracleCommand cmd = new OracleCommand("INSERT INTO Apparaat (MAC, NAAM, PORT) VALUES ('" + macadres + "', '" + hostname + "', '" + blockedport + "')", connection);
+                    OracleCommand cmd = new OracleCommand("INSERT INTO Apparaat (MAC, NAAM, PORT, BLOCK) VALUES ('" + macadres + "', '" + hostname + "', '" + blockedport + "'" + block + "')", connection);
                     cmd.ExecuteNonQuery();
                 }
             }

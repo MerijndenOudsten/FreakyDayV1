@@ -177,7 +177,7 @@ namespace Network_Dashboard
         {
             string[] macadres = lb_shownetworkdevices.SelectedItem.ToString().Split(',');
             string[] halfadres = macadres[0].Split('=');
-            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text));
+            DbQueries.VoegApparaatToe(halfadres[1], macadres[1], Convert.ToInt32(cb_poortblokkeren.Text), true);
             MessageBox.Show("Poort wordt geblokkeerd bij opstarten");
         }
 

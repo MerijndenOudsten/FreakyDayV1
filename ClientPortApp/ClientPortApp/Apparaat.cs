@@ -11,13 +11,13 @@ namespace ClientPortApp
     {
         public string macadres { get; private set; }
         public int blockedport { get; private set; }
-        public bool block { get; private set; }
+        public int block { get; private set; }
 
         public Apparaat(string macadres)
         {
             this.macadres = macadres;
         }
-        public Apparaat(int blockedport, bool block)
+        public Apparaat(int blockedport, int block)
         {
             this.blockedport = blockedport;
             this.block = block;
