@@ -43,10 +43,25 @@ namespace Network_Dashboard
                 }
                 else
                 {
-                    StartMenu startmenu = new StartMenu(gebruiker);
-                    startmenu.Show();
-                    this.Hide();
-
+                    UserDashboard userdb;
+                    switch(gebruiker.Recht)
+                    {
+                        case "BEPERKT":
+                            userdb = new UserDashboard(gebruiker);
+                            userdb.Show();
+                            this.Hide();
+                            break;
+                        case "STANDAARD":
+                            userdb = new UserDashboard(gebruiker);
+                            userdb.Show();
+                            this.Hide();
+                            break;
+                        case "BEHEERDER":
+                            userdb = new UserDashboard(gebruiker);
+                            userdb.Show();
+                            this.Hide();
+                            break;
+                    }
                 }
             }
             catch(Exception ex)

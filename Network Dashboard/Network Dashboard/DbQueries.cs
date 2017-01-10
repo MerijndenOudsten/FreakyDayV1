@@ -12,7 +12,7 @@ namespace Network_Dashboard
         private static string connString = "Data Source=192.168.15.50:1521/fhictora; User Id=dbi319035; Password=deathispeace;";
 
 
-        public static void CreateGebruiker(string gebruikersnaam, string wachtwoord)
+        public void CreateGebruiker(string gebruikersnaam, string wachtwoord)
         {
            
             using (OracleConnection connection = new OracleConnection(connString))
@@ -26,20 +26,20 @@ namespace Network_Dashboard
         }
 
 
-        public static void CreateDataGebruik(string gebruikersnaam, string datum, int uploadGebruik, int downloadGebruik)
+        public void CreateDataGebruik(Dataverbruik dataverbruik)
         {
 
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("INSERT INTO DATAGEBRUIK (gebruikersnaam, datum, upload, download) VALUES ('" + gebruikersnaam + "', '" + datum + "', '" + uploadGebruik + "', '" + downloadGebruik + "')", connection);
+                OracleCommand cmd = new OracleCommand("INSERT INTO DATAGEBRUIK (gebruikersnaam, datum, upload, download) VALUES ('" + dataverbruik.currentGebruiker.Inlognaam + "', '" + dataverbruik.Datum + "', '" + dataverbruik.GebruikteUpload + "', '" + dataverbruik.GebruikteDownload + "')", connection);
                 cmd.ExecuteNonQuery();
 
             }
 
         }
 
-        public static Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
+        public Gebruiker InloggenGebruiker(string gebruikersnaam, string wachtwoord)
         {
             Gebruiker gebruiker = null;
             using (OracleConnection connection = new OracleConnection(connString))
@@ -63,7 +63,7 @@ namespace Network_Dashboard
 
 
         }
-        public static void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
+        public void WijzigWachtwoord(string gebruikersnaam, string wachtwoord)
         {
             using (OracleConnection connection = new OracleConnection(connString))
             {
@@ -75,14 +75,14 @@ namespace Network_Dashboard
         }
 
 
-        public static List<Gebruiker> GetGebruikers()
+        public List<Gebruiker> GetGebruikers()
         {
             List<Gebruiker> Gebruikers = new List<Gebruiker>();
             Gebruiker gebruiker;
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("SELECT * FROM gebruiker ORDER BY RECHT", connection);
+                OracleCommand cmd = new OracleCommand("SELECT * FROM gebruiker", connection);
                 OracleDataReader reader = cmd.ExecuteReader();
                 
                     if (reader.HasRows)
@@ -100,7 +100,7 @@ namespace Network_Dashboard
             }
          }
 
-        public static bool WijzigRecht(Gebruiker g)
+        public bool WijzigRecht(Gebruiker g)
         {
             try 
             {
@@ -119,7 +119,7 @@ namespace Network_Dashboard
             }
             return false;
         }
-        public static void VoegApparaatToe(string macadres, string hostname, int blockedport, bool block)
+        public void VoegApparaatToe(string macadres, string hostname, int blockedport)
         {
             try
             {
@@ -127,13 +127,33 @@ namespace Network_Dashboard
                 using (OracleConnection connection = new OracleConnection(connString))
                 {
                     connection.Open();
-                    OracleCommand cmd = new OracleCommand("INSERT INTO Apparaat (MAC, NAAM, PORT, BLOCK) VALUES ('" + macadres + "', '" + hostname + "', '" + blockedport + "'" + block + "')", connection);
+                    OracleCommand cmd = new OracleCommand("INSERT INTO Apparaat (MAC, NAAM, PORT) VALUES ('" + macadres + "', '" + hostname + "', '" + blockedport + "')", connection);
                     cmd.ExecuteNonQuery();
                 }
             }
             catch(Exception ex)
             {
                 EventLogging.LogMessageToFile(ex.Message);
+            }
+        }
+
+        public int GetUploadverbruik(Gebruiker gebruiker)
+        {
+            int uploadverbruik;
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("SELECT SUM(Upload) as Uploadverbruik FROM datagebruik WHERE gebruikersnaam = '" + gebruiker.Inlognaam + "' AND datum = '" + System.DateTime.Now.ToString() + "'", connection);
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        uploadverbruik = (int)reader["Uploadverbruik"];
+                    }
+                }
+                return uploadverbruik;
             }
         }
     }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 
@@ -13,6 +7,7 @@ namespace Network_Dashboard
 {
     public partial class Datagebruik : Form
     {
+        DbQueries dbq = new DbQueries();
 
         private const double timerUpdate = 1000;
 
@@ -29,6 +24,8 @@ namespace Network_Dashboard
         Gebruiker IngelogdeGebruiker;
 
         Advies advies;
+
+        Dataverbruik dataver;
 
         public Datagebruik(Gebruiker IngelogdeGebruiker)
         {
@@ -216,7 +213,8 @@ namespace Network_Dashboard
             try 
             {
                 timer.Stop();
-                DbQueries.CreateDataGebruik(this.IngelogdeGebruiker.Inlognaam, System.DateTime.Now.ToString(), this.GebruikteUpload, this.GebruikteDownload);
+                dataver = new Dataverbruik(this.GebruikteUpload, this.GebruikteDownload, this.IngelogdeGebruiker, System.DateTime.Now.ToString());
+                dbq.CreateDataGebruik(dataver);
             }
             catch (Exception ex)
             {

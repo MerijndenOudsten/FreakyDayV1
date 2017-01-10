@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Sockets;
 
 
 namespace Network_Dashboard
@@ -186,6 +178,13 @@ namespace Network_Dashboard
             this.Close();
             StartMenu menu = new StartMenu(IngelogdeGebruiker);
             menu.Show();
+        }
+
+        private void btn_Terug_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StartMenu startmenu = new StartMenu(IngelogdeGebruiker);
+            startmenu.Show();
         }
     }
 }
