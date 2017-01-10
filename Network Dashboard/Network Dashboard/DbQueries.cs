@@ -136,7 +136,7 @@ namespace Network_Dashboard
                 EventLogging.LogMessageToFile(ex.Message);
             }
         }
-        public static void UpdateApparaat(string macadres, string hostname, int blockedport, int block)
+        public static void UpdateApparaat(string macadres, int block)
         {
             try
             {
