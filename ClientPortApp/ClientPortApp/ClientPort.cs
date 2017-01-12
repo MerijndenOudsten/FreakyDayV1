@@ -99,7 +99,7 @@ namespace ClientPortApp
                 processStartInfo.RedirectStandardOutput = true;
                 processStartInfo.Arguments = "-a " + ipAddress + " > nbtstatoutput.txt";
                 processStartInfo.UseShellExecute = false;
-                processStartInfo.CreateNoWindow = false;
+                processStartInfo.CreateNoWindow = true;
                 process = Process.Start(processStartInfo);
                 using (StreamReader file = new StreamReader(filename))
                 {
@@ -141,7 +141,7 @@ namespace ClientPortApp
             if (this.WindowState != FormWindowState.Minimized)
             {
                 WindowState = FormWindowState.Minimized;
-                Hide();
+                this.Hide();
                 notifyIcon.Visible = true;
             }
         }
