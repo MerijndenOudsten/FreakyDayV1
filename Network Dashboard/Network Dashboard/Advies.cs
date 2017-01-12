@@ -83,7 +83,7 @@ namespace Network_Dashboard
                     advies = "In het deel gebruikersrechten kunt u alle gebruikers in uw huishouden bekijken en van deze gebruikers de rechten veranderen.";
                     return advies;
                 case "smHelpData":
-                    advies = "Met datagebruik kunt u uw datagebruik van uw PC bekijken.";
+                    advies = "Met datagebruik kunt u uw datagebruik van alle gebruikers bekijken.";
                     return advies;
                 default:
                     return "";

@@ -54,12 +54,13 @@
             // 
             // btn_veranderRecht
             // 
+            this.btn_veranderRecht.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_veranderRecht.Location = new System.Drawing.Point(277, 454);
             this.btn_veranderRecht.Name = "btn_veranderRecht";
             this.btn_veranderRecht.Size = new System.Drawing.Size(105, 45);
             this.btn_veranderRecht.TabIndex = 6;
             this.btn_veranderRecht.Text = "Verander recht";
-            this.btn_veranderRecht.UseVisualStyleBackColor = true;
+            this.btn_veranderRecht.UseVisualStyleBackColor = false;
             this.btn_veranderRecht.Click += new System.EventHandler(this.btn_veranderRecht_Click);
             // 
             // label5
@@ -95,12 +96,13 @@
             // 
             // btn_Terug
             // 
+            this.btn_Terug.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Terug.Location = new System.Drawing.Point(332, 12);
             this.btn_Terug.Name = "btn_Terug";
             this.btn_Terug.Size = new System.Drawing.Size(105, 45);
             this.btn_Terug.TabIndex = 12;
             this.btn_Terug.Text = "Terug";
-            this.btn_Terug.UseVisualStyleBackColor = true;
+            this.btn_Terug.UseVisualStyleBackColor = false;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
             // pb_dgHelpStart
@@ -137,6 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(454, 559);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

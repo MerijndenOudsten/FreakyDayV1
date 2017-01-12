@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chart_Dataverbruik = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btn_Menu = new System.Windows.Forms.Button();
             this.btn_Uitloggen = new System.Windows.Forms.Button();
             this.cb_smtpclosed = new System.Windows.Forms.CheckBox();
             this.lbl_smtp25 = new System.Windows.Forms.Label();
@@ -58,61 +57,53 @@
             // 
             // chart_Dataverbruik
             // 
-            this.chart_Dataverbruik.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
-            chartArea1.Name = "suh";
-            this.chart_Dataverbruik.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.SystemColors.Control;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Name = "Dataverbruik";
-            this.chart_Dataverbruik.Legends.Add(legend1);
+            this.chart_Dataverbruik.BackColor = System.Drawing.Color.Honeydew;
+            chartArea2.BackColor = System.Drawing.Color.Honeydew;
+            chartArea2.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+            chartArea2.Name = "suh";
+            this.chart_Dataverbruik.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Honeydew;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Name = "Dataverbruik";
+            this.chart_Dataverbruik.Legends.Add(legend2);
             this.chart_Dataverbruik.Location = new System.Drawing.Point(12, 64);
             this.chart_Dataverbruik.Name = "chart_Dataverbruik";
             this.chart_Dataverbruik.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series1.ChartArea = "suh";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            series1.CustomProperties = "DrawingStyle=LightToDark";
-            series1.Legend = "Dataverbruik";
-            series1.Name = "Upload";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series2.ChartArea = "suh";
-            series2.Color = System.Drawing.Color.Lime;
-            series2.CustomProperties = "DrawingStyle=LightToDark";
-            series2.Legend = "Dataverbruik";
-            series2.Name = "Download";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            this.chart_Dataverbruik.Series.Add(series1);
-            this.chart_Dataverbruik.Series.Add(series2);
+            series3.ChartArea = "suh";
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            series3.CustomProperties = "DrawingStyle=LightToDark";
+            series3.Legend = "Dataverbruik";
+            series3.Name = "Upload";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series4.ChartArea = "suh";
+            series4.Color = System.Drawing.Color.Lime;
+            series4.CustomProperties = "DrawingStyle=LightToDark";
+            series4.Legend = "Dataverbruik";
+            series4.Name = "Download";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            this.chart_Dataverbruik.Series.Add(series3);
+            this.chart_Dataverbruik.Series.Add(series4);
             this.chart_Dataverbruik.Size = new System.Drawing.Size(613, 459);
             this.chart_Dataverbruik.TabIndex = 0;
             this.chart_Dataverbruik.Text = "chart1";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            title1.ForeColor = System.Drawing.Color.DarkCyan;
-            title1.Name = "Dataverbruik";
-            title1.Text = "Hoeveel data heb je verbruikt?";
-            this.chart_Dataverbruik.Titles.Add(title1);
+            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            title2.ForeColor = System.Drawing.Color.DarkCyan;
+            title2.Name = "Dataverbruik";
+            title2.Text = "Hoeveel data heb je verbruikt?";
+            this.chart_Dataverbruik.Titles.Add(title2);
             this.chart_Dataverbruik.Click += new System.EventHandler(this.chart1_Click);
-            // 
-            // btn_Menu
-            // 
-            this.btn_Menu.Location = new System.Drawing.Point(12, 12);
-            this.btn_Menu.Name = "btn_Menu";
-            this.btn_Menu.Size = new System.Drawing.Size(107, 46);
-            this.btn_Menu.TabIndex = 1;
-            this.btn_Menu.Text = "Menu";
-            this.btn_Menu.UseVisualStyleBackColor = true;
-            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // btn_Uitloggen
             // 
+            this.btn_Uitloggen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Uitloggen.Location = new System.Drawing.Point(923, 12);
             this.btn_Uitloggen.Name = "btn_Uitloggen";
             this.btn_Uitloggen.Size = new System.Drawing.Size(100, 46);
             this.btn_Uitloggen.TabIndex = 3;
             this.btn_Uitloggen.Text = "Uitloggen";
-            this.btn_Uitloggen.UseVisualStyleBackColor = true;
+            this.btn_Uitloggen.UseVisualStyleBackColor = false;
             this.btn_Uitloggen.Click += new System.EventHandler(this.btn_Uitloggen_Click);
             // 
             // cb_smtpclosed
@@ -282,6 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(1035, 535);
             this.Controls.Add(this.cb_smtpclosed);
             this.Controls.Add(this.lbl_smtp25);
@@ -301,7 +293,6 @@
             this.Controls.Add(this.lbl_portopen);
             this.Controls.Add(this.cb_httpopen);
             this.Controls.Add(this.btn_Uitloggen);
-            this.Controls.Add(this.btn_Menu);
             this.Controls.Add(this.chart_Dataverbruik);
             this.Name = "UserDashboard";
             this.Text = "UserDashboard";
@@ -314,7 +305,6 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_Dataverbruik;
-        private System.Windows.Forms.Button btn_Menu;
         private System.Windows.Forms.Button btn_Uitloggen;
         private System.Windows.Forms.CheckBox cb_smtpclosed;
         private System.Windows.Forms.Label lbl_smtp25;

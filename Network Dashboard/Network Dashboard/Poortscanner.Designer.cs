@@ -55,7 +55,6 @@
             // 
             this.cb_httpopen.AutoSize = true;
             this.cb_httpopen.Enabled = false;
-            this.cb_httpopen.Location = new System.Drawing.Point(261, 39);
             this.cb_httpopen.Location = new System.Drawing.Point(261, 96);
             this.cb_httpopen.Name = "cb_httpopen";
             this.cb_httpopen.Size = new System.Drawing.Size(18, 17);
@@ -93,7 +92,6 @@
             // 
             this.cb_httpclosed.AutoSize = true;
             this.cb_httpclosed.Enabled = false;
-            this.cb_httpclosed.Location = new System.Drawing.Point(353, 38);
             this.cb_httpclosed.Location = new System.Drawing.Point(353, 95);
             this.cb_httpclosed.Name = "cb_httpclosed";
             this.cb_httpclosed.Size = new System.Drawing.Size(18, 17);
@@ -104,7 +102,6 @@
             // 
             this.cb_ftpclosed.AutoSize = true;
             this.cb_ftpclosed.Enabled = false;
-            this.cb_ftpclosed.Location = new System.Drawing.Point(353, 76);
             this.cb_ftpclosed.Location = new System.Drawing.Point(353, 133);
             this.cb_ftpclosed.Name = "cb_ftpclosed";
             this.cb_ftpclosed.Size = new System.Drawing.Size(18, 17);
@@ -124,7 +121,6 @@
             // 
             this.cb_ftpopen.AutoSize = true;
             this.cb_ftpopen.Enabled = false;
-            this.cb_ftpopen.Location = new System.Drawing.Point(261, 77);
             this.cb_ftpopen.Location = new System.Drawing.Point(261, 134);
             this.cb_ftpopen.Name = "cb_ftpopen";
             this.cb_ftpopen.Size = new System.Drawing.Size(18, 17);
@@ -135,7 +131,6 @@
             // 
             this.cb_telnetclosed.AutoSize = true;
             this.cb_telnetclosed.Enabled = false;
-            this.cb_telnetclosed.Location = new System.Drawing.Point(353, 109);
             this.cb_telnetclosed.Location = new System.Drawing.Point(353, 166);
             this.cb_telnetclosed.Name = "cb_telnetclosed";
             this.cb_telnetclosed.Size = new System.Drawing.Size(18, 17);
@@ -155,7 +150,6 @@
             // 
             this.cb_telnetopen.AutoSize = true;
             this.cb_telnetopen.Enabled = false;
-            this.cb_telnetopen.Location = new System.Drawing.Point(261, 110);
             this.cb_telnetopen.Location = new System.Drawing.Point(261, 167);
             this.cb_telnetopen.Name = "cb_telnetopen";
             this.cb_telnetopen.Size = new System.Drawing.Size(18, 17);
@@ -166,7 +160,6 @@
             // 
             this.cb_pop3closed.AutoSize = true;
             this.cb_pop3closed.Enabled = false;
-            this.cb_pop3closed.Location = new System.Drawing.Point(353, 141);
             this.cb_pop3closed.Location = new System.Drawing.Point(353, 198);
             this.cb_pop3closed.Name = "cb_pop3closed";
             this.cb_pop3closed.Size = new System.Drawing.Size(18, 17);
@@ -186,7 +179,6 @@
             // 
             this.cb_pop3open.AutoSize = true;
             this.cb_pop3open.Enabled = false;
-            this.cb_pop3open.Location = new System.Drawing.Point(261, 142);
             this.cb_pop3open.Location = new System.Drawing.Point(261, 199);
             this.cb_pop3open.Name = "cb_pop3open";
             this.cb_pop3open.Size = new System.Drawing.Size(18, 17);
@@ -197,7 +189,6 @@
             // 
             this.cb_smtpclosed.AutoSize = true;
             this.cb_smtpclosed.Enabled = false;
-            this.cb_smtpclosed.Location = new System.Drawing.Point(353, 173);
             this.cb_smtpclosed.Location = new System.Drawing.Point(353, 230);
             this.cb_smtpclosed.Name = "cb_smtpclosed";
             this.cb_smtpclosed.Size = new System.Drawing.Size(18, 17);
@@ -217,7 +208,6 @@
             // 
             this.cb_smtpopen.AutoSize = true;
             this.cb_smtpopen.Enabled = false;
-            this.cb_smtpopen.Location = new System.Drawing.Point(261, 174);
             this.cb_smtpopen.Location = new System.Drawing.Point(261, 231);
             this.cb_smtpopen.Name = "cb_smtpopen";
             this.cb_smtpopen.Size = new System.Drawing.Size(18, 17);
@@ -226,12 +216,13 @@
             // 
             // btn_backtostartmenu
             // 
+            this.btn_backtostartmenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_backtostartmenu.Location = new System.Drawing.Point(307, 12);
             this.btn_backtostartmenu.Name = "btn_backtostartmenu";
             this.btn_backtostartmenu.Size = new System.Drawing.Size(98, 41);
             this.btn_backtostartmenu.TabIndex = 18;
             this.btn_backtostartmenu.Text = "Terug";
-            this.btn_backtostartmenu.UseVisualStyleBackColor = true;
+            this.btn_backtostartmenu.UseVisualStyleBackColor = false;
             this.btn_backtostartmenu.Click += new System.EventHandler(this.btn_backtostartmenu_Click);
             // 
             // lb_dgHelpStart
@@ -260,6 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(417, 330);
             this.Controls.Add(this.lb_dgHelpStart);
             this.Controls.Add(this.pb_dgHelpStart);

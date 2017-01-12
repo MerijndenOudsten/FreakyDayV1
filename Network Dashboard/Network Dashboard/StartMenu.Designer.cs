@@ -43,9 +43,9 @@ namespace Network_Dashboard
             this.lb_smHelpGebruikersrecht = new System.Windows.Forms.Label();
             this.lb_smHelpBlacklist = new System.Windows.Forms.Label();
             this.lb_smHelpPoort = new System.Windows.Forms.Label();
-            this.lb_smHelpData = new System.Windows.Forms.Label();
             this.lb_smHelpIngelogd = new System.Windows.Forms.Label();
             this.btn_uitloggen = new System.Windows.Forms.Button();
+            this.lb_smHelpData = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpPoort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpBlacklist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_smHelpGebruikersrecht)).BeginInit();
@@ -55,32 +55,35 @@ namespace Network_Dashboard
             // 
             // btn_poortscanner
             // 
+            this.btn_poortscanner.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_poortscanner.Location = new System.Drawing.Point(13, 37);
             this.btn_poortscanner.Name = "btn_poortscanner";
             this.btn_poortscanner.Size = new System.Drawing.Size(242, 65);
             this.btn_poortscanner.TabIndex = 0;
             this.btn_poortscanner.Text = "Poortscanner";
-            this.btn_poortscanner.UseVisualStyleBackColor = true;
+            this.btn_poortscanner.UseVisualStyleBackColor = false;
             this.btn_poortscanner.Click += new System.EventHandler(this.btn_poortscanner_Click);
             // 
             // btn_Blacklisting
             // 
+            this.btn_Blacklisting.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Blacklisting.Location = new System.Drawing.Point(13, 123);
             this.btn_Blacklisting.Name = "btn_Blacklisting";
             this.btn_Blacklisting.Size = new System.Drawing.Size(242, 65);
             this.btn_Blacklisting.TabIndex = 1;
             this.btn_Blacklisting.Text = "Blacklisting";
-            this.btn_Blacklisting.UseVisualStyleBackColor = true;
+            this.btn_Blacklisting.UseVisualStyleBackColor = false;
             this.btn_Blacklisting.Click += new System.EventHandler(this.btn_Blacklisting_Click);
             // 
             // btn_gebruikersrechten
             // 
+            this.btn_gebruikersrechten.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_gebruikersrechten.Location = new System.Drawing.Point(13, 211);
             this.btn_gebruikersrechten.Name = "btn_gebruikersrechten";
             this.btn_gebruikersrechten.Size = new System.Drawing.Size(242, 65);
             this.btn_gebruikersrechten.TabIndex = 2;
             this.btn_gebruikersrechten.Text = "Gebruikersrechten";
-            this.btn_gebruikersrechten.UseVisualStyleBackColor = true;
+            this.btn_gebruikersrechten.UseVisualStyleBackColor = false;
             this.btn_gebruikersrechten.Click += new System.EventHandler(this.btn_gebruikersrechten_Click);
             // 
             // lbl_ingelogdeGebruiker
@@ -94,12 +97,13 @@ namespace Network_Dashboard
             // 
             // btn_datagebruik
             // 
+            this.btn_datagebruik.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_datagebruik.Location = new System.Drawing.Point(13, 298);
             this.btn_datagebruik.Name = "btn_datagebruik";
             this.btn_datagebruik.Size = new System.Drawing.Size(242, 65);
             this.btn_datagebruik.TabIndex = 4;
             this.btn_datagebruik.Text = "Datagebruik";
-            this.btn_datagebruik.UseVisualStyleBackColor = true;
+            this.btn_datagebruik.UseVisualStyleBackColor = false;
             this.btn_datagebruik.Click += new System.EventHandler(this.btn_datagebruik_Click);
             // 
             // pb_smHelpPoort
@@ -191,19 +195,6 @@ namespace Network_Dashboard
             this.lb_smHelpPoort.Text = "Advies";
             this.lb_smHelpPoort.Visible = false;
             // 
-            // lb_smHelpData
-            // 
-            this.lb_smHelpData.AutoSize = true;
-            this.lb_smHelpData.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lb_smHelpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_smHelpData.Location = new System.Drawing.Point(110, 361);
-            this.lb_smHelpData.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lb_smHelpData.Name = "lb_smHelpData";
-            this.lb_smHelpData.Size = new System.Drawing.Size(50, 17);
-            this.lb_smHelpData.TabIndex = 47;
-            this.lb_smHelpData.Text = "Advies";
-            this.lb_smHelpData.Visible = false;
-            // 
             // lb_smHelpIngelogd
             // 
             this.lb_smHelpIngelogd.AutoSize = true;
@@ -219,22 +210,38 @@ namespace Network_Dashboard
             // 
             // btn_uitloggen
             // 
+            this.btn_uitloggen.AutoSize = true;
+            this.btn_uitloggen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_uitloggen.Location = new System.Drawing.Point(13, 381);
             this.btn_uitloggen.Name = "btn_uitloggen";
             this.btn_uitloggen.Size = new System.Drawing.Size(242, 42);
             this.btn_uitloggen.TabIndex = 49;
             this.btn_uitloggen.Text = "Uitloggen";
-            this.btn_uitloggen.UseVisualStyleBackColor = true;
+            this.btn_uitloggen.UseVisualStyleBackColor = false;
             this.btn_uitloggen.Click += new System.EventHandler(this.btn_uitloggen_Click);
+            // 
+            // lb_smHelpData
+            // 
+            this.lb_smHelpData.AutoSize = true;
+            this.lb_smHelpData.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_smHelpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_smHelpData.Location = new System.Drawing.Point(110, 360);
+            this.lb_smHelpData.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lb_smHelpData.Name = "lb_smHelpData";
+            this.lb_smHelpData.Size = new System.Drawing.Size(50, 17);
+            this.lb_smHelpData.TabIndex = 50;
+            this.lb_smHelpData.Text = "Advies";
+            this.lb_smHelpData.Visible = false;
             // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(271, 428);
+            this.Controls.Add(this.lb_smHelpData);
             this.Controls.Add(this.btn_uitloggen);
             this.Controls.Add(this.lb_smHelpIngelogd);
-            this.Controls.Add(this.lb_smHelpData);
             this.Controls.Add(this.lb_smHelpPoort);
             this.Controls.Add(this.lb_smHelpBlacklist);
             this.Controls.Add(this.lb_smHelpGebruikersrecht);
@@ -280,8 +287,8 @@ namespace Network_Dashboard
         private System.Windows.Forms.Label lb_smHelpGebruikersrecht;
         private System.Windows.Forms.Label lb_smHelpBlacklist;
         private System.Windows.Forms.Label lb_smHelpPoort;
-        private System.Windows.Forms.Label lb_smHelpData;
         private System.Windows.Forms.Label lb_smHelpIngelogd;
         private System.Windows.Forms.Button btn_uitloggen;
+        private System.Windows.Forms.Label lb_smHelpData;
     }
 }
