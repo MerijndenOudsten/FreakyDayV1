@@ -69,24 +69,26 @@
             // 
             // btn_getalldevices
             // 
+            this.btn_getalldevices.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_getalldevices.Location = new System.Drawing.Point(47, 412);
             this.btn_getalldevices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_getalldevices.Name = "btn_getalldevices";
             this.btn_getalldevices.Size = new System.Drawing.Size(235, 82);
             this.btn_getalldevices.TabIndex = 1;
             this.btn_getalldevices.Text = "Startscan";
-            this.btn_getalldevices.UseVisualStyleBackColor = true;
+            this.btn_getalldevices.UseVisualStyleBackColor = false;
             this.btn_getalldevices.Click += new System.EventHandler(this.btn_getalldevices_Click);
             // 
             // btn_stopscan
             // 
+            this.btn_stopscan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_stopscan.Location = new System.Drawing.Point(47, 513);
             this.btn_stopscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_stopscan.Name = "btn_stopscan";
             this.btn_stopscan.Size = new System.Drawing.Size(235, 82);
             this.btn_stopscan.TabIndex = 5;
             this.btn_stopscan.Text = "Stop scan";
-            this.btn_stopscan.UseVisualStyleBackColor = true;
+            this.btn_stopscan.UseVisualStyleBackColor = false;
             this.btn_stopscan.Click += new System.EventHandler(this.btn_stopscan_Click);
             // 
             // pgb_scanning
@@ -144,13 +146,14 @@
             // 
             // btn_blokkeerpoort
             // 
+            this.btn_blokkeerpoort.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_blokkeerpoort.Location = new System.Drawing.Point(326, 413);
             this.btn_blokkeerpoort.Margin = new System.Windows.Forms.Padding(4);
             this.btn_blokkeerpoort.Name = "btn_blokkeerpoort";
             this.btn_blokkeerpoort.Size = new System.Drawing.Size(181, 79);
             this.btn_blokkeerpoort.TabIndex = 11;
             this.btn_blokkeerpoort.Text = "Blokkeer poort";
-            this.btn_blokkeerpoort.UseVisualStyleBackColor = true;
+            this.btn_blokkeerpoort.UseVisualStyleBackColor = false;
             this.btn_blokkeerpoort.Click += new System.EventHandler(this.btn_blokkeerpoort_Click);
             // 
             // lb_dgHelpStart
@@ -283,29 +286,32 @@
             // 
             // btn_Terug
             // 
+            this.btn_Terug.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Terug.Location = new System.Drawing.Point(713, 2);
             this.btn_Terug.Name = "btn_Terug";
             this.btn_Terug.Size = new System.Drawing.Size(105, 45);
             this.btn_Terug.TabIndex = 54;
             this.btn_Terug.Text = "Terug";
-            this.btn_Terug.UseVisualStyleBackColor = true;
+            this.btn_Terug.UseVisualStyleBackColor = false;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
             // btn_deblokkeerpoort
             // 
+            this.btn_deblokkeerpoort.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_deblokkeerpoort.Location = new System.Drawing.Point(326, 511);
             this.btn_deblokkeerpoort.Margin = new System.Windows.Forms.Padding(4);
             this.btn_deblokkeerpoort.Name = "btn_deblokkeerpoort";
             this.btn_deblokkeerpoort.Size = new System.Drawing.Size(181, 79);
             this.btn_deblokkeerpoort.TabIndex = 55;
             this.btn_deblokkeerpoort.Text = "Deblokkeer poort";
-            this.btn_deblokkeerpoort.UseVisualStyleBackColor = true;
+            this.btn_deblokkeerpoort.UseVisualStyleBackColor = false;
             this.btn_deblokkeerpoort.Click += new System.EventHandler(this.btn_deblokkeerpoort_Click);
             // 
             // Blacklisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(828, 618);
             this.Controls.Add(this.btn_deblokkeerpoort);
             this.Controls.Add(this.btn_Terug);

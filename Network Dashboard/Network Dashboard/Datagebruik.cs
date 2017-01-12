@@ -89,6 +89,7 @@ namespace Network_Dashboard
 
         private void InitializeUserList()
         {
+            cb_Gebruiker.Items.Clear();
             // Grab all local interfaces to this computer
             Gebruikers = DbQueries.GetGebruikers();
 
@@ -98,8 +99,7 @@ namespace Network_Dashboard
             {
                 cb_Gebruiker.Items.Add(gebruiker.Inlognaam);
             }
-
-            cb_Gebruiker.SelectedIndex = 0;
+            
         }
 
 

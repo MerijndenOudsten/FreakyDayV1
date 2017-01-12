@@ -97,22 +97,24 @@
             // 
             // btn_TimerStop
             // 
+            this.btn_TimerStop.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_TimerStop.Location = new System.Drawing.Point(98, 84);
             this.btn_TimerStop.Name = "btn_TimerStop";
             this.btn_TimerStop.Size = new System.Drawing.Size(75, 30);
             this.btn_TimerStop.TabIndex = 35;
             this.btn_TimerStop.Text = "Stop";
-            this.btn_TimerStop.UseVisualStyleBackColor = true;
+            this.btn_TimerStop.UseVisualStyleBackColor = false;
             this.btn_TimerStop.Click += new System.EventHandler(this.btn_TimerStop_Click);
             // 
             // btn_TimerStart
             // 
+            this.btn_TimerStart.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_TimerStart.Location = new System.Drawing.Point(13, 84);
             this.btn_TimerStart.Name = "btn_TimerStart";
             this.btn_TimerStart.Size = new System.Drawing.Size(75, 30);
             this.btn_TimerStart.TabIndex = 34;
             this.btn_TimerStart.Text = "Start";
-            this.btn_TimerStart.UseVisualStyleBackColor = true;
+            this.btn_TimerStart.UseVisualStyleBackColor = false;
             this.btn_TimerStart.Click += new System.EventHandler(this.btn_TimerStart_Click);
             // 
             // cb_Gebruiker
@@ -126,12 +128,13 @@
             // 
             // btn_Terug
             // 
+            this.btn_Terug.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Terug.Location = new System.Drawing.Point(367, 8);
             this.btn_Terug.Name = "btn_Terug";
             this.btn_Terug.Size = new System.Drawing.Size(105, 45);
             this.btn_Terug.TabIndex = 36;
             this.btn_Terug.Text = "Terug";
-            this.btn_Terug.UseVisualStyleBackColor = true;
+            this.btn_Terug.UseVisualStyleBackColor = false;
             this.btn_Terug.Click += new System.EventHandler(this.btn_Terug_Click);
             // 
             // pb_dgHelpStart
@@ -303,6 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(481, 225);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lb_dgHelpDownload);

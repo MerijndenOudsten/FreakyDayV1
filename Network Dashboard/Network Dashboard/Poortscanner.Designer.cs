@@ -216,12 +216,13 @@
             // 
             // btn_backtostartmenu
             // 
+            this.btn_backtostartmenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_backtostartmenu.Location = new System.Drawing.Point(307, 12);
             this.btn_backtostartmenu.Name = "btn_backtostartmenu";
             this.btn_backtostartmenu.Size = new System.Drawing.Size(98, 41);
             this.btn_backtostartmenu.TabIndex = 18;
             this.btn_backtostartmenu.Text = "Terug";
-            this.btn_backtostartmenu.UseVisualStyleBackColor = true;
+            this.btn_backtostartmenu.UseVisualStyleBackColor = false;
             this.btn_backtostartmenu.Click += new System.EventHandler(this.btn_backtostartmenu_Click);
             // 
             // lb_dgHelpStart
@@ -250,6 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(417, 330);
             this.Controls.Add(this.lb_dgHelpStart);
             this.Controls.Add(this.pb_dgHelpStart);
