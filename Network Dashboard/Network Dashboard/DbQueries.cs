@@ -154,23 +154,46 @@ namespace Network_Dashboard
             }
         }
 
-        public static int GetUploadverbruik(Gebruiker gebruiker)
+        public static int GetUploadverbruik(string gebruikersnaam)
         {
             int uploadverbruik = 0;
             using (OracleConnection connection = new OracleConnection(connString))
             {
                 connection.Open();
-                OracleCommand cmd = new OracleCommand("SELECT SUM(Upload) as Uploadverbruik FROM datagebruik WHERE gebruikersnaam = '" + gebruiker.Inlognaam + "' AND datum = '" + System.DateTime.Now.ToString() + "'", connection);
+                OracleCommand cmd = new OracleCommand("SELECT SUM(Upload) as Uploadverbruik FROM datagebruik WHERE gebruikersnaam = '" + gebruikersnaam + "' AND datum = '" + System.DateTime.Today.ToShortDateString() + "'", connection);
                 OracleDataReader reader = cmd.ExecuteReader();
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        uploadverbruik = (int)reader["Uploadverbruik"];
+                        string s = reader["Uploadverbruik"].ToString();
+                        uploadverbruik = Convert.ToInt32(s);
                     }
+                    //uploadverbruik = reader.GetInt32(0);
                 }
                 return uploadverbruik;
+            }
+        }
+
+        public static int GetDownloadverbruik(string gebruikersnaam)
+        {
+            int downloadverbruik = 0;
+            using (OracleConnection connection = new OracleConnection(connString))
+            {
+                connection.Open();
+                OracleCommand cmd = new OracleCommand("SELECT SUM(Download) as Downloadverbruik FROM datagebruik WHERE gebruikersnaam = '" + gebruikersnaam + "' AND datum = '" + System.DateTime.Today.ToShortDateString() + "'", connection);
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string s = reader["Downloadverbruik"].ToString();
+                        downloadverbruik = Convert.ToInt32(s);
+                    }
+                }
+                return downloadverbruik;
             }
         }
     }

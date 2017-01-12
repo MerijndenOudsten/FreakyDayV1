@@ -44,6 +44,7 @@ namespace Network_Dashboard
                 else
                 {
                     UserDashboard userdb;
+                    StartMenu sm;
                     switch(gebruiker.Recht)
                     {
                         case "BEPERKT":
@@ -57,8 +58,8 @@ namespace Network_Dashboard
                             this.Hide();
                             break;
                         case "BEHEERDER":
-                            userdb = new UserDashboard(gebruiker);
-                            userdb.Show();
+                            sm = new StartMenu(gebruiker);
+                            sm.Show();
                             this.Hide();
                             break;
                     }  

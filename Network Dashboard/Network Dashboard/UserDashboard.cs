@@ -16,19 +16,37 @@ namespace Network_Dashboard
 
     public partial class UserDashboard : Form
     {
-        private const double timerUpdate = 1000;
-        
+        private const double timerUpdate = 500;
+
+        NetworkInterface currNetwork = null;
 
         private Timer timer = new Timer();
 
+        private int getUpload;
+        private int getDownload;
+
         Dataverbruik dataver;
 
+        IPv4InterfaceStatistics interfaceStats;
 
         Gebruiker IngelogdeGebruiker;
 
         public UserDashboard(Gebruiker ingelogdeGebruiker)
         {
             InitializeComponent();
+            chart_Dataverbruik.ChartAreas[0].AxisY.Maximum = 1000000;
+
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (nic.Name.ToString() == "Wi-Fi")
+                {
+                    currNetwork = nic;
+
+                    interfaceStats = currNetwork.GetIPv4Statistics();
+                }
+            }
+            Poortscanning();
+            InitializeTimer();
             this.IngelogdeGebruiker = ingelogdeGebruiker;
 
 
@@ -42,7 +60,6 @@ namespace Network_Dashboard
 
         private void btn_LoadGraph_Click(object sender, EventArgs e)
         {
-            chart_Dataverbruik.Series[0].Points.AddXY(System.DateTime.Today, 5);
 
         }
 
@@ -72,26 +89,21 @@ namespace Network_Dashboard
         {
             try
             {
-                NetworkInterface currNetwork = null;
-                // Grab NetworkInterface object that describes the current interface
-                foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces() )
-                {
-                    if (nic.Name.ToString() == "Wi-Fi")
-                    {
-                        currNetwork = nic;
-                    }
-                }
+                int bytesSent = (int)interfaceStats.BytesSent / 1000000;
+                int bytesReceived = (int)interfaceStats.BytesReceived / 1000000;
+                dataver = new Dataverbruik(bytesSent, bytesReceived, this.IngelogdeGebruiker, System.DateTime.Today.ToShortDateString());
 
-                // Grab the stats for that interface
-                IPv4InterfaceStatistics interfaceStats = currNetwork.GetIPv4Statistics();
-
-                // Calculate the speed of bytes going in and out
-                int bytesSentSpeed = (int)interfaceStats.BytesSent;
-                int bytesReceivedSpeed = (int)interfaceStats.BytesReceived;
+                DbQueries.CreateDataGebruik(dataver);
 
 
+                getUpload = DbQueries.GetUploadverbruik(IngelogdeGebruiker.Inlognaam);
+                getDownload = DbQueries.GetDownloadverbruik(IngelogdeGebruiker.Inlognaam);
 
 
+                chart_Dataverbruik.Series[0].Points.AddXY(System.DateTime.Today, getUpload);
+                chart_Dataverbruik.Series[1].Points.AddXY(System.DateTime.Today, getDownload);
+
+                Refresh();
 
                 // Update the labels
                 //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
@@ -119,16 +131,85 @@ namespace Network_Dashboard
             switch (IngelogdeGebruiker.Recht)
             {
                 case "BEPERKT":
-                    this.Hide();
                     break;
                 case "STANDAARD":
                     break;
                 case "BEHEERDER":
                     startmenu = new StartMenu(IngelogdeGebruiker);
                     startmenu.Show();
-                    this.Hide();
                     break;
             }
+        }
+
+        public void Poortscanning()
+        {
+            Portscan http = new Portscan(80);
+            Portscan ftp = new Portscan(21);
+            Portscan telnet = new Portscan(23);
+            Portscan pop3 = new Portscan(110);
+            Portscan smtp = new Portscan(25);
+
+
+            if (http.StartScan() == "open")
+            {
+                cb_httpopen.Checked = true;
+                cb_httpclosed.Checked = false;
+            }
+            else
+            {
+                cb_httpopen.Checked = false;
+                cb_httpclosed.Checked = true;
+            }
+            if (ftp.StartScan() == "open")
+            {
+                cb_ftpopen.Checked = true;
+                cb_ftpclosed.Checked = false;
+            }
+            else
+            {
+                cb_ftpopen.Checked = false;
+                cb_ftpclosed.Checked = true;
+            }
+            if (telnet.StartScan() == "open")
+            {
+                cb_telnetopen.Checked = true;
+                cb_telnetclosed.Checked = false;
+            }
+            else
+            {
+                cb_telnetopen.Checked = false;
+                cb_telnetclosed.Checked = true;
+            }
+            if (pop3.StartScan() == "open")
+            {
+                cb_pop3open.Checked = true;
+                cb_pop3closed.Checked = false;
+            }
+            else
+            {
+                cb_pop3open.Checked = false;
+                cb_pop3closed.Checked = true;
+            }
+            if (smtp.StartScan() == "open")
+            {
+                cb_smtpopen.Checked = true;
+                cb_smtpclosed.Checked = false;
+            }
+            else
+            {
+                cb_smtpopen.Checked = false;
+                cb_smtpclosed.Checked = true;
+            }
+
+
+        }
+
+        private void btn_Uitloggen_Click(object sender, EventArgs e)
+        {
+            StopTimer();
+            this.Close();
+            Login login = new Login();
+            login.Show();
         }
     }
 }

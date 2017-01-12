@@ -28,7 +28,8 @@ namespace Network_Dashboard
                 case "STANDAARD":
                     lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;
                     btn_gebruikersrechten.Enabled = false;
-                    
+                    btn_datagebruik.Enabled = false;
+                    btn_gebruikersrechten.Enabled = false;
                     break;
                 case "BEPERKT":
                     lbl_ingelogdeGebruiker.Text = "U bent ingelogd als: " + ingelogdeGebruiker.Inlognaam;

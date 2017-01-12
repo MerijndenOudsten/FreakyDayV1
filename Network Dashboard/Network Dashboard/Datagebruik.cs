@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 
@@ -18,13 +24,17 @@ namespace Network_Dashboard
 
         public int GebruikteUpload { get; set; }
 
-        public int GebruikteDownload { get; set; }
+        public int GebruikteDownload { get; set; }  
+
 
         Gebruiker IngelogdeGebruiker;
+
+        private List<Gebruiker> Gebruikers;
 
         Advies advies;
 
         Dataverbruik dataver;
+
 
         public Datagebruik(Gebruiker IngelogdeGebruiker)
         {
@@ -33,20 +43,22 @@ namespace Network_Dashboard
             switch (IngelogdeGebruiker.Recht)
             {
                 case "BEHEERDER":
-                    InitializeNetworkInterface();
+                    InitializeUserList();
                     break;
                 case "STANDAARD":
-                    InitializeNetworkInterface();
+                    btn_TimerStart.Enabled = false;
+                    btn_TimerStop.Enabled = false;
+                    cb_Gebruiker.Enabled = false;
                     break;
                 case "BEPERKT":
                     btn_TimerStart.Enabled = false;
                     btn_TimerStop.Enabled = false;
-                    cb_NetworkInterfaces.Enabled = false;
+                    cb_Gebruiker.Enabled = false;
                     break;
                 default:
                     break;
             }
-            InitializeNetworkInterface();
+            InitializeUserList();
         }
 
         private void btn_TimerStart_Click(object sender, EventArgs e)
@@ -57,7 +69,6 @@ namespace Network_Dashboard
                     InitializeTimer();
                     break;
                 case "STANDAARD":
-                    InitializeTimer();
                     break;
                 default:
                     break;
@@ -76,18 +87,19 @@ namespace Network_Dashboard
             menu.Show();
         }
 
-        private void InitializeNetworkInterface()
+        private void InitializeUserList()
         {
             // Grab all local interfaces to this computer
-            nicArr = NetworkInterface.GetAllNetworkInterfaces();
+            Gebruikers = DbQueries.GetGebruikers();
+
 
             // Add each interface name to the combo box
-            for (int i = 0; i < nicArr.Length; i++)
+            foreach (Gebruiker gebruiker in Gebruikers)
             {
-                cb_NetworkInterfaces.Items.Add(nicArr[i].Name);
+                cb_Gebruiker.Items.Add(gebruiker.Inlognaam);
             }
 
-            cb_NetworkInterfaces.SelectedIndex = 0;
+            cb_Gebruiker.SelectedIndex = 0;
         }
 
 
@@ -200,6 +212,11 @@ namespace Network_Dashboard
 
 
 
+        private void Datagebruik_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void InitializeTimer()
         {
             timer.Interval = (int)timerUpdate;
@@ -239,30 +256,16 @@ namespace Network_Dashboard
 
                 // Grab the stats for that interface
                 IPv4InterfaceStatistics interfaceStats = currNetwork.GetIPv4Statistics();
+                
 
-                // Calculate the speed of bytes going in and out
-                int bytesSentSpeed = (int)(interfaceStats.BytesSent - double.Parse(lbl_BytesSent.Text)) / 1024;
-                int bytesReceivedSpeed = (int)(interfaceStats.BytesReceived - double.Parse(lbl_BytesReceived.Text)) / 1024;
-
-                if(bytesSentSpeed > 0)
-                {
-                    this.GebruikteUpload = this.GebruikteUpload + bytesSentSpeed;
-                }
-
-                if(bytesReceivedSpeed > 0)
-                {
-                    this.GebruikteDownload = this.GebruikteDownload + bytesReceivedSpeed;
-                }
-
-
+                int getUpload = DbQueries.GetUploadverbruik(cb_Gebruiker.SelectedText);
+                int getDownload = DbQueries.GetDownloadverbruik(cb_Gebruiker.SelectedText);
 
                 // Update the labels
                 //lblInterfaceType.Text = nic.NetworkInterfaceType.ToString();
                 lbl_InternetSnelheid.Text = (currNetwork.Speed / 10000000.0).ToString();
-                lbl_BytesReceived.Text = interfaceStats.BytesReceived.ToString();
-                lbl_BytesSent.Text = interfaceStats.BytesSent.ToString();
-                lbl_Upload.Text = (bytesSentSpeed * 8).ToString() + " Kb/s";
-                lbl_Download.Text = (bytesReceivedSpeed * 8).ToString() + " Kb/s";
+                lbl_Upload.Text = getUpload.ToString() + " Mb";
+                lbl_Download.Text = getDownload.ToString() + " Mb";
             }
             catch (Exception ex)
             {
